@@ -15,9 +15,7 @@ struct MapHomeView: View {
             ZStack {
                 MapView()
                 FluidGradient(blobs: [Color.blue,Color.black,Color.white]).ignoresSafeArea(.all)
-                    .opacity(0.5)
-                    .background(VisualEffect(style: .systemThickMaterial)).ignoresSafeArea(.all)
-                    .opacity(0.5)
+                    .opacity(0.5).background(VisualEffect(style: .systemThickMaterial)).ignoresSafeArea(.all).opacity(0.5)
                 VStack {
                     HeaderUser()
                     Spacer()
