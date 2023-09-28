@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C724CA3B2AC57D5700D31458 /* ButtonCutemsLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C724CA3A2AC57D5700D31458 /* ButtonCutemsLogin.swift */; };
+		C724CA3D2AC580FE00D31458 /* CornerRadiusStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C724CA3C2AC580FE00D31458 /* CornerRadiusStyle.swift */; };
+		C724CA3F2AC5830300D31458 /* SignInMethodGoogleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C724CA3E2AC5830300D31458 /* SignInMethodGoogleView.swift */; };
+		C724CA412AC58B9700D31458 /* SignInMethodGoogle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C724CA402AC58B9700D31458 /* SignInMethodGoogle.swift */; };
+		C7A9E5752AC3F78600AC2CAF /* ContentMapViewMolde.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A9E5742AC3F78600AC2CAF /* ContentMapViewMolde.swift */; };
+		C7A9E5782AC3FAB300AC2CAF /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A9E5772AC3FAB300AC2CAF /* Avatar.swift */; };
+		C7A9E57A2AC3FB2C00AC2CAF /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A9E5792AC3FB2C00AC2CAF /* ImagePicker.swift */; };
+		C7A9E57C2AC3FD8100AC2CAF /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A9E57B2AC3FD8100AC2CAF /* Color.swift */; };
+		C7A9E57E2AC3FE6800AC2CAF /* ProfilesViewMolde.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A9E57D2AC3FE6800AC2CAF /* ProfilesViewMolde.swift */; };
+		C7A9E5812AC4162600AC2CAF /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A9E5802AC4162600AC2CAF /* SignIn.swift */; };
 		C7F16E382AC2DA7000EEA6F6 /* BubbleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F16E372AC2DA7000EEA6F6 /* BubbleApp.swift */; };
 		C7F16E3C2AC2DA7100EEA6F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7F16E3B2AC2DA7100EEA6F6 /* Assets.xcassets */; };
 		C7F16E3F2AC2DA7100EEA6F6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7F16E3E2AC2DA7100EEA6F6 /* Preview Assets.xcassets */; };
@@ -18,6 +28,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C724CA3A2AC57D5700D31458 /* ButtonCutemsLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCutemsLogin.swift; sourceTree = "<group>"; };
+		C724CA3C2AC580FE00D31458 /* CornerRadiusStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadiusStyle.swift; sourceTree = "<group>"; };
+		C724CA3E2AC5830300D31458 /* SignInMethodGoogleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInMethodGoogleView.swift; sourceTree = "<group>"; };
+		C724CA402AC58B9700D31458 /* SignInMethodGoogle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInMethodGoogle.swift; sourceTree = "<group>"; };
+		C7A9E5742AC3F78600AC2CAF /* ContentMapViewMolde.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentMapViewMolde.swift; sourceTree = "<group>"; };
+		C7A9E5772AC3FAB300AC2CAF /* Avatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
+		C7A9E5792AC3FB2C00AC2CAF /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		C7A9E57B2AC3FD8100AC2CAF /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		C7A9E57D2AC3FE6800AC2CAF /* ProfilesViewMolde.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesViewMolde.swift; sourceTree = "<group>"; };
+		C7A9E5802AC4162600AC2CAF /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
 		C7F16E342AC2DA7000EEA6F6 /* Bubble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bubble.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F16E372AC2DA7000EEA6F6 /* BubbleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleApp.swift; sourceTree = "<group>"; };
 		C7F16E3B2AC2DA7100EEA6F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -40,6 +60,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C7A9E5762AC3FAA200AC2CAF /* Profiles */ = {
+			isa = PBXGroup;
+			children = (
+				C7A9E5772AC3FAB300AC2CAF /* Avatar.swift */,
+				C7A9E57D2AC3FE6800AC2CAF /* ProfilesViewMolde.swift */,
+				C7A9E5792AC3FB2C00AC2CAF /* ImagePicker.swift */,
+			);
+			path = Profiles;
+			sourceTree = "<group>";
+		};
+		C7A9E57F2AC415F100AC2CAF /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				C7A9E5802AC4162600AC2CAF /* SignIn.swift */,
+				C724CA3E2AC5830300D31458 /* SignInMethodGoogleView.swift */,
+				C724CA402AC58B9700D31458 /* SignInMethodGoogle.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
 		C7F16E2B2AC2DA7000EEA6F6 = {
 			isa = PBXGroup;
 			children = (
@@ -82,7 +122,9 @@
 			children = (
 				C7F16E4B2AC2DC8C00EEA6F6 /* Launch */,
 				C7F16E4E2AC2DCCD00EEA6F6 /* Components */,
+				C7A9E57F2AC415F100AC2CAF /* Register */,
 				C7F16E482AC2DB9B00EEA6F6 /* Home */,
+				C7A9E5762AC3FAA200AC2CAF /* Profiles */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -90,6 +132,7 @@
 		C7F16E462AC2DB4000EEA6F6 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C7A9E57B2AC3FD8100AC2CAF /* Color.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -106,6 +149,7 @@
 			children = (
 				C7F16E492AC2DBD100EEA6F6 /* MapHomeView.swift */,
 				C7F16E532AC2E5CD00EEA6F6 /* MapView.swift */,
+				C7A9E5742AC3F78600AC2CAF /* ContentMapViewMolde.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -123,6 +167,8 @@
 			children = (
 				C7F16E4F2AC2DD4E00EEA6F6 /* HeaderUser.swift */,
 				C7F16E512AC2E3A900EEA6F6 /* FluidGradientColor.swift */,
+				C724CA3A2AC57D5700D31458 /* ButtonCutemsLogin.swift */,
+				C724CA3C2AC580FE00D31458 /* CornerRadiusStyle.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -201,8 +247,18 @@
 				C7F16E522AC2E3A900EEA6F6 /* FluidGradientColor.swift in Sources */,
 				C7F16E4A2AC2DBD100EEA6F6 /* MapHomeView.swift in Sources */,
 				C7F16E542AC2E5CD00EEA6F6 /* MapView.swift in Sources */,
+				C7A9E5812AC4162600AC2CAF /* SignIn.swift in Sources */,
+				C724CA3F2AC5830300D31458 /* SignInMethodGoogleView.swift in Sources */,
 				C7F16E502AC2DD4E00EEA6F6 /* HeaderUser.swift in Sources */,
+				C7A9E5782AC3FAB300AC2CAF /* Avatar.swift in Sources */,
+				C7A9E57A2AC3FB2C00AC2CAF /* ImagePicker.swift in Sources */,
 				C7F16E382AC2DA7000EEA6F6 /* BubbleApp.swift in Sources */,
+				C724CA3D2AC580FE00D31458 /* CornerRadiusStyle.swift in Sources */,
+				C724CA3B2AC57D5700D31458 /* ButtonCutemsLogin.swift in Sources */,
+				C7A9E5752AC3F78600AC2CAF /* ContentMapViewMolde.swift in Sources */,
+				C724CA412AC58B9700D31458 /* SignInMethodGoogle.swift in Sources */,
+				C7A9E57E2AC3FE6800AC2CAF /* ProfilesViewMolde.swift in Sources */,
+				C7A9E57C2AC3FD8100AC2CAF /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,8 +392,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Bubble/Preview Content\"";
+				DEVELOPMENT_TEAM = PDYNLMSQSH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your loction to show your frineds";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -365,8 +423,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Bubble/Preview Content\"";
+				DEVELOPMENT_TEAM = PDYNLMSQSH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your loction to show your frineds";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
