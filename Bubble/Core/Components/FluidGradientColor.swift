@@ -8,6 +8,12 @@
 import SwiftUI
 import Combine
 
+struct FluidGradientViewColor: View {
+    var body: some View {
+        FluidGradient(blobs: [Color.blue,Color(red: 0.08, green: 0.111, blue: 0.097),Color(red: 0.081, green: 0.086, blue: 0.129),Color.white.opacity(0.3)]).ignoresSafeArea(.all)
+            .opacity(0.5).background(VisualEffect(style: .systemThickMaterial)).ignoresSafeArea(.all).opacity(0.5)
+    }
+}
 struct FluidGradientColor: View {
     var body: some View {
         FluidGradient(blobs: [.red, .green, .blue],

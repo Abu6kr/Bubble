@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C724CA3B2AC57D5700D31458 /* ButtonCutemsLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C724CA3A2AC57D5700D31458 /* ButtonCutemsLogin.swift */; };
+		C724CA3D2AC580FE00D31458 /* CornerRadiusStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C724CA3C2AC580FE00D31458 /* CornerRadiusStyle.swift */; };
+		C724CA3F2AC5830300D31458 /* SignInMethodGoogleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C724CA3E2AC5830300D31458 /* SignInMethodGoogleView.swift */; };
+		C724CA412AC58B9700D31458 /* SignInMethodGoogle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C724CA402AC58B9700D31458 /* SignInMethodGoogle.swift */; };
 		C7A9E5752AC3F78600AC2CAF /* ContentMapViewMolde.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A9E5742AC3F78600AC2CAF /* ContentMapViewMolde.swift */; };
 		C7A9E5782AC3FAB300AC2CAF /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A9E5772AC3FAB300AC2CAF /* Avatar.swift */; };
 		C7A9E57A2AC3FB2C00AC2CAF /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A9E5792AC3FB2C00AC2CAF /* ImagePicker.swift */; };
@@ -24,6 +28,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C724CA3A2AC57D5700D31458 /* ButtonCutemsLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCutemsLogin.swift; sourceTree = "<group>"; };
+		C724CA3C2AC580FE00D31458 /* CornerRadiusStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadiusStyle.swift; sourceTree = "<group>"; };
+		C724CA3E2AC5830300D31458 /* SignInMethodGoogleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInMethodGoogleView.swift; sourceTree = "<group>"; };
+		C724CA402AC58B9700D31458 /* SignInMethodGoogle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInMethodGoogle.swift; sourceTree = "<group>"; };
 		C7A9E5742AC3F78600AC2CAF /* ContentMapViewMolde.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentMapViewMolde.swift; sourceTree = "<group>"; };
 		C7A9E5772AC3FAB300AC2CAF /* Avatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
 		C7A9E5792AC3FB2C00AC2CAF /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
@@ -66,6 +74,8 @@
 			isa = PBXGroup;
 			children = (
 				C7A9E5802AC4162600AC2CAF /* SignIn.swift */,
+				C724CA3E2AC5830300D31458 /* SignInMethodGoogleView.swift */,
+				C724CA402AC58B9700D31458 /* SignInMethodGoogle.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -157,6 +167,8 @@
 			children = (
 				C7F16E4F2AC2DD4E00EEA6F6 /* HeaderUser.swift */,
 				C7F16E512AC2E3A900EEA6F6 /* FluidGradientColor.swift */,
+				C724CA3A2AC57D5700D31458 /* ButtonCutemsLogin.swift */,
+				C724CA3C2AC580FE00D31458 /* CornerRadiusStyle.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -236,11 +248,15 @@
 				C7F16E4A2AC2DBD100EEA6F6 /* MapHomeView.swift in Sources */,
 				C7F16E542AC2E5CD00EEA6F6 /* MapView.swift in Sources */,
 				C7A9E5812AC4162600AC2CAF /* SignIn.swift in Sources */,
+				C724CA3F2AC5830300D31458 /* SignInMethodGoogleView.swift in Sources */,
 				C7F16E502AC2DD4E00EEA6F6 /* HeaderUser.swift in Sources */,
 				C7A9E5782AC3FAB300AC2CAF /* Avatar.swift in Sources */,
 				C7A9E57A2AC3FB2C00AC2CAF /* ImagePicker.swift in Sources */,
 				C7F16E382AC2DA7000EEA6F6 /* BubbleApp.swift in Sources */,
+				C724CA3D2AC580FE00D31458 /* CornerRadiusStyle.swift in Sources */,
+				C724CA3B2AC57D5700D31458 /* ButtonCutemsLogin.swift in Sources */,
 				C7A9E5752AC3F78600AC2CAF /* ContentMapViewMolde.swift in Sources */,
+				C724CA412AC58B9700D31458 /* SignInMethodGoogle.swift in Sources */,
 				C7A9E57E2AC3FE6800AC2CAF /* ProfilesViewMolde.swift in Sources */,
 				C7A9E57C2AC3FD8100AC2CAF /* Color.swift in Sources */,
 			);

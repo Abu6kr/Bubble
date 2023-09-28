@@ -16,5 +16,6 @@ struct ColorTheme {
     let ColorblackSwich = Color("ColorblackSwich")
     let Colorblack = Color("Colorblack")
     let ColorBox = Color("ColorBox")
+    let ColorBlue = Color("ColorBlue")
     
 }
