@@ -11,6 +11,7 @@ struct ButtonCutemsLogin: View {
     let title: String
     let background: Color
     let foregroundStyle: Color
+//    let sizeFont: CGFloat
     var body: some View {
         VStack {
             Text(title)

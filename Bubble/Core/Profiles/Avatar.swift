@@ -22,22 +22,22 @@ struct AvatarView: View {
                 .opacity(0.5)
             VStack {
                 
-                //MARK: SECTION Avatar
-                VStack {
-                    ScrollView(showsIndicators: false) {
-                        LazyVGrid(columns: vmProfile.colums){
-                            ForEach(avatarMolde){ avatar in
-                                Avatar(sectionAvater: $sectionAvater, avtar: avatar)
-                                 
-                            }
-                        }.padding()
-                    }
-                }
-                .frame(maxWidth: .infinity,maxHeight: .infinity)
-                .background(VisualEffect(style: .systemThickMaterial))
-                .clipShape(.rect(cornerRadius: 30))
-                .shadow(color: Color.them.ColorblackSwich.opacity(0.05), radius: 30)
-                .padding(.horizontal)
+//                //MARK: SECTION Avatar
+//                VStack {
+//                    ScrollView(showsIndicators: false) {
+//                        LazyVGrid(columns: vmProfile.colums){
+//                            ForEach(avatarMolde){ avatar in
+//                                Avatar(sectionAvater: $sectionAvater, avtar: avatar)
+//                                 
+//                            }
+//                        }.padding()
+//                    }
+//                }
+//                .frame(maxWidth: .infinity,maxHeight: .infinity)
+//                .background(VisualEffect(style: .systemThickMaterial))
+//                .clipShape(.rect(cornerRadius: 30))
+//                .shadow(color: Color.them.ColorblackSwich.opacity(0.05), radius: 30)
+//                .padding(.horizontal)
                 
                 //MARK: SECTION Photo
                 Button(action: {

@@ -31,16 +31,19 @@ struct SignIn: View {
                     Button(action: {}){
                         ButtonCutemsLogin(title: "Sign in now", background: Color.them.ColorBlue, foregroundStyle: Color.white)
                     }
-                   
-                    Button(action: {}){
-                        ButtonCutemsLogin(title: "Sign up", background: Color.clear, foregroundStyle: Color.them.ColorblackSwich)
+                    HStack(spacing: 5) {
+                        Button(action: {}){
+                            ButtonCutemsLogin(title: "Sign up", background: Color.clear, foregroundStyle: Color.them.ColorblackSwich)
+                        }
+                        Button(action: {self.showSingWitheGoogle.toggle()}) {
+                            ButtonCutemsLogin(title: "Select Method", background: Color.clear, foregroundStyle: Color.them.ColorblackSwich)
+                        }
+
                     }
-                  
                 }.padding(.init(top: 56, leading: 0, bottom: 48, trailing: 0))
-                
-                Button(action: {self.showSingWitheGoogle.toggle()}) {
-                    Text("Select method")
-                }.sheet(isPresented: $showSingWitheGoogle){SignInMethodGoogleView().presentationDetents([.medium, .fraction(0.6)])}
+                    .sheet(isPresented: $showSingWitheGoogle){
+                        SignInMethodGoogleView().presentationDetents([.fraction(0.9),.medium])
+                    }
             }
         }
     }

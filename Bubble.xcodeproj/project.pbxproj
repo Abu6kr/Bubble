@@ -11,6 +11,12 @@
 		C724CA3D2AC580FE00D31458 /* CornerRadiusStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C724CA3C2AC580FE00D31458 /* CornerRadiusStyle.swift */; };
 		C724CA3F2AC5830300D31458 /* SignInMethodGoogleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C724CA3E2AC5830300D31458 /* SignInMethodGoogleView.swift */; };
 		C724CA412AC58B9700D31458 /* SignInMethodGoogle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C724CA402AC58B9700D31458 /* SignInMethodGoogle.swift */; };
+		C74DD7052AC7EB21003BD704 /* ButtonDismiss.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74DD7042AC7EB21003BD704 /* ButtonDismiss.swift */; };
+		C74DD7072AC7EDBC003BD704 /* PopupCutemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74DD7062AC7EDBC003BD704 /* PopupCutemsView.swift */; };
+		C74DD70B2AC80483003BD704 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74DD70A2AC80483003BD704 /* AuthenticationManager.swift */; };
+		C74DD70D2AC8048C003BD704 /* SignInGoogleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74DD70C2AC8048C003BD704 /* SignInGoogleHelper.swift */; };
+		C74DD70F2AC80494003BD704 /* SignInAppleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74DD70E2AC80494003BD704 /* SignInAppleHelper.swift */; };
+		C74DD7122AC80A66003BD704 /* MemojiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74DD7112AC80A66003BD704 /* MemojiView.swift */; };
 		C7A9E5752AC3F78600AC2CAF /* ContentMapViewMolde.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A9E5742AC3F78600AC2CAF /* ContentMapViewMolde.swift */; };
 		C7A9E5782AC3FAB300AC2CAF /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A9E5772AC3FAB300AC2CAF /* Avatar.swift */; };
 		C7A9E57A2AC3FB2C00AC2CAF /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A9E5792AC3FB2C00AC2CAF /* ImagePicker.swift */; };
@@ -32,6 +38,12 @@
 		C724CA3C2AC580FE00D31458 /* CornerRadiusStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadiusStyle.swift; sourceTree = "<group>"; };
 		C724CA3E2AC5830300D31458 /* SignInMethodGoogleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInMethodGoogleView.swift; sourceTree = "<group>"; };
 		C724CA402AC58B9700D31458 /* SignInMethodGoogle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInMethodGoogle.swift; sourceTree = "<group>"; };
+		C74DD7042AC7EB21003BD704 /* ButtonDismiss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonDismiss.swift; sourceTree = "<group>"; };
+		C74DD7062AC7EDBC003BD704 /* PopupCutemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupCutemsView.swift; sourceTree = "<group>"; };
+		C74DD70A2AC80483003BD704 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
+		C74DD70C2AC8048C003BD704 /* SignInGoogleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInGoogleHelper.swift; sourceTree = "<group>"; };
+		C74DD70E2AC80494003BD704 /* SignInAppleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInAppleHelper.swift; sourceTree = "<group>"; };
+		C74DD7112AC80A66003BD704 /* MemojiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemojiView.swift; sourceTree = "<group>"; };
 		C7A9E5742AC3F78600AC2CAF /* ContentMapViewMolde.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentMapViewMolde.swift; sourceTree = "<group>"; };
 		C7A9E5772AC3FAB300AC2CAF /* Avatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
 		C7A9E5792AC3FB2C00AC2CAF /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
@@ -60,12 +72,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C74DD7082AC7EDC1003BD704 /* PopupView */ = {
+			isa = PBXGroup;
+			children = (
+				C74DD7062AC7EDBC003BD704 /* PopupCutemsView.swift */,
+			);
+			path = PopupView;
+			sourceTree = "<group>";
+		};
+		C74DD7092AC80470003BD704 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				C74DD70A2AC80483003BD704 /* AuthenticationManager.swift */,
+				C74DD70C2AC8048C003BD704 /* SignInGoogleHelper.swift */,
+				C74DD70E2AC80494003BD704 /* SignInAppleHelper.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		C74DD7102AC80509003BD704 /* Firestore */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Firestore;
+			sourceTree = "<group>";
+		};
 		C7A9E5762AC3FAA200AC2CAF /* Profiles */ = {
 			isa = PBXGroup;
 			children = (
 				C7A9E5772AC3FAB300AC2CAF /* Avatar.swift */,
 				C7A9E57D2AC3FE6800AC2CAF /* ProfilesViewMolde.swift */,
 				C7A9E5792AC3FB2C00AC2CAF /* ImagePicker.swift */,
+				C74DD7112AC80A66003BD704 /* MemojiView.swift */,
 			);
 			path = Profiles;
 			sourceTree = "<group>";
@@ -101,6 +139,8 @@
 			children = (
 				C7F16E372AC2DA7000EEA6F6 /* BubbleApp.swift */,
 				C7F16E472AC2DB5000EEA6F6 /* Utilities */,
+				C74DD7092AC80470003BD704 /* Authentication */,
+				C74DD7102AC80509003BD704 /* Firestore */,
 				C7F16E462AC2DB4000EEA6F6 /* Extensions */,
 				C7F16E452AC2DB1400EEA6F6 /* Core */,
 				C7F16E3B2AC2DA7100EEA6F6 /* Assets.xcassets */,
@@ -169,6 +209,8 @@
 				C7F16E512AC2E3A900EEA6F6 /* FluidGradientColor.swift */,
 				C724CA3A2AC57D5700D31458 /* ButtonCutemsLogin.swift */,
 				C724CA3C2AC580FE00D31458 /* CornerRadiusStyle.swift */,
+				C74DD7042AC7EB21003BD704 /* ButtonDismiss.swift */,
+				C74DD7082AC7EDC1003BD704 /* PopupView */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -245,19 +287,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7F16E522AC2E3A900EEA6F6 /* FluidGradientColor.swift in Sources */,
+				C74DD7072AC7EDBC003BD704 /* PopupCutemsView.swift in Sources */,
 				C7F16E4A2AC2DBD100EEA6F6 /* MapHomeView.swift in Sources */,
+				C74DD70B2AC80483003BD704 /* AuthenticationManager.swift in Sources */,
 				C7F16E542AC2E5CD00EEA6F6 /* MapView.swift in Sources */,
 				C7A9E5812AC4162600AC2CAF /* SignIn.swift in Sources */,
 				C724CA3F2AC5830300D31458 /* SignInMethodGoogleView.swift in Sources */,
 				C7F16E502AC2DD4E00EEA6F6 /* HeaderUser.swift in Sources */,
+				C74DD70F2AC80494003BD704 /* SignInAppleHelper.swift in Sources */,
+				C74DD7052AC7EB21003BD704 /* ButtonDismiss.swift in Sources */,
 				C7A9E5782AC3FAB300AC2CAF /* Avatar.swift in Sources */,
 				C7A9E57A2AC3FB2C00AC2CAF /* ImagePicker.swift in Sources */,
+				C74DD70D2AC8048C003BD704 /* SignInGoogleHelper.swift in Sources */,
 				C7F16E382AC2DA7000EEA6F6 /* BubbleApp.swift in Sources */,
 				C724CA3D2AC580FE00D31458 /* CornerRadiusStyle.swift in Sources */,
 				C724CA3B2AC57D5700D31458 /* ButtonCutemsLogin.swift in Sources */,
 				C7A9E5752AC3F78600AC2CAF /* ContentMapViewMolde.swift in Sources */,
 				C724CA412AC58B9700D31458 /* SignInMethodGoogle.swift in Sources */,
 				C7A9E57E2AC3FE6800AC2CAF /* ProfilesViewMolde.swift in Sources */,
+				C74DD7122AC80A66003BD704 /* MemojiView.swift in Sources */,
 				C7A9E57C2AC3FD8100AC2CAF /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

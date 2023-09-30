@@ -33,7 +33,7 @@ struct SignInMethodGoogle: View {
                 }
                 Text(nameSignIn)
                     .font(.system(size: 20,weight: .bold))
-                    .foregroundStyle(Color.white)
+                    .foregroundStyle(Color.them.ColorblackSwich)
             }
             Spacer()
             ZStack {
