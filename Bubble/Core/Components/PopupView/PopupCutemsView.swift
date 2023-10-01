@@ -10,6 +10,7 @@ import SwiftUI
 struct PopupCutemsView: View {
     @State private var animationImaes = false
     @State private var animationText = false
+    @State private var animationButton = false
 
     let colorFluidGradient: Color
     @Binding var dismiss: Bool

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C71FC5E12AC97B5300C44193 /* TabBarCutemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71FC5E02AC97B5300C44193 /* TabBarCutemsView.swift */; };
+		C71FC5E32AC98EE700C44193 /* ProfilesHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71FC5E22AC98EE700C44193 /* ProfilesHomeView.swift */; };
 		C724CA3B2AC57D5700D31458 /* ButtonCutemsLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C724CA3A2AC57D5700D31458 /* ButtonCutemsLogin.swift */; };
 		C724CA3D2AC580FE00D31458 /* CornerRadiusStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C724CA3C2AC580FE00D31458 /* CornerRadiusStyle.swift */; };
 		C724CA3F2AC5830300D31458 /* SignInMethodGoogleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C724CA3E2AC5830300D31458 /* SignInMethodGoogleView.swift */; };
@@ -34,6 +36,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C71FC5E02AC97B5300C44193 /* TabBarCutemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCutemsView.swift; sourceTree = "<group>"; };
+		C71FC5E22AC98EE700C44193 /* ProfilesHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesHomeView.swift; sourceTree = "<group>"; };
 		C724CA3A2AC57D5700D31458 /* ButtonCutemsLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCutemsLogin.swift; sourceTree = "<group>"; };
 		C724CA3C2AC580FE00D31458 /* CornerRadiusStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadiusStyle.swift; sourceTree = "<group>"; };
 		C724CA3E2AC5830300D31458 /* SignInMethodGoogleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInMethodGoogleView.swift; sourceTree = "<group>"; };
@@ -72,6 +76,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C71FC5DF2AC97B3600C44193 /* Navigations */ = {
+			isa = PBXGroup;
+			children = (
+				C71FC5E02AC97B5300C44193 /* TabBarCutemsView.swift */,
+			);
+			path = Navigations;
+			sourceTree = "<group>";
+		};
 		C74DD7082AC7EDC1003BD704 /* PopupView */ = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +112,7 @@
 		C7A9E5762AC3FAA200AC2CAF /* Profiles */ = {
 			isa = PBXGroup;
 			children = (
+				C71FC5E22AC98EE700C44193 /* ProfilesHomeView.swift */,
 				C7A9E5772AC3FAB300AC2CAF /* Avatar.swift */,
 				C7A9E57D2AC3FE6800AC2CAF /* ProfilesViewMolde.swift */,
 				C7A9E5792AC3FB2C00AC2CAF /* ImagePicker.swift */,
@@ -160,6 +173,7 @@
 		C7F16E452AC2DB1400EEA6F6 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				C71FC5DF2AC97B3600C44193 /* Navigations */,
 				C7F16E4B2AC2DC8C00EEA6F6 /* Launch */,
 				C7F16E4E2AC2DCCD00EEA6F6 /* Components */,
 				C7A9E57F2AC415F100AC2CAF /* Register */,
@@ -287,6 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7F16E522AC2E3A900EEA6F6 /* FluidGradientColor.swift in Sources */,
+				C71FC5E12AC97B5300C44193 /* TabBarCutemsView.swift in Sources */,
 				C74DD7072AC7EDBC003BD704 /* PopupCutemsView.swift in Sources */,
 				C7F16E4A2AC2DBD100EEA6F6 /* MapHomeView.swift in Sources */,
 				C74DD70B2AC80483003BD704 /* AuthenticationManager.swift in Sources */,
@@ -305,6 +320,7 @@
 				C7A9E5752AC3F78600AC2CAF /* ContentMapViewMolde.swift in Sources */,
 				C724CA412AC58B9700D31458 /* SignInMethodGoogle.swift in Sources */,
 				C7A9E57E2AC3FE6800AC2CAF /* ProfilesViewMolde.swift in Sources */,
+				C71FC5E32AC98EE700C44193 /* ProfilesHomeView.swift in Sources */,
 				C74DD7122AC80A66003BD704 /* MemojiView.swift in Sources */,
 				C7A9E57C2AC3FD8100AC2CAF /* Color.swift in Sources */,
 			);
