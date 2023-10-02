@@ -13,16 +13,10 @@ struct TabBarCutemsView: View {
         ZStack {
             switch sectionBar {
             case .map:
-                ZStack {
-                    Color.red.ignoresSafeArea(.all)
-                    Text("map")
-                }
+//                Text("map")
+                MapHomeView()
             case .profil:
-                ZStack {
-                    Color.green.ignoresSafeArea(.all)
-                     Text("profil")
-                }
-               
+                ProfilesHomeView()
             case .message:
                 ZStack {
                     Color.blue.ignoresSafeArea(.all)
@@ -31,9 +25,7 @@ struct TabBarCutemsView: View {
                 }
             }
             
-            
             HStack {
-                
                 ForEach(modeTabBar){ items in
                     Button(action: {
                         sectionBar = items.tab
@@ -41,10 +33,9 @@ struct TabBarCutemsView: View {
                         Image(systemName: items.icone)
                             .resizable()
                             .frame(width: 20, height: 20)
-                            .foregroundStyle(sectionBar == items.tab ? Color.red : Color.them.ColorblackSwich)
+                            .foregroundStyle(sectionBar == items.tab ? Color.them.ColorBlue.opacity(0.5) : Color.them.ColorblackSwich)
                      
                     })
-
                 }
                 .frame(maxWidth: .infinity)
                 
@@ -78,6 +69,5 @@ let modeTabBar: [ModeTabBar] = [
     ModeTabBar(icone: "message.badge.filled.fill", tab: .message),
     ModeTabBar(icone: "map.fill", tab: .map),
     ModeTabBar(icone: "person.fill", tab: .profil),
-
 
 ]

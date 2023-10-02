@@ -19,6 +19,7 @@
 		C74DD70D2AC8048C003BD704 /* SignInGoogleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74DD70C2AC8048C003BD704 /* SignInGoogleHelper.swift */; };
 		C74DD70F2AC80494003BD704 /* SignInAppleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74DD70E2AC80494003BD704 /* SignInAppleHelper.swift */; };
 		C74DD7122AC80A66003BD704 /* MemojiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74DD7112AC80A66003BD704 /* MemojiView.swift */; };
+		C77BE36B2ACA81C700A38A37 /* EditProfilesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77BE36A2ACA81C700A38A37 /* EditProfilesView.swift */; };
 		C7A9E5752AC3F78600AC2CAF /* ContentMapViewMolde.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A9E5742AC3F78600AC2CAF /* ContentMapViewMolde.swift */; };
 		C7A9E5782AC3FAB300AC2CAF /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A9E5772AC3FAB300AC2CAF /* Avatar.swift */; };
 		C7A9E57A2AC3FB2C00AC2CAF /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A9E5792AC3FB2C00AC2CAF /* ImagePicker.swift */; };
@@ -48,6 +49,7 @@
 		C74DD70C2AC8048C003BD704 /* SignInGoogleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInGoogleHelper.swift; sourceTree = "<group>"; };
 		C74DD70E2AC80494003BD704 /* SignInAppleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInAppleHelper.swift; sourceTree = "<group>"; };
 		C74DD7112AC80A66003BD704 /* MemojiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemojiView.swift; sourceTree = "<group>"; };
+		C77BE36A2ACA81C700A38A37 /* EditProfilesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfilesView.swift; sourceTree = "<group>"; };
 		C7A9E5742AC3F78600AC2CAF /* ContentMapViewMolde.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentMapViewMolde.swift; sourceTree = "<group>"; };
 		C7A9E5772AC3FAB300AC2CAF /* Avatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
 		C7A9E5792AC3FB2C00AC2CAF /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				C71FC5E22AC98EE700C44193 /* ProfilesHomeView.swift */,
+				C77BE36A2ACA81C700A38A37 /* EditProfilesView.swift */,
 				C7A9E5772AC3FAB300AC2CAF /* Avatar.swift */,
 				C7A9E57D2AC3FE6800AC2CAF /* ProfilesViewMolde.swift */,
 				C7A9E5792AC3FB2C00AC2CAF /* ImagePicker.swift */,
@@ -306,6 +309,7 @@
 				C7F16E4A2AC2DBD100EEA6F6 /* MapHomeView.swift in Sources */,
 				C74DD70B2AC80483003BD704 /* AuthenticationManager.swift in Sources */,
 				C7F16E542AC2E5CD00EEA6F6 /* MapView.swift in Sources */,
+				C77BE36B2ACA81C700A38A37 /* EditProfilesView.swift in Sources */,
 				C7A9E5812AC4162600AC2CAF /* SignIn.swift in Sources */,
 				C724CA3F2AC5830300D31458 /* SignInMethodGoogleView.swift in Sources */,
 				C7F16E502AC2DD4E00EEA6F6 /* HeaderUser.swift in Sources */,
@@ -463,6 +467,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -494,6 +499,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;

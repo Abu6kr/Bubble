@@ -13,94 +13,96 @@ struct AvatarView: View {
     @State private var showImagePicker = false
     @State private var image = UIImage()
     @State  var sectionAvater: Bool = false
-
-
+    
+    
     var body: some View {
         ZStack {
-            FluidGradient(blobs: [Color.blue,Color.blue.opacity(0.5)]).ignoresSafeArea(.all)
+            FluidGradient(blobs: [vmProfile.averageColor]).ignoresSafeArea(.all)
                 .background(VisualEffect(style: .systemThickMaterial)).ignoresSafeArea(.all)
                 .opacity(0.5)
-            VStack {
-                
-//                //MARK: SECTION Avatar
-//                VStack {
-//                    ScrollView(showsIndicators: false) {
-//                        LazyVGrid(columns: vmProfile.colums){
-//                            ForEach(avatarMolde){ avatar in
-//                                Avatar(sectionAvater: $sectionAvater, avtar: avatar)
-//                                 
-//                            }
-//                        }.padding()
-//                    }
-//                }
-//                .frame(maxWidth: .infinity,maxHeight: .infinity)
-//                .background(VisualEffect(style: .systemThickMaterial))
-//                .clipShape(.rect(cornerRadius: 30))
-//                .shadow(color: Color.them.ColorblackSwich.opacity(0.05), radius: 30)
-//                .padding(.horizontal)
-                
-                //MARK: SECTION Photo
-                Button(action: {
-                    self.showImagePicker = true
-                }) {
-                    if vmProfile.imageProfiles != nil {
-                        Image(uiImage: image)
-                            .resizable()
-                            .frame(maxWidth: .infinity,maxHeight: 250)
-                            .background(VisualEffect(style: .systemThickMaterial))
-                            .clipShape(.rect(cornerRadius: 30))
-                            .shadow(color: Color.them.ColorblackSwich.opacity(0.05), radius: 30)
-                            .padding(.horizontal,16)
-                    } else {
-                        Image(uiImage: image)
-                            .resizable()
-                            .frame(maxWidth: .infinity,maxHeight: 250)
-                            .background(VisualEffect(style: .systemThickMaterial))
-                            .clipShape(.rect(cornerRadius: 30))
-                            .shadow(color: Color.them.ColorblackSwich.opacity(0.05), radius: 30)
-                            .padding(.horizontal,16)
+            ScrollView {
+                VStack {
+                    
+                    //MARK: SECTION Photo
+                    Button(action: {
+                        self.showImagePicker = true
+                    }) {
+                        if let image =  vmProfile.imageProfiles  {
+                            Image(uiImage: image)
+                                .resizable()
+                                .frame(maxWidth: .infinity,maxHeight: 250)
+                                .background(VisualEffect(style: .systemThickMaterial))
+                                .clipShape(.rect(cornerRadius: 30))
+                                .shadow(color: Color.them.ColorblackSwich.opacity(0.05), radius: 30)
+                                .padding(.horizontal,16)
+                            
+                        } else {
+                            Image(uiImage: image)
+                                .resizable()
+                                .frame(maxWidth: .infinity,maxHeight: 250)
+                                .background(VisualEffect(style: .systemThickMaterial))
+                                .clipShape(.rect(cornerRadius: 30))
+                                .shadow(color: Color.them.ColorblackSwich.opacity(0.05), radius: 30)
+                                .padding(.horizontal,16)
+                        }
+                        
                     }
+                    
+                    VStack(spacing: 20) {
+                        VStack(alignment: .leading) {
+                            Text("nmae")
+                            HStack {
+                                TextField("name", text: $vmProfile.nameUser)
+                                    .font(.headline)
+                            }
+                        }.padding()
+                            .frame(maxWidth: .infinity,maxHeight: 100)
+                            .background(Color.them.ColorBox)
+                            .cornerRadius(22, corners: [.topLeft, .topRight])
+                            .cornerRadius(8, corners: [.bottomRight, .bottomLeft])
+                            .padding(.horizontal)
+                        Divider()
+                        
+                        VStack(alignment: .leading) {
+                            Text("user name")
+                            HStack {
+                                TextField("user name", text: $vmProfile.userName)
+                                    .font(.headline)
+                                
+                            }
+                        }.padding()
+                            .frame(maxWidth: .infinity,maxHeight: 100)
+                            .background(Color.them.ColorBox)
+                            .cornerRadius(22, corners: [.topLeft, .topRight])
+                            .cornerRadius(8, corners: [.bottomRight, .bottomLeft])
+                            .padding(.horizontal)
+                        
+                    }
+                    .padding(.top)
+                    
+                    Button(action: {
+                        vmProfile.saveImage(imageName: "imagePrilesKeySaved", image: image, key: "imagePrilesKeySaved")
+                        vmProfile.saveInfo()
+                    }){
+                        ButtonCutemsLogin(title: "Save", background: Color.them.ColorBox.opacity(0.8), foregroundStyle: Color.them.ColorblackSwich)
+                    }.padding(.top)
+                    
+                }.padding(.top)
+                .sheet(isPresented: $showImagePicker) {
+                    ImagePicker(sourceType: .photoLibrary, selectedImage: self.$image)
+                }
+                .onAppear {
+                    vmProfile.loadImage(forKey: "imagePrilesKeySaved")
+                    NotificationCenter.default.post(name: .saveVenueProfileImage, object: nil)
+                    vmProfile.retrieveText()
+                    
                 }
             }
-            .sheet(isPresented: $showImagePicker) {
-                ImagePicker(sourceType: .photoLibrary, selectedImage: self.$image)
-            }
         }
+        
     }
 }
 
 #Preview {
     AvatarView()
 }
-
-
-struct Avatar: View {
-    @Binding var sectionAvater: Bool
-    let avtar: AvatarMolde
-    var body: some View {
-        Image(avtar.Avatar)
-            .resizable()
-            .scaledToFill()
-            .frame(width: 100,height: 100)
-            .background(
-                RoundedRectangle(cornerRadius: 30)
-                    .stroke(lineWidth: 2)
-                    .foregroundStyle(sectionAvater ? Color.red : Color.white)
-            )
-            .background(VisualEffect(style: .prominent))
-            .clipShape(.rect(cornerRadius: 30))
-    }
-}
-
-
-struct AvatarMolde: Identifiable {
-    let id = UUID().uuidString
-    let Avatar: String
-}
- 
-let avatarMolde: [AvatarMolde] = [
-    AvatarMolde(Avatar: "Avatar1"),
-    AvatarMolde(Avatar: "Avatar2"),
-    AvatarMolde(Avatar: "Avatar3"),
-    
-]

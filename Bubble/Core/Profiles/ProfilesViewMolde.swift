@@ -12,18 +12,34 @@ class ProfilesViewMolde: ObservableObject {
     
     let colums:[GridItem] = [GridItem(.flexible()),GridItem(.flexible()),]
     
-    let sectiondAvatar: [String] = ["Avatar1","Avatar2","Avatar3"]
+    
+    @Published var nameUser: String = ""
+    @Published var userName: String = ""
+    
     
     @Published var imageProfiles: UIImage?
     @Published var savedimages: Bool = false
 
-    var sectideFrmeWork: AvatarMolde? {
-           didSet {
-               isShowingDetilesView = true
-           }
-       }
-       
-       @Published var isShowingDetilesView = false
+
+    @Published var isShowingDetilesView = false
+    
+    var averageColor: Color {
+        Color(imageProfiles?.averageColor ?? UIColor.clear)
+    }
+    
+    func retrieveText() {
+        if let savednameUser = UserDefaults.standard.string(forKey: "nameUserforKey")   {
+            nameUser = savednameUser
+        }
+        if let saveduserName = UserDefaults.standard.string(forKey: "userNameforKey"){
+            userName = saveduserName
+        }
+        
+    }
+    func saveInfo() {
+        UserDefaults.standard.set(nameUser, forKey: "nameUserforKey")
+        UserDefaults.standard.set(userName, forKey: "userNameforKey")
+    }
     
     
     func saveImage(imageName: String, image: UIImage,key: String) {
@@ -41,16 +57,6 @@ class ProfilesViewMolde: ObservableObject {
             print("Unable to write image data to disk", error)
         }
     }
-    
-    //MARK: func section Section Avatar
-    
-//    func locadAvatar(forKey:String) {
-//        guard let fillURK = UserDefaults.standard.url(forKey: forKey) else { return }
-//        do {
-//            let avatar =  try Data(contentsOf: fillURK)
-//            if let Avatar
-//        }
-//    }
     
     func loadImage(forKey: String) {
         guard let fileURL = UserDefaults.standard.url(forKey: forKey) else { return }
@@ -70,5 +76,5 @@ class ProfilesViewMolde: ObservableObject {
 
 extension NSNotification.Name {
     static let saveVenueProfileImage = Notification.Name("imagePrilesKeySaved")
-    static let saveVenueBackgroundImage = Notification.Name("saveVenueBackgroundImage")
+//    static let saveVenueBackgroundImage = Notification.Name("saveVenueBackgroundImage")
 }

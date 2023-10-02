@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct PopupCutemsView: View {
+    
     @State private var animationImaes = false
     @State private var animationText = false
     @State private var animationButton = false
@@ -17,6 +18,7 @@ struct PopupCutemsView: View {
     
     let title: String
     let discrip: String
+    
     @State var swictPopView: PopupView = .Error
 
     var body: some View {

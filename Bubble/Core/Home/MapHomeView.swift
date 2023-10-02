@@ -14,17 +14,9 @@ struct MapHomeView: View {
         NavigationStack {
             ZStack {
                 MapView()
-                if !showFrindesLocation {
-                    FluidGradient(blobs: [Color.blue,Color.black,Color.white,Color.black]).ignoresSafeArea(.all)
-                        .opacity(0.5).background(VisualEffect(style: .systemThickMaterial)).ignoresSafeArea(.all).opacity(0.5)
-                }
                 VStack {
                     HeaderUser()
                     Spacer()
-                    Button(action: {withAnimation(.smooth){showFrindesLocation.toggle()}}){
-                        ButtonCutemsLogin(title: "Show Loction", background: Color.them.ColorBox, foregroundStyle: Color.them.ColorblackSwich)
-                    }
-                  
                     
                 }
             }
