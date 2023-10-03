@@ -12,6 +12,7 @@ struct EditProfilesView: View {
     
     @State private var name: String = ""
     @State private var userName: String = ""
+    
     var body: some View {
         ZStack {
             FluidGradient(blobs: [vmProfie.averageColor.opacity(0.5)]).ignoresSafeArea(.all)
@@ -20,8 +21,9 @@ struct EditProfilesView: View {
                     VStack(alignment: .leading) {
                         Text("nmae")
                         HStack {
-                            TextField("name", text: $vmProfie.nameUser)
+                            Text(vmProfie.nameUser)
                                 .font(.headline)
+                            Spacer()
                         }
                     }.padding()
                         .frame(maxWidth: .infinity,maxHeight: 100)
@@ -34,8 +36,9 @@ struct EditProfilesView: View {
                     VStack(alignment: .leading) {
                         Text("user name")
                         HStack {
-                            TextField("user name", text: $vmProfie.userName)
+                            Text(vmProfie.userName)
                                 .font(.headline)
+                            Spacer()
                         }
                     }.padding()
                         .frame(maxWidth: .infinity,maxHeight: 100)

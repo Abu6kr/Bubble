@@ -10,19 +10,22 @@ import SwiftUI
 struct AvatarView: View {
     
     @StateObject var vmProfile = ProfilesViewMolde()
+    
     @State private var showImagePicker = false
     @State private var image = UIImage()
     @State  var sectionAvater: Bool = false
     
+    @Environment(\.dismiss) var  dismiss
     
     var body: some View {
         ZStack {
             FluidGradient(blobs: [vmProfile.averageColor]).ignoresSafeArea(.all)
                 .background(VisualEffect(style: .systemThickMaterial)).ignoresSafeArea(.all)
                 .opacity(0.5)
+            
             ScrollView {
                 VStack {
-                    
+                    ButtonDismiss(dismiss: _dismiss)
                     //MARK: SECTION Photo
                     Button(action: {
                         self.showImagePicker = true
@@ -83,6 +86,7 @@ struct AvatarView: View {
                     Button(action: {
                         vmProfile.saveImage(imageName: "imagePrilesKeySaved", image: image, key: "imagePrilesKeySaved")
                         vmProfile.saveInfo()
+                        dismiss()
                     }){
                         ButtonCutemsLogin(title: "Save", background: Color.them.ColorBox.opacity(0.8), foregroundStyle: Color.them.ColorblackSwich)
                     }.padding(.top)

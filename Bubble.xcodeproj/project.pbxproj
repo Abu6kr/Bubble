@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C70E22312ACBE21400F7229A /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70E22302ACBE21400F7229A /* LaunchView.swift */; };
 		C71FC5E12AC97B5300C44193 /* TabBarCutemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71FC5E02AC97B5300C44193 /* TabBarCutemsView.swift */; };
 		C71FC5E32AC98EE700C44193 /* ProfilesHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71FC5E22AC98EE700C44193 /* ProfilesHomeView.swift */; };
 		C724CA3B2AC57D5700D31458 /* ButtonCutemsLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C724CA3A2AC57D5700D31458 /* ButtonCutemsLogin.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C70E22302ACBE21400F7229A /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		C71FC5E02AC97B5300C44193 /* TabBarCutemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCutemsView.swift; sourceTree = "<group>"; };
 		C71FC5E22AC98EE700C44193 /* ProfilesHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesHomeView.swift; sourceTree = "<group>"; };
 		C724CA3A2AC57D5700D31458 /* ButtonCutemsLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCutemsLogin.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				C7F16E4C2AC2DC9700EEA6F6 /* Launch Screen.storyboard */,
+				C70E22302ACBE21400F7229A /* LaunchView.swift */,
 			);
 			path = Launch;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				C724CA3F2AC5830300D31458 /* SignInMethodGoogleView.swift in Sources */,
 				C7F16E502AC2DD4E00EEA6F6 /* HeaderUser.swift in Sources */,
 				C74DD70F2AC80494003BD704 /* SignInAppleHelper.swift in Sources */,
+				C70E22312ACBE21400F7229A /* LaunchView.swift in Sources */,
 				C74DD7052AC7EB21003BD704 /* ButtonDismiss.swift in Sources */,
 				C7A9E5782AC3FAB300AC2CAF /* Avatar.swift in Sources */,
 				C7A9E57A2AC3FB2C00AC2CAF /* ImagePicker.swift in Sources */,
