@@ -15,7 +15,9 @@ struct EditProfilesView: View {
     
     var body: some View {
         ZStack {
-            FluidGradient(blobs: [vmProfie.averageColor.opacity(0.5)]).ignoresSafeArea(.all)
+            FluidGradient(blobs: [vmProfie.averageColor.opacity(0.5),vmProfie.averageColor.opacity(0.5),vmProfie.averageColor.opacity(0.5)]).ignoresSafeArea(.all)
+                .background(VisualEffect(style: .systemThickMaterial)).ignoresSafeArea(.all)
+
             ScrollView(showsIndicators: false){
                 VStack(spacing: 20) {
                     VStack(alignment: .leading) {
@@ -47,7 +49,7 @@ struct EditProfilesView: View {
                         .cornerRadius(8, corners: [.bottomRight, .bottomLeft])
                         .padding(.horizontal)
                     
-                }.padding(.top)
+                }.padding(.top,30)
             }
         }
         .onAppear{

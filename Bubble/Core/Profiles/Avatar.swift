@@ -33,15 +33,18 @@ struct AvatarView: View {
                         if let image =  vmProfile.imageProfiles  {
                             Image(uiImage: image)
                                 .resizable()
+                                .scaledToFill()
                                 .frame(maxWidth: .infinity,maxHeight: 250)
                                 .background(VisualEffect(style: .systemThickMaterial))
                                 .clipShape(.rect(cornerRadius: 30))
                                 .shadow(color: Color.them.ColorblackSwich.opacity(0.05), radius: 30)
                                 .padding(.horizontal,16)
                             
-                        } else {
-                            Image(uiImage: image)
+                        } else if vmProfile.imageProfiles == nil {
+                            
+                            Image(systemName: "pencil")
                                 .resizable()
+                                .frame(width: 25,height: 25)
                                 .frame(maxWidth: .infinity,maxHeight: 250)
                                 .background(VisualEffect(style: .systemThickMaterial))
                                 .clipShape(.rect(cornerRadius: 30))

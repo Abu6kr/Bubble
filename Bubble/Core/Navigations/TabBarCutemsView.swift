@@ -6,14 +6,17 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct TabBarCutemsView: View {
+    
     @State private var sectionBar: Tab = .map
+    @StateObject var vmProfie = ProfilesViewMolde()
+
     var body: some View {
         ZStack {
             switch sectionBar {
             case .map:
-//                Text("map")
                 MapHomeView()
             case .profil:
                 ProfilesHomeView()
@@ -34,7 +37,6 @@ struct TabBarCutemsView: View {
                             .resizable()
                             .frame(width: 20, height: 20)
                             .foregroundStyle(sectionBar == items.tab ? Color.them.ColorBlue.opacity(0.5) : Color.them.ColorblackSwich)
-                     
                     })
                 }
                 .frame(maxWidth: .infinity)
@@ -42,7 +44,7 @@ struct TabBarCutemsView: View {
             }
                 .frame(maxWidth: .infinity)
                 .frame(height: 66)
-                .background(Color.them.ColorBox)
+                .background(sectionBar == .profil ? Color.white : Color.them.ColorBox)
                 .clipShape(.rect(cornerRadius: 20))
                 .padding(.horizontal,40)
                 .frame(maxHeight: .infinity,alignment: .bottom)

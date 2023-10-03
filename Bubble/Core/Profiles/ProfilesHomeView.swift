@@ -18,23 +18,27 @@ struct ProfilesHomeView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                FluidGradient(blobs: [vmProfie.averageColor.opacity(0.5)]).ignoresSafeArea(.all)
+                LinearGradient(colors: [vmProfie.averageColor,vmProfie.averageColor.opacity(0.2)], startPoint: .top, endPoint: .bottom)
+                    .ignoresSafeArea()
                 VStack {
                     imageSection
                     Spacer()
                 }
-                
-                EditProfilesView(vmProfie: vmProfie)
-                    .background(FluidGradient(blobs: [vmProfie.averageColor.opacity(0.5)]))
-                    .frame(height: 500)
-                    .frame(maxWidth: .infinity)
-                    .cornerRadius(22, corners: [.topLeft,.topRight])
-                    .offset(y: 250).ignoresSafeArea()
-                
+                .sheet(isPresented: $showEdit, content: {
+                    EditProfilesView(vmProfie: vmProfie)
+                        .presentationDetents([.height(250), .medium])
+                        .presentationBackgroundInteraction(.enabled(upThrough: .height(250)))
+                })
+                    
             }
             .onAppear {
                 vmProfie.loadImage(forKey: "imagePrilesKeySaved")
                 vmProfie.retrieveText()
+                if showImagePicker == false {
+                    showEdit = true
+                } else {
+                    showEdit = false
+                }
             }
         }
     }
@@ -66,6 +70,9 @@ extension ProfilesHomeView {
                         .clipShape(.rect(cornerRadius: 12))
                 }
             }
+//            .sheet(isPresented: $showImagePicker) {
+//                ImagePicker(sourceType: .photoLibrary, selectedImage: self.$image)
+//            }
             Button(action: {showImagePicker.toggle()}){
                 Image(systemName: "pencil")
                     .padding(10)
@@ -80,3 +87,4 @@ extension ProfilesHomeView {
     }
     
 }
+
