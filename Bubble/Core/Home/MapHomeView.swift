@@ -61,7 +61,7 @@ struct MapHomeView: View {
                         .stroke(.blue, lineWidth: 6)
                 }
             }
-            VStack {
+            VStack(alignment: .leading) {
                 
                 HStack {
                     TextField("Search for a lcoation", text: $searchText)
@@ -71,9 +71,8 @@ struct MapHomeView: View {
                         Image(systemName: "x.circle.fill")
                             .foregroundStyle(Color.them.ColorblackSwich)
                     }
-
                 }.padding(.horizontal)
-                    .frame(maxWidth:.infinity)
+                    .frame(maxWidth:300)
                     .frame(height: 50)
                     .background(Color.them.ColorBox)
                     .clipShape(.rect(cornerRadius: 12))
@@ -151,7 +150,7 @@ extension MapHomeView {
 
 extension CLLocationCoordinate2D {
     static var userLocation: CLLocationCoordinate2D {
-        return .init(latitude: 25.7682, longitude: -80.1959)
+        return .init(latitude: 56.843245, longitude: 60.650867)
     }
 }
 

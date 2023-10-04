@@ -15,7 +15,8 @@ struct EditProfilesView: View {
     
     var body: some View {
         ZStack {
-            FluidGradient(blobs: [vmProfie.averageColor.opacity(0.5),vmProfie.averageColor.opacity(0.5),vmProfie.averageColor.opacity(0.5)]).ignoresSafeArea(.all)
+            LinearGradient(colors: [vmProfie.averageColor,vmProfie.averageColor.opacity(0.2)], startPoint: .top, endPoint: .bottom)
+                .ignoresSafeArea()
                 .background(VisualEffect(style: .systemThickMaterial)).ignoresSafeArea(.all)
 
             ScrollView(showsIndicators: false){

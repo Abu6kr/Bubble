@@ -10,7 +10,7 @@ import SwiftUI
 struct ProfilesHomeView: View {
     
     @StateObject var vmProfie = ProfilesViewMolde()
-    @State private var showEdit: Bool = true
+    @State private var showEdit: Bool = false
     
     @State private var showImagePicker = false
     @State private var image = UIImage()
@@ -20,25 +20,23 @@ struct ProfilesHomeView: View {
             ZStack {
                 LinearGradient(colors: [vmProfie.averageColor,vmProfie.averageColor.opacity(0.2)], startPoint: .top, endPoint: .bottom)
                     .ignoresSafeArea()
-                VStack {
-                    imageSection
-                    Spacer()
+                ScrollView {
+                    VStack {
+                        
+                        ButtonEdit
+                        
+                        imageSection
+                        
+                        secionButtonEdit
+                     
+                    }
                 }
-                .sheet(isPresented: $showEdit, content: {
-                    EditProfilesView(vmProfie: vmProfie)
-                        .presentationDetents([.height(250), .medium])
-                        .presentationBackgroundInteraction(.enabled(upThrough: .height(250)))
-                })
+                .sheet(isPresented: $showEdit) {EditProfilesView(vmProfie: vmProfie)}
                     
             }
             .onAppear {
                 vmProfie.loadImage(forKey: "imagePrilesKeySaved")
                 vmProfie.retrieveText()
-                if showImagePicker == false {
-                    showEdit = true
-                } else {
-                    showEdit = false
-                }
             }
         }
     }
@@ -49,6 +47,8 @@ struct ProfilesHomeView: View {
 }
 
 
+
+
 extension ProfilesHomeView {
     
     private var imageSection: some View {
@@ -57,22 +57,26 @@ extension ProfilesHomeView {
                 if let image =  vmProfie.imageProfiles  {
                     Image(uiImage: image)
                         .resizable()
-                        .frame(height: 300)
+                        .scaledToFill()
+                        .frame(height: 180)
                         .frame(maxWidth: .infinity)
                         .background(Color.them.ColorBox)
-                        .clipShape(.rect(cornerRadius: 12))
+                        .clipShape(.circle)
+                        .padding(.horizontal)
                     
                 } else if vmProfie.imageProfiles == nil {
                     Image(systemName: "pencil")
-                        .frame(height: 300)
+                        .frame(height: 180)
                         .frame(maxWidth: .infinity)
                         .background(Color.them.ColorBox)
-                        .clipShape(.rect(cornerRadius: 12))
+                        .clipShape(.circle)
                 }
             }
-//            .sheet(isPresented: $showImagePicker) {
-//                ImagePicker(sourceType: .photoLibrary, selectedImage: self.$image)
-//            }
+        }
+    }
+    private var ButtonEdit: some View {
+        HStack {
+            Spacer()
             Button(action: {showImagePicker.toggle()}){
                 Image(systemName: "pencil")
                     .padding(10)
@@ -80,9 +84,41 @@ extension ProfilesHomeView {
                     .foregroundStyle(Color.them.ColorblackSwich)
                     .clipShape(.rect(cornerRadius: .infinity))
                     .padding()
-            }.sheet(isPresented: $showImagePicker) {
-                AvatarView()
             }
+        }
+        .sheet(isPresented: $showImagePicker) {AvatarView()}
+    }
+    
+    private var secionButtonEdit: some View {
+        VStack {
+            Text(vmProfie.userName)
+                .font(.system(size: 18,weight: .semibold))
+                .padding(.vertical,10)
+            HStack {
+                Button(action: {}, label: {
+                    Text("My Photo")
+                        .font(.system(size: 15,weight: .semibold))
+                        .foregroundStyle(Color.them.ColorblackSwich)
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 40)
+                        .background(Color.them.ColorBox)
+                        .clipShape(.rect(cornerRadius: 12))
+                })
+               
+                Spacer()
+                Button(action: {
+                    showEdit.toggle()
+                }, label: {
+                    Text("Edit Profiles")
+                        .font(.system(size: 15,weight: .semibold))
+                        .foregroundStyle(Color.them.ColorblackSwich)
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 40)
+                        .background(Color.them.ColorBox)
+                        .clipShape(.rect(cornerRadius: 12))
+                })
+             
+            }.padding(.all)
         }
     }
     
