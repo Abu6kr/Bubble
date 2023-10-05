@@ -18,6 +18,7 @@ struct ColorTheme {
     let ColorBox = Color("ColorBox")
     let ColorBlue = Color("ColorBlue")
     let ColorBlueDark = Color("ColorBlueDark")
+    let ColorOrange = Color("ColorOrange")
 }
 
 

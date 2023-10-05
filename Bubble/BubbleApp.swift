@@ -11,7 +11,7 @@ import SwiftUI
 struct BubbleApp: App {
     var body: some Scene {
         WindowGroup {
-            TabBarCutemsView()
+            AppTabBarView()
         }
     }
 }

@@ -21,6 +21,8 @@ struct MapHomeView: View {
     @State private var reute: MKRoute?
     @State private var rounDestion: MKMapItem?
     
+    @State private var showSearch: Bool = false
+    
     var body: some View {
         ZStack {
             Map(position: $camerPosition, selection: $mapSelection){
@@ -53,7 +55,6 @@ struct MapHomeView: View {
                         let placemark = items.placemark
                         Marker(placemark.name ?? "", coordinate: placemark.coordinate)
                     }
-                    
                 }
                 
                 if let reute {
@@ -61,25 +62,43 @@ struct MapHomeView: View {
                         .stroke(.blue, lineWidth: 6)
                 }
             }
-            VStack(alignment: .leading) {
-                
+            
+            VStack {
+                Spacer()
+                HStack {
+                    Spacer()
+                    Button {
+                        withAnimation(.easeInOut){
+                            showSearch.toggle()
+                        }
+                    } label: {
+                        Image(systemName: "magnifyingglass")
+                            .frame(width: 40, height: 40)
+                            .background(Color.them.ColorBox)
+                            .clipShape(.rect(cornerRadius: 12))
+                    }
+                }.padding(.horizontal)
                 HStack {
                     TextField("Search for a lcoation", text: $searchText)
+                        .font(.system(size: 15))
+                        .fontWeight(.regular)
                     Button {
                         searchText = ""
                     } label: {
                         Image(systemName: "x.circle.fill")
                             .foregroundStyle(Color.them.ColorblackSwich)
                     }
+                    
                 }.padding(.horizontal)
-                    .frame(maxWidth:300)
+                    .frame(maxWidth:.infinity)
                     .frame(height: 50)
                     .background(Color.them.ColorBox)
                     .clipShape(.rect(cornerRadius: 12))
-                    .padding()
+                    .padding(.horizontal)
+                    .opacity(showSearch ? 1 : 0)
                 
-             
             }
+            .padding(.bottom,70)
         }
         .onChange(of: getDitretion, { oldValue, newValue in
             if newValue {
@@ -95,8 +114,8 @@ struct MapHomeView: View {
         })
         .sheet(isPresented: $shoeDitels) {
             LocationDitelsView(mapSection: $mapSelection, show: $shoeDitels, getDitretion: $getDitretion)
-                .presentationDetents([.height(340)])
-                .presentationBackgroundInteraction(.enabled(upThrough: .height(340)))
+                .presentationDetents([.height(450)])
+                .presentationBackgroundInteraction(.enabled(upThrough: .height(450)))
                 .presentationCornerRadius(12)
         }
         .mapControls {
@@ -105,6 +124,7 @@ struct MapHomeView: View {
             MapPitchToggle()
           //MARK: userLocation
             MapUserLocationButton()
+               
         }
     }
 }
@@ -150,7 +170,8 @@ extension MapHomeView {
 
 extension CLLocationCoordinate2D {
     static var userLocation: CLLocationCoordinate2D {
-        return .init(latitude: 56.843245, longitude: 60.650867)
+        return .init(latitude: 25.7682, longitude: -80.1959)
+
     }
 }
 

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		C70E22312ACBE21400F7229A /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70E22302ACBE21400F7229A /* LaunchView.swift */; };
-		C71FC5E12AC97B5300C44193 /* TabBarCutemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71FC5E02AC97B5300C44193 /* TabBarCutemsView.swift */; };
 		C71FC5E32AC98EE700C44193 /* ProfilesHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71FC5E22AC98EE700C44193 /* ProfilesHomeView.swift */; };
 		C724CA3B2AC57D5700D31458 /* ButtonCutemsLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C724CA3A2AC57D5700D31458 /* ButtonCutemsLogin.swift */; };
 		C724CA3D2AC580FE00D31458 /* CornerRadiusStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C724CA3C2AC580FE00D31458 /* CornerRadiusStyle.swift */; };
@@ -20,6 +19,11 @@
 		C74DD70D2AC8048C003BD704 /* SignInGoogleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74DD70C2AC8048C003BD704 /* SignInGoogleHelper.swift */; };
 		C74DD70F2AC80494003BD704 /* SignInAppleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74DD70E2AC80494003BD704 /* SignInAppleHelper.swift */; };
 		C74DD7122AC80A66003BD704 /* MemojiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74DD7112AC80A66003BD704 /* MemojiView.swift */; };
+		C764E1852ACE90F6005CBB56 /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C764E1802ACE90F6005CBB56 /* TabBarItem.swift */; };
+		C764E1862ACE90F6005CBB56 /* CustomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C764E1812ACE90F6005CBB56 /* CustomTabBarView.swift */; };
+		C764E1872ACE90F6005CBB56 /* TabBarItemsPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C764E1822ACE90F6005CBB56 /* TabBarItemsPreferenceKey.swift */; };
+		C764E1882ACE90F6005CBB56 /* AppTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C764E1832ACE90F6005CBB56 /* AppTabBarView.swift */; };
+		C764E1892ACE90F6005CBB56 /* CustomTabBarContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C764E1842ACE90F6005CBB56 /* CustomTabBarContainerView.swift */; };
 		C77BE36B2ACA81C700A38A37 /* EditProfilesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77BE36A2ACA81C700A38A37 /* EditProfilesView.swift */; };
 		C78998B92ACC4BFE0087A067 /* LocationDitelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78998B82ACC4BFE0087A067 /* LocationDitelsView.swift */; };
 		C7A9E5752AC3F78600AC2CAF /* ContentMapViewMolde.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A9E5742AC3F78600AC2CAF /* ContentMapViewMolde.swift */; };
@@ -40,7 +44,6 @@
 
 /* Begin PBXFileReference section */
 		C70E22302ACBE21400F7229A /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
-		C71FC5E02AC97B5300C44193 /* TabBarCutemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCutemsView.swift; sourceTree = "<group>"; };
 		C71FC5E22AC98EE700C44193 /* ProfilesHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesHomeView.swift; sourceTree = "<group>"; };
 		C724CA3A2AC57D5700D31458 /* ButtonCutemsLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCutemsLogin.swift; sourceTree = "<group>"; };
 		C724CA3C2AC580FE00D31458 /* CornerRadiusStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadiusStyle.swift; sourceTree = "<group>"; };
@@ -52,6 +55,11 @@
 		C74DD70C2AC8048C003BD704 /* SignInGoogleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInGoogleHelper.swift; sourceTree = "<group>"; };
 		C74DD70E2AC80494003BD704 /* SignInAppleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInAppleHelper.swift; sourceTree = "<group>"; };
 		C74DD7112AC80A66003BD704 /* MemojiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemojiView.swift; sourceTree = "<group>"; };
+		C764E1802ACE90F6005CBB56 /* TabBarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
+		C764E1812ACE90F6005CBB56 /* CustomTabBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarView.swift; sourceTree = "<group>"; };
+		C764E1822ACE90F6005CBB56 /* TabBarItemsPreferenceKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarItemsPreferenceKey.swift; sourceTree = "<group>"; };
+		C764E1832ACE90F6005CBB56 /* AppTabBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTabBarView.swift; sourceTree = "<group>"; };
+		C764E1842ACE90F6005CBB56 /* CustomTabBarContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarContainerView.swift; sourceTree = "<group>"; };
 		C77BE36A2ACA81C700A38A37 /* EditProfilesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfilesView.swift; sourceTree = "<group>"; };
 		C78998B82ACC4BFE0087A067 /* LocationDitelsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDitelsView.swift; sourceTree = "<group>"; };
 		C7A9E5742AC3F78600AC2CAF /* ContentMapViewMolde.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentMapViewMolde.swift; sourceTree = "<group>"; };
@@ -85,7 +93,8 @@
 		C71FC5DF2AC97B3600C44193 /* Navigations */ = {
 			isa = PBXGroup;
 			children = (
-				C71FC5E02AC97B5300C44193 /* TabBarCutemsView.swift */,
+				C764E1832ACE90F6005CBB56 /* AppTabBarView.swift */,
+				C764E17F2ACE90F6005CBB56 /* CustomTabBar */,
 			);
 			path = Navigations;
 			sourceTree = "<group>";
@@ -113,6 +122,17 @@
 			children = (
 			);
 			path = Firestore;
+			sourceTree = "<group>";
+		};
+		C764E17F2ACE90F6005CBB56 /* CustomTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				C764E1802ACE90F6005CBB56 /* TabBarItem.swift */,
+				C764E1812ACE90F6005CBB56 /* CustomTabBarView.swift */,
+				C764E1822ACE90F6005CBB56 /* TabBarItemsPreferenceKey.swift */,
+				C764E1842ACE90F6005CBB56 /* CustomTabBarContainerView.swift */,
+			);
+			path = CustomTabBar;
 			sourceTree = "<group>";
 		};
 		C7A9E5762AC3FAA200AC2CAF /* Profiles */ = {
@@ -309,15 +329,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C764E1862ACE90F6005CBB56 /* CustomTabBarView.swift in Sources */,
 				C7F16E522AC2E3A900EEA6F6 /* FluidGradientColor.swift in Sources */,
-				C71FC5E12AC97B5300C44193 /* TabBarCutemsView.swift in Sources */,
 				C74DD7072AC7EDBC003BD704 /* PopupCutemsView.swift in Sources */,
 				C74DD70B2AC80483003BD704 /* AuthenticationManager.swift in Sources */,
 				C77BE36B2ACA81C700A38A37 /* EditProfilesView.swift in Sources */,
 				C7A9E5812AC4162600AC2CAF /* SignIn.swift in Sources */,
 				C724CA3F2AC5830300D31458 /* SignInMethodGoogleView.swift in Sources */,
 				C7F16E502AC2DD4E00EEA6F6 /* HeaderUser.swift in Sources */,
+				C764E1872ACE90F6005CBB56 /* TabBarItemsPreferenceKey.swift in Sources */,
 				C74DD70F2AC80494003BD704 /* SignInAppleHelper.swift in Sources */,
+				C764E1882ACE90F6005CBB56 /* AppTabBarView.swift in Sources */,
 				C70E22312ACBE21400F7229A /* LaunchView.swift in Sources */,
 				C74DD7052AC7EB21003BD704 /* ButtonDismiss.swift in Sources */,
 				C7A9E5782AC3FAB300AC2CAF /* Avatar.swift in Sources */,
@@ -327,6 +349,7 @@
 				C724CA3D2AC580FE00D31458 /* CornerRadiusStyle.swift in Sources */,
 				C724CA3B2AC57D5700D31458 /* ButtonCutemsLogin.swift in Sources */,
 				C7A9E5752AC3F78600AC2CAF /* ContentMapViewMolde.swift in Sources */,
+				C764E1852ACE90F6005CBB56 /* TabBarItem.swift in Sources */,
 				C724CA412AC58B9700D31458 /* SignInMethodGoogle.swift in Sources */,
 				C7DE6E292ACC25E90012A8FD /* BottomSheetView.swift in Sources */,
 				C78998B92ACC4BFE0087A067 /* LocationDitelsView.swift in Sources */,
@@ -335,6 +358,7 @@
 				C74DD7122AC80A66003BD704 /* MemojiView.swift in Sources */,
 				C7A9E57C2AC3FD8100AC2CAF /* Color.swift in Sources */,
 				C7DE6E2B2ACC2AB30012A8FD /* MapHomeView.swift in Sources */,
+				C764E1892ACE90F6005CBB56 /* CustomTabBarContainerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
