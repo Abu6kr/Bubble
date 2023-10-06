@@ -9,7 +9,7 @@ import SwiftUI
 import MapKit
 
 struct MapHomeView: View {
-//    @StateObject private var vmMap = ContentMapViewMolde()
+    @StateObject var vmProfile =  ProfilesViewMolde()
     @State private var camerPosition: MapCameraPosition = .region(.userRegion)
     @State private var searchText = ""
     @State private var resuts = [MKMapItem]()
@@ -22,6 +22,7 @@ struct MapHomeView: View {
     @State private var rounDestion: MKMapItem?
     
     @State private var showSearch: Bool = false
+    @FocusState private var keyboardFocused: Bool
     
     var body: some View {
         ZStack {
@@ -33,15 +34,31 @@ struct MapHomeView: View {
                 
                 Annotation("My Location", coordinate: .userLocation){
                     ZStack {
-                        Circle()
-                            .frame(width: 32,height: 32)
-                            .foregroundStyle(Color.blue.opacity(0.25))
-                        Circle()
-                            .frame(width: 20,height: 20)
-                            .foregroundStyle(Color.white)
-                        Circle()
-                            .frame(width: 12,height: 12)
-                            .foregroundStyle(Color.blue)
+                        Image("Avaters")
+                            .resizable()
+                           .scaledToFill()
+                           .frame(width: 50, height: 50)
+                           .padding(10)
+                           .background(Color.orange)
+                           .clipShape(Circle())
+//                        if let image =  vmProfile.imageProfiles  {
+//                            Image(uiImage: image)
+//                                .resizable()
+//                                .scaledToFill()
+//                                .frame(width: 100,height: 100)
+//                                .background(VisualEffect(style: .systemThickMaterial))
+//                                .clipShape(.rect(cornerRadius: 30))
+//                                .shadow(color: Color.them.ColorblackSwich.opacity(0.05), radius: 30)
+//                        }
+//                        Circle()
+//                            .frame(width: 32,height: 32)
+//                            .foregroundStyle(Color.blue.opacity(0.25))
+//                        Circle()
+//                            .frame(width: 20,height: 20)
+//                            .foregroundStyle(Color.white)
+//                        Circle()
+//                            .frame(width: 12,height: 12)
+//                            .foregroundStyle(Color.blue)
                     }
                 }
                 
@@ -62,50 +79,17 @@ struct MapHomeView: View {
                         .stroke(.blue, lineWidth: 6)
                 }
             }
-            
-            VStack {
-                Spacer()
-                HStack {
-                    Spacer()
-                    Button {
-                        withAnimation(.easeInOut){
-                            showSearch.toggle()
-                        }
-                    } label: {
-                        Image(systemName: "magnifyingglass")
-                            .frame(width: 40, height: 40)
-                            .background(Color.them.ColorBox)
-                            .clipShape(.rect(cornerRadius: 12))
-                    }
-                }.padding(.horizontal)
-                HStack {
-                    TextField("Search for a lcoation", text: $searchText)
-                        .font(.system(size: 15))
-                        .fontWeight(.regular)
-                    Button {
-                        searchText = ""
-                    } label: {
-                        Image(systemName: "x.circle.fill")
-                            .foregroundStyle(Color.them.ColorblackSwich)
-                    }
-                    
-                }.padding(.horizontal)
-                    .frame(maxWidth:.infinity)
-                    .frame(height: 50)
-                    .background(Color.them.ColorBox)
-                    .clipShape(.rect(cornerRadius: 12))
-                    .padding(.horizontal)
-                    .opacity(showSearch ? 1 : 0)
-                
-            }
-            .padding(.bottom,70)
+                searchButtonSection
+                .overlay {searchBarSection}
         }
         .onChange(of: getDitretion, { oldValue, newValue in
             if newValue {
                 fatchRoute()
             }
         })
-//        .onAppear {vmMap.CheckIfLocationSaervesEnbled()}
+        .onAppear {
+            vmProfile.loadImage(forKey: "imagePrilesKeySaved")
+        }
         .onSubmit(of: .text) {
             Task { await searchPlace() }
         }
@@ -124,7 +108,6 @@ struct MapHomeView: View {
             MapPitchToggle()
           //MARK: userLocation
             MapUserLocationButton()
-               
         }
     }
 }
@@ -181,4 +164,51 @@ extension MKCoordinateRegion {
                      latitudinalMeters: 1000,
                      longitudinalMeters: 1000)
     }
+}
+
+extension MapHomeView {
+    private var searchButtonSection: some View {
+        VStack {
+            Spacer()
+            HStack {
+                Spacer()
+                Button {
+                    withAnimation(.easeInOut){
+                        showSearch.toggle()
+                        keyboardFocused.toggle()
+                    }
+                } label: {
+                    Image(systemName: "magnifyingglass")
+                        .frame(width: 40, height: 40)
+                        .background(Color.them.ColorBox)
+                        .clipShape(.rect(cornerRadius: 12))
+                }
+            }.padding(.horizontal)
+                .padding(.bottom,80)
+        }
+    }
+    private var searchBarSection: some View {
+        HStack {
+            TextField("Search for a lcoation", text: $searchText)
+                .focused($keyboardFocused)
+                .font(.system(size: 15))
+                .fontWeight(.regular)
+            Button {
+                searchText = ""
+            } label: {
+                Image(systemName: "x.circle.fill")
+                    .foregroundStyle(Color.them.ColorblackSwich)
+            }
+            
+        }.padding(.horizontal)
+            .frame(maxWidth:.infinity)
+            .frame(height: 50)
+            .background(Color.them.ColorBox)
+            .clipShape(.rect(cornerRadius: 12))
+            .padding(.horizontal,60)
+            .padding(.top,60)
+            .opacity(showSearch ? 1 : 0)
+            .frame(maxHeight: .infinity,alignment: .top)
+    }
+
 }
