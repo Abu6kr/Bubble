@@ -99,7 +99,7 @@ extension CustomTabBarView {
             .frame(height: 70)
             .background(Color.them.ColorBox)
             .cornerRadius(20)
-        .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 5)
+            .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 5)
         }.frame(maxHeight: .infinity,alignment: .bottom)
             .ignoresSafeArea()
 //        .padding(.horizontal)

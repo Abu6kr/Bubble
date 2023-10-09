@@ -11,7 +11,9 @@ import MapKit
 struct MapHomeView: View {
     @StateObject var vmProfile =  ProfilesViewMolde()
     @State private var camerPosition: MapCameraPosition = .region(.userRegion)
+    
     @State private var searchText = ""
+    
     @State private var resuts = [MKMapItem]()
     @State private var mapSelection: MKMapItem?
     @State private var shoeDitels: Bool = false
@@ -24,41 +26,44 @@ struct MapHomeView: View {
     @State private var showSearch: Bool = false
     @FocusState private var keyboardFocused: Bool
     
+    
     var body: some View {
         ZStack {
             Map(position: $camerPosition, selection: $mapSelection){
-                //            Marker("My Location",systemImage: "figure.stand",coordinate: .userLocation)
-                //                .tint(.red)
                 
-                //            UserAnnotation()
-                
-                Annotation("My Location", coordinate: .userLocation){
+                Annotation("Abo", coordinate: .userLocation){
                     ZStack {
-                        Image("Avaters")
-                            .resizable()
-                           .scaledToFill()
-                           .frame(width: 50, height: 50)
-                           .padding(10)
-                           .background(Color.orange)
-                           .clipShape(Circle())
-//                        if let image =  vmProfile.imageProfiles  {
-//                            Image(uiImage: image)
-//                                .resizable()
-//                                .scaledToFill()
-//                                .frame(width: 100,height: 100)
-//                                .background(VisualEffect(style: .systemThickMaterial))
-//                                .clipShape(.rect(cornerRadius: 30))
-//                                .shadow(color: Color.them.ColorblackSwich.opacity(0.05), radius: 30)
-//                        }
-//                        Circle()
-//                            .frame(width: 32,height: 32)
-//                            .foregroundStyle(Color.blue.opacity(0.25))
-//                        Circle()
-//                            .frame(width: 20,height: 20)
-//                            .foregroundStyle(Color.white)
-//                        Circle()
-//                            .frame(width: 12,height: 12)
-//                            .foregroundStyle(Color.blue)
+                        Button {
+                            
+                        } label: {
+                            ZStack(alignment: .top) {
+                                WhatDoView()
+                                Image("Avatar")
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 50, height: 50)
+                                    .padding(10)
+                                    .background(Color.orange)
+                                    .clipShape(Circle())
+                           
+                            }
+                        }
+                    }
+                }
+                Annotation("Chara", coordinate: .userLocation2){
+                    ZStack {
+                        Button {
+                            
+                        } label: {
+                            
+                            Image("Avatar2")
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 50, height: 50)
+                                .padding(10)
+                                .background(Color.green)
+                                .clipShape(Circle())
+                        }
                     }
                 }
                 
@@ -79,7 +84,7 @@ struct MapHomeView: View {
                         .stroke(.blue, lineWidth: 6)
                 }
             }
-                searchButtonSection
+            searchButtonSection
                 .overlay {searchBarSection}
         }
         .onChange(of: getDitretion, { oldValue, newValue in
@@ -89,13 +94,12 @@ struct MapHomeView: View {
         })
         .onAppear {
             vmProfile.loadImage(forKey: "imagePrilesKeySaved")
+            withAnimation(.easeInOut){DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
+                    if searchText.isEmpty {showSearch = false}}}
         }
-        .onSubmit(of: .text) {
-            Task { await searchPlace() }
-        }
+        .onSubmit(of: .text) {Task { await searchPlace()}}
         .onChange(of: mapSelection, { oldValue, newValue in
-            shoeDitels = newValue !=  nil
-        })
+            shoeDitels = newValue !=  nil})
         .sheet(isPresented: $shoeDitels) {
             LocationDitelsView(mapSection: $mapSelection, show: $shoeDitels, getDitretion: $getDitretion)
                 .presentationDetents([.height(450)])
@@ -106,8 +110,10 @@ struct MapHomeView: View {
             MapCompass()
             //MARK: 3D
             MapPitchToggle()
-          //MARK: userLocation
+            //MARK: userLocation
             MapUserLocationButton()
+            
+//            MapScaleView()
         }
     }
 }
@@ -158,6 +164,12 @@ extension CLLocationCoordinate2D {
     }
 }
 
+extension CLLocationCoordinate2D {
+    static var userLocation2: CLLocationCoordinate2D {
+        return .init(latitude: 25.8682, longitude: -80.1959)
+
+    }
+}
 extension MKCoordinateRegion {
     static var userRegion: MKCoordinateRegion {
         return .init(center: .userLocation,

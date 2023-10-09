@@ -10,9 +10,12 @@ import SwiftUI
 
 class ProfilesViewMolde: ObservableObject {
     
-    let colums:[GridItem] = [GridItem(.flexible()),GridItem(.flexible()),]
+    var avaer: [String] = ["Avatar","Avatar2","Avatar3","Avatar4","Avatar5","Avatar6","Avatar7","Avatar8","Avatar9","Avatar10"]
     
+    let colums:[GridItem] = [GridItem(.flexible()),GridItem(.flexible()),GridItem(.flexible()),]
     
+    @Published var SectionImages: sectionImage = .images
+
     @Published var nameUser: String = ""
     @Published var userName: String = ""
     
@@ -71,10 +74,22 @@ class ProfilesViewMolde: ObservableObject {
             print("Unable to load image data from disk", error)
         }
     }
+    
+    func iterateOverAuthors(authors: [String]) -> String? {
+        for author in avaer {
+                  return author
+        }
+            return nil
+    }
 }
 
 
 extension NSNotification.Name {
     static let saveVenueProfileImage = Notification.Name("imagePrilesKeySaved")
 //    static let saveVenueBackgroundImage = Notification.Name("saveVenueBackgroundImage")
+}
+
+enum sectionImage {
+    case images
+    case avater
 }

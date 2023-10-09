@@ -19,7 +19,7 @@ struct AppTabBarView: View {
     
     var body: some View {
         CustomTabBarContainerView(selection: $tabSelection) {
-            MapHomeView()
+          Text("messages")
                 .tabBarItem(tab: .messages, selection: $tabSelection)
             
             MapHomeView()
@@ -60,5 +60,4 @@ extension AppTabBarView {
                 }
         }
     }
-    
 }

@@ -1,14 +1,13 @@
 //
-//  Avatar.swift
+//  ImagesSectionView.swift
 //  Bubble
 //
-//  Created by Abobakr Al Zain  on 27.09.2023.
+//  Created by Abobakr Al Zain  on 09.10.2023.
 //
 
 import SwiftUI
 
-struct AvatarView: View {
-    
+struct ImagesSectionView: View {
     @StateObject var vmProfile = ProfilesViewMolde()
     
     @State private var showImagePicker = false
@@ -45,6 +44,7 @@ struct AvatarView: View {
                             Image(systemName: "pencil")
                                 .resizable()
                                 .frame(width: 25,height: 25)
+                                .foregroundStyle(Color.them.ColorblackSwich)
                                 .frame(maxWidth: .infinity,maxHeight: 250)
                                 .background(VisualEffect(style: .systemThickMaterial))
                                 .clipShape(.rect(cornerRadius: 30))
@@ -52,39 +52,7 @@ struct AvatarView: View {
                                 .padding(.horizontal,16)
                         }
                         
-                    }
-                    
-                    VStack(spacing: 20) {
-                        VStack(alignment: .leading) {
-                            Text("nmae")
-                            HStack {
-                                TextField("name", text: $vmProfile.nameUser)
-                                    .font(.headline)
-                            }
-                        }.padding()
-                            .frame(maxWidth: .infinity,maxHeight: 100)
-                            .background(Color.them.ColorBox)
-                            .cornerRadius(22, corners: [.topLeft, .topRight])
-                            .cornerRadius(8, corners: [.bottomRight, .bottomLeft])
-                            .padding(.horizontal)
-                        Divider()
-                        
-                        VStack(alignment: .leading) {
-                            Text("user name")
-                            HStack {
-                                TextField("user name", text: $vmProfile.userName)
-                                    .font(.headline)
-                                
-                            }
-                        }.padding()
-                            .frame(maxWidth: .infinity,maxHeight: 100)
-                            .background(Color.them.ColorBox)
-                            .cornerRadius(22, corners: [.topLeft, .topRight])
-                            .cornerRadius(8, corners: [.bottomRight, .bottomLeft])
-                            .padding(.horizontal)
-                        
-                    }
-                    .padding(.top)
+                    }.padding(.top,30)
                     
                     Button(action: {
                         vmProfile.saveImage(imageName: "imagePrilesKeySaved", image: image, key: "imagePrilesKeySaved")
@@ -106,10 +74,9 @@ struct AvatarView: View {
                 }
             }
         }
-        
     }
 }
 
 #Preview {
-    AvatarView()
+    ImagesSectionView()
 }

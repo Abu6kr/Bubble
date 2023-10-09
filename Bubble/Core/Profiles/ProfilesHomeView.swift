@@ -10,9 +10,10 @@ import SwiftUI
 struct ProfilesHomeView: View {
     
     @StateObject var vmProfie = ProfilesViewMolde()
-    @State private var showEdit: Bool = false
     
-    @State private var showImagePicker = false
+    @State private var showEdit: Bool = false
+    @State private var showInfo: Bool = false
+    
     @State private var image = UIImage()
     
     var body: some View {
@@ -31,7 +32,7 @@ struct ProfilesHomeView: View {
                      
                     }
                 }
-                .sheet(isPresented: $showEdit) {EditProfilesView(vmProfie: vmProfie)}
+                .sheet(isPresented: $showInfo) {InfoView(vmProfie: vmProfie)}
                     
             }
             .onAppear {
@@ -77,7 +78,7 @@ extension ProfilesHomeView {
     private var ButtonEdit: some View {
         HStack {
             Spacer()
-            Button(action: {showImagePicker.toggle()}){
+            Button(action: {showEdit.toggle()}){
                 Image(systemName: "pencil")
                     .padding(10)
                     .background(Color.them.ColorBox)
@@ -86,7 +87,7 @@ extension ProfilesHomeView {
                     .padding()
             }
         }
-        .sheet(isPresented: $showImagePicker) {AvatarView()}
+        .sheet(isPresented: $showEdit) {EditProfilesView()}
     }
     
     private var secionButtonEdit: some View {
@@ -107,9 +108,9 @@ extension ProfilesHomeView {
                
                 Spacer()
                 Button(action: {
-                    showEdit.toggle()
+                    showInfo.toggle()
                 }, label: {
-                    Text("Edit Profiles")
+                    Text("Info")
                         .font(.system(size: 15,weight: .semibold))
                         .foregroundStyle(Color.them.ColorblackSwich)
                         .frame(maxWidth: .infinity)
