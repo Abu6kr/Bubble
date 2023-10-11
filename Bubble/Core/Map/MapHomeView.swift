@@ -55,7 +55,6 @@ struct MapHomeView: View {
                         Button {
                             
                         } label: {
-                            
                             Image("Avatar2")
                                 .resizable()
                                 .scaledToFill()
@@ -79,19 +78,15 @@ struct MapHomeView: View {
                     }
                 }
                 
-                if let reute {
-                    MapPolyline(reute.polyline)
-                        .stroke(.blue, lineWidth: 6)
-                }
+                if let reute {MapPolyline(reute.polyline).stroke(.blue, lineWidth: 6)}
             }
             searchButtonSection
-                .overlay {searchBarSection}
+            searchBarSection
+
         }
         .onChange(of: getDitretion, { oldValue, newValue in
-            if newValue {
-                fatchRoute()
-            }
-        })
+            if newValue {fatchRoute()}})
+        
         .onAppear {
             vmProfile.loadImage(forKey: "imagePrilesKeySaved")
             withAnimation(.easeInOut){DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
@@ -181,13 +176,14 @@ extension MKCoordinateRegion {
 extension MapHomeView {
     private var searchButtonSection: some View {
         VStack {
-            Spacer()
             HStack {
                 Spacer()
                 Button {
                     withAnimation(.easeInOut){
                         showSearch.toggle()
-                        keyboardFocused.toggle()
+                        if showSearch == true {
+                            keyboardFocused.toggle()
+                        }
                     }
                 } label: {
                     Image(systemName: "magnifyingglass")

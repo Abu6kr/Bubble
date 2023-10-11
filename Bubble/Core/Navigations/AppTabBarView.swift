@@ -19,14 +19,16 @@ struct AppTabBarView: View {
     
     var body: some View {
         CustomTabBarContainerView(selection: $tabSelection) {
-          Text("messages")
+            MassageHomeView()
                 .tabBarItem(tab: .messages, selection: $tabSelection)
             
             MapHomeView()
                 .tabBarItem(tab: .map, selection: $tabSelection)
+                .offset(y: 40)
 
             ProfilesHomeView()
                 .tabBarItem(tab: .profile, selection: $tabSelection)
+            
         }
         .ignoresSafeArea(.keyboard, edges: .bottom)
     }
