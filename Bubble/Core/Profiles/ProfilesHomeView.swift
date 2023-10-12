@@ -7,6 +7,46 @@
 
 import SwiftUI
 
+@MainActor
+final class SettingsViewMode: ObservableObject {
+    
+    @Published var autProfiers: [AuthProviderOption] = []
+    
+    func loadAuthProvedr() {
+        if let proveders = try? AuthenticationManger.shered.getProviders() {
+            autProfiers = proveders
+        }
+    }
+    
+    func logOut() throws {
+      try AuthenticationManger.shered.sigOut()
+    }
+    
+    func delitesAccount() async throws {
+        try await AuthenticationManger.shered.delete()
+    }
+   
+    
+    func resstPaswored() async throws {
+        let autUser = try AuthenticationManger.shered.getAuthenticationUser()
+        
+        guard let email = autUser.email else {
+            throw URLError(.fileDoesNotExist)
+        }
+        try await AuthenticationManger.shered.reestPaswored(email: email)
+    }
+    
+    func updateEmail() async throws {
+        let email = "hello1@testing.com"
+        try await AuthenticationManger.shered.updateemail(email: email)
+    }
+    
+    func updatePasswored() async throws {
+        let paswored = "1234567"
+        try await AuthenticationManger.shered.updatePaswwored(password: paswored)
+    }
+    
+}
 struct ProfilesHomeView: View {
     
     @StateObject var vmProfie = ProfilesViewMolde()
@@ -15,7 +55,9 @@ struct ProfilesHomeView: View {
     @State private var showInfo: Bool = false
     
     @State private var image = UIImage()
-    
+    @StateObject private var viewMolde = SettingsViewMode()
+    @Binding var showSingView: Bool
+
     var body: some View {
         NavigationStack {
             ZStack {
@@ -29,7 +71,19 @@ struct ProfilesHomeView: View {
                         imageSection
                         
                         secionButtonEdit
-                     
+                        Button(action: {
+                            Task {
+                                do {
+                                    try viewMolde.logOut()
+                                    showSingView = true
+                                } catch {
+                                    print(error)
+                                }
+                            }
+                        }, label: {
+                            Text("Button")
+                        })
+                        
                     }
                 }
                 .sheet(isPresented: $showInfo) {InfoView(vmProfie: vmProfie)}
@@ -44,7 +98,7 @@ struct ProfilesHomeView: View {
 }
 
 #Preview {
-    ProfilesHomeView()
+    ProfilesHomeView(showSingView: .constant(false))
 }
 
 

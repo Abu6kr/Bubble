@@ -16,8 +16,10 @@ struct SignIn: View {
     @State private var showPassword = false
     @State private var showSingWitheGoogle: Bool = false
     @State private var createAccount: Bool = false
+    @Binding var showSingInView: Bool
 
-    
+    @StateObject  var viewMolde = SigeInEmailViewMode()
+
     var body: some View {
         ZStack {
             FluidGradientViewColor()
@@ -32,14 +34,24 @@ struct SignIn: View {
                 Spacer()
                 
                 VStack(alignment: .center, spacing: 16) {
-                    Button(action: {}){
+                    Button(action: {
+                        Task {
+                            do {
+                                try await viewMolde.signIn()
+                                showSingInView = false
+                                return
+                            } catch {
+                                print(error)
+                            }
+                        }
+                    }){
                         ButtonCutemsLogin(title: "Sign in now", background: Color.them.ColorBlue, foregroundStyle: Color.white)
                     }
                     HStack(spacing: 5) {
                         Button(action: {self.createAccount.toggle()}){
                             ButtonCutemsLogin(title: "Create Account", background: Color.clear, foregroundStyle: Color.them.ColorblackSwich)
                         }.fullScreenCover(isPresented: $createAccount, content: {
-                          CreateAccountView()
+                            CreateAccountView(showSingInView: $createAccount)
                         })
                         Button(action: {self.showSingWitheGoogle.toggle()}) {
                             ButtonCutemsLogin(title: "Select Method", background: Color.clear, foregroundStyle: Color.them.ColorblackSwich)
@@ -56,7 +68,7 @@ struct SignIn: View {
 }
 
 #Preview {
-    SignIn()
+    SignIn(showSingInView: .constant(false))
 }
 
 

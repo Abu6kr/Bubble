@@ -9,16 +9,9 @@ import SwiftUI
 import Firebase
 
 struct CreateAccountView: View {
-    @State var isLoginMode = false
-    @State var email = ""
-    @State var password = ""
-    
+    @StateObject  var viewMolde = SigeInEmailViewMode()
     @State private var showPassword = false
-
-    init() {
-        FirebaseApp.configure()
-    }
-    
+    @Binding var showSingInView: Bool
     var body: some View {
         ZStack {
             FluidGradientViewColor()
@@ -31,38 +24,30 @@ struct CreateAccountView: View {
                 SignInSectionTextFiled
                 
                 Spacer()
-                Text(self.loginStatusMessage)
-                    .foregroundColor(.red)
+                
                 VStack(alignment: .center, spacing: 16) {
-                    Button(action: {createNewAccount()}){
+                    Button(action: {
+                        Task {
+                            do {
+                                try await viewMolde.signUp()
+                                showSingInView = false
+                                return
+                            } catch {
+                                print(error)
+                            }                         
+                        }
+                    }){
                         ButtonCutemsLogin(title: "Create Account", background: Color.them.ColorBlue, foregroundStyle: Color.white)
                     }
                 }.padding(.init(top: 56, leading: 0, bottom: 48, trailing: 0))
             }
         }
     }
-    
 
-        
-        @State var loginStatusMessage = ""
-        
-        private func createNewAccount() {
-            FirebaseManager.shared.auth.createUser(withEmail: email, password: password) { result, err in
-                if let err = err {
-                    print("Failed to create user:", err)
-                    self.loginStatusMessage = "Failed to create user: \(err)"
-                    return
-                }
-                
-                print("Successfully created user: \(result?.user.uid ?? "")")
-                
-                self.loginStatusMessage = "Successfully created user: \(result?.user.uid ?? "")"
-            }
-        }
 }
 
 #Preview {
-    CreateAccountView()
+    CreateAccountView(showSingInView: .constant(false))
 }
 
 extension CreateAccountView {
@@ -84,7 +69,7 @@ extension CreateAccountView {
             VStack(alignment: .leading) {
                 Text("Email")
                 HStack {
-                    TextField("Email", text: $email)
+                    TextField("Email", text: $viewMolde.email)
                         .font(.headline)
                     Image(systemName: "envelope")
                         .foregroundStyle(Color.them.ColorblackSwich)
@@ -102,11 +87,11 @@ extension CreateAccountView {
                 Text("Password")
                 HStack {
                     if !showPassword {
-                        SecureField("Password", text: $password)
+                        SecureField("Password", text: $viewMolde.password)
                             .font(.headline)
                             .keyboardType(.decimalPad)
                     } else {
-                        TextField("Password", text: $password)
+                        TextField("Password", text: $viewMolde.password)
                             .font(.headline)
                             .keyboardType(.decimalPad)
                     }
@@ -128,18 +113,29 @@ extension CreateAccountView {
     
 }
 
-class FirebaseManager: NSObject {
+
+
+import Foundation
+
+final class SigeInEmailViewMode: ObservableObject {
+    @Published var email = ""
+    @Published var password = ""
     
-    let auth: Auth
     
-    static let shared = FirebaseManager()
-    
-    override init() {
-        FirebaseApp.configure()
-        
-        self.auth = Auth.auth()
-        
-        super.init()
+    func signUp() async throws {
+        guard !email.isEmpty,!password.isEmpty else {
+            print("No emill or passwored foned")
+            return
+        }
+        let authDataeReutts = try await AuthenticationManger.shered.creatUser(email: email, password: password)
+        try await UserManger.shered.createNewUser(auth: authDataeReutts)
     }
     
+    func signIn() async throws {
+        guard !email.isEmpty,!password.isEmpty else {
+            print("No emill or passwored foned")
+            return
+        }
+        try await AuthenticationManger.shered.signInUser(email: email, password: password)
+    }
 }

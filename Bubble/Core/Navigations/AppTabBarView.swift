@@ -13,6 +13,7 @@ import SwiftUI
 // MatchedGeometryEffect
 
 struct AppTabBarView: View {
+    @State private var showSngiView: Bool = false
     
     @State private var selection: String = "home"
     @State private var tabSelection: TabBarItem = .map
@@ -26,11 +27,18 @@ struct AppTabBarView: View {
                 .tabBarItem(tab: .map, selection: $tabSelection)
                 .offset(y: 40)
 
-            ProfilesHomeView()
+            ProfilesHomeView(showSingView: $showSngiView)
                 .tabBarItem(tab: .profile, selection: $tabSelection)
             
         }
         .ignoresSafeArea(.keyboard, edges: .bottom)
+        .onAppear {
+            let autUser = try? AuthenticationManger.shered.getAuthenticationUser()
+            self.showSngiView = autUser == nil ? true : false
+        }
+        .fullScreenCover(isPresented: $showSngiView) {
+            SignIn(showSingInView: $showSngiView)
+        }
     }
 }
 
