@@ -1,22 +1,23 @@
 //
-//  SignIn.swift
+//  CreateAccountView.swift
 //  Bubble
 //
-//  Created by Abobakr Al Zain  on 27.09.2023.
+//  Created by Abobakr Al Zain  on 12.10.2023.
 //
 
 import SwiftUI
+import Firebase
 
-struct SignIn: View {
-    
-     @State var isLoginMode = false
-     @State var email = ""
-     @State var password = ""
+struct CreateAccountView: View {
+    @State var isLoginMode = false
+    @State var email = ""
+    @State var password = ""
     
     @State private var showPassword = false
-    @State private var showSingWitheGoogle: Bool = false
-    @State private var createAccount: Bool = false
 
+    init() {
+        FirebaseApp.configure()
+    }
     
     var body: some View {
         ZStack {
@@ -30,44 +31,41 @@ struct SignIn: View {
                 SignInSectionTextFiled
                 
                 Spacer()
-                
+                Text(self.loginStatusMessage)
+                    .foregroundColor(.red)
                 VStack(alignment: .center, spacing: 16) {
-                    Button(action: {}){
-                        ButtonCutemsLogin(title: "Sign in now", background: Color.them.ColorBlue, foregroundStyle: Color.white)
-                    }
-                    HStack(spacing: 5) {
-                        Button(action: {self.createAccount.toggle()}){
-                            ButtonCutemsLogin(title: "Create Account", background: Color.clear, foregroundStyle: Color.them.ColorblackSwich)
-                        }.fullScreenCover(isPresented: $createAccount, content: {
-                          CreateAccountView()
-                        })
-                        Button(action: {self.showSingWitheGoogle.toggle()}) {
-                            ButtonCutemsLogin(title: "Select Method", background: Color.clear, foregroundStyle: Color.them.ColorblackSwich)
-                        }
-
+                    Button(action: {createNewAccount()}){
+                        ButtonCutemsLogin(title: "Create Account", background: Color.them.ColorBlue, foregroundStyle: Color.white)
                     }
                 }.padding(.init(top: 56, leading: 0, bottom: 48, trailing: 0))
-                    .sheet(isPresented: $showSingWitheGoogle){
-                        SignInMethodGoogleView().presentationDetents([.fraction(0.9),.medium])
-                    }
             }
         }
     }
+    
+
+        
+        @State var loginStatusMessage = ""
+        
+        private func createNewAccount() {
+            FirebaseManager.shared.auth.createUser(withEmail: email, password: password) { result, err in
+                if let err = err {
+                    print("Failed to create user:", err)
+                    self.loginStatusMessage = "Failed to create user: \(err)"
+                    return
+                }
+                
+                print("Successfully created user: \(result?.user.uid ?? "")")
+                
+                self.loginStatusMessage = "Successfully created user: \(result?.user.uid ?? "")"
+            }
+        }
 }
 
 #Preview {
-    SignIn()
+    CreateAccountView()
 }
 
-
-
-
-
-
-
-
-
-extension SignIn {
+extension CreateAccountView {
     
     private var titleWellcome: some View {
         VStack(alignment: .center,spacing: 10){
@@ -130,5 +128,18 @@ extension SignIn {
     
 }
 
-
-
+class FirebaseManager: NSObject {
+    
+    let auth: Auth
+    
+    static let shared = FirebaseManager()
+    
+    override init() {
+        FirebaseApp.configure()
+        
+        self.auth = Auth.auth()
+        
+        super.init()
+    }
+    
+}

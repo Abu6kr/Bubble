@@ -12,7 +12,7 @@ struct ListFrindesChat: View {
         List {
             ForEach(0..<5){ items in
                 NavigationLink {
-                    
+                    ChatView()
                 } label: {
                     HStack {
                         Circle()
@@ -28,14 +28,14 @@ struct ListFrindesChat: View {
                     }
                 }
             }
-            .onDelete(perform: { indexSet in
-                
-            })
+            .onDelete(perform: { indexSet in })
         }.listStyle(.plain)
-        
+        .navigationBarBackButtonHidden(true)
     }
 }
 
 #Preview {
-    ListFrindesChat()
+    NavigationStack {
+        ListFrindesChat()
+    }
 }

@@ -10,6 +10,7 @@ import SwiftUI
 struct AvatersView: View {
     @ObservedObject var vmProfie = ProfilesViewMolde()
     @Environment(\.dismiss) var  dismiss
+    
  
         var body: some View {
         ZStack {
