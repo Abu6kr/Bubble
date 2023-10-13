@@ -37,7 +37,7 @@ struct AppTabBarView: View {
             self.showSngiView = autUser == nil ? true : false
         }
         .fullScreenCover(isPresented: $showSngiView) {
-            SignIn(showSingInView: $showSngiView)
+            RegisterView(showSingInView: $showSngiView)
         }
     }
 }

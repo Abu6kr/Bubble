@@ -15,7 +15,7 @@ struct SignIn: View {
     
     @State private var showPassword = false
     @State private var showSingWitheGoogle: Bool = false
-    @State private var createAccount: Bool = false
+    @Binding  var createAccount: Bool
     @Binding var showSingInView: Bool
 
     @StateObject  var viewMolde = SigeInEmailViewMode()
@@ -48,11 +48,13 @@ struct SignIn: View {
                         ButtonCutemsLogin(title: "Sign in now", background: Color.them.ColorBlue, foregroundStyle: Color.white)
                     }
                     HStack(spacing: 5) {
-                        Button(action: {self.createAccount.toggle()}){
+                        Button(action: {
+                            withAnimation(.easeInOut) {
+                                self.createAccount.toggle()
+                            }
+                        }){
                             ButtonCutemsLogin(title: "Create Account", background: Color.clear, foregroundStyle: Color.them.ColorblackSwich)
-                        }.fullScreenCover(isPresented: $createAccount, content: {
-                            CreateAccountView(showSingInView: $createAccount)
-                        })
+                        }
                         Button(action: {self.showSingWitheGoogle.toggle()}) {
                             ButtonCutemsLogin(title: "Select Method", background: Color.clear, foregroundStyle: Color.them.ColorblackSwich)
                         }
@@ -68,7 +70,7 @@ struct SignIn: View {
 }
 
 #Preview {
-    SignIn(showSingInView: .constant(false))
+    SignIn(createAccount: .constant(false), showSingInView: .constant(false))
 }
 
 

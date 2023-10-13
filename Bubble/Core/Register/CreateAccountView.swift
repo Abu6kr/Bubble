@@ -16,9 +16,18 @@ struct CreateAccountView: View {
         ZStack {
             FluidGradientViewColor()
             VStack {
-                
+                Button {
+                    withAnimation(.easeInOut) {
+                        showSingInView.toggle()
+                    }
+                } label: {
+                    Image(systemName: "xmark")
+                        .font(.system(size: 18,weight: .semibold))
+                        .foregroundStyle(Color.them.ColorblackSwich)
+                }.frame(maxWidth: .infinity,alignment: .trailing)
+                    .padding(.horizontal)
                 Spacer()
-                
+
                 titleWellcome
                 
                 SignInSectionTextFiled

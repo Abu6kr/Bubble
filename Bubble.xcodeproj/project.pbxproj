@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C707F0E22AD960370010F397 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C707F0E12AD960370010F397 /* RegisterView.swift */; };
 		C70E22312ACBE21400F7229A /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70E22302ACBE21400F7229A /* LaunchView.swift */; };
 		C71FC5E32AC98EE700C44193 /* ProfilesHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71FC5E22AC98EE700C44193 /* ProfilesHomeView.swift */; };
 		C724CA3B2AC57D5700D31458 /* ButtonCutemsLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C724CA3A2AC57D5700D31458 /* ButtonCutemsLogin.swift */; };
@@ -73,7 +74,6 @@
 		C7BB1BCE2AD3E61700739B16 /* SelctionImageOrAvView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BB1BCD2AD3E61700739B16 /* SelctionImageOrAvView.swift */; };
 		C7BB1BD02AD3E92200739B16 /* ImagesSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BB1BCF2AD3E92200739B16 /* ImagesSectionView.swift */; };
 		C7BB1BD22AD405FC00739B16 /* WhatDoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BB1BD12AD405FC00739B16 /* WhatDoView.swift */; };
-		C7DE6E292ACC25E90012A8FD /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE6E282ACC25E90012A8FD /* BottomSheetView.swift */; };
 		C7DE6E2B2ACC2AB30012A8FD /* MapHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE6E2A2ACC2AB30012A8FD /* MapHomeView.swift */; };
 		C7F16E382AC2DA7000EEA6F6 /* BubbleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F16E372AC2DA7000EEA6F6 /* BubbleApp.swift */; };
 		C7F16E3C2AC2DA7100EEA6F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7F16E3B2AC2DA7100EEA6F6 /* Assets.xcassets */; };
@@ -84,6 +84,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C707F0E12AD960370010F397 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		C70E22302ACBE21400F7229A /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		C71FC5E22AC98EE700C44193 /* ProfilesHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesHomeView.swift; sourceTree = "<group>"; };
 		C724CA3A2AC57D5700D31458 /* ButtonCutemsLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCutemsLogin.swift; sourceTree = "<group>"; };
@@ -121,7 +122,6 @@
 		C7BB1BCD2AD3E61700739B16 /* SelctionImageOrAvView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelctionImageOrAvView.swift; sourceTree = "<group>"; };
 		C7BB1BCF2AD3E92200739B16 /* ImagesSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesSectionView.swift; sourceTree = "<group>"; };
 		C7BB1BD12AD405FC00739B16 /* WhatDoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatDoView.swift; sourceTree = "<group>"; };
-		C7DE6E282ACC25E90012A8FD /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
 		C7DE6E2A2ACC2AB30012A8FD /* MapHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapHomeView.swift; sourceTree = "<group>"; };
 		C7F16E342AC2DA7000EEA6F6 /* Bubble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bubble.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F16E372AC2DA7000EEA6F6 /* BubbleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleApp.swift; sourceTree = "<group>"; };
@@ -245,6 +245,7 @@
 		C7A9E57F2AC415F100AC2CAF /* Register */ = {
 			isa = PBXGroup;
 			children = (
+				C707F0E12AD960370010F397 /* RegisterView.swift */,
 				C7A9E5802AC4162600AC2CAF /* SignIn.swift */,
 				C780E7592AD7E291007ADD5F /* CreateAccountView.swift */,
 				C724CA3E2AC5830300D31458 /* SignInMethodGoogleView.swift */,
@@ -363,7 +364,6 @@
 				C724CA3C2AC580FE00D31458 /* CornerRadiusStyle.swift */,
 				C74DD7042AC7EB21003BD704 /* ButtonDismiss.swift */,
 				C74DD7082AC7EDC1003BD704 /* PopupView */,
-				C7DE6E282ACC25E90012A8FD /* BottomSheetView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -478,6 +478,7 @@
 				C764E1862ACE90F6005CBB56 /* CustomTabBarView.swift in Sources */,
 				C7F16E522AC2E3A900EEA6F6 /* FluidGradientColor.swift in Sources */,
 				C74DD7072AC7EDBC003BD704 /* PopupCutemsView.swift in Sources */,
+				C707F0E22AD960370010F397 /* RegisterView.swift in Sources */,
 				C74DD70B2AC80483003BD704 /* AuthenticationManager.swift in Sources */,
 				C77BE36B2ACA81C700A38A37 /* InfoView.swift in Sources */,
 				C7A9E5812AC4162600AC2CAF /* SignIn.swift in Sources */,
@@ -506,7 +507,6 @@
 				C780E7522AD7D1D3007ADD5F /* CustomNavBarView.swift in Sources */,
 				C764E1852ACE90F6005CBB56 /* TabBarItem.swift in Sources */,
 				C724CA412AC58B9700D31458 /* SignInMethodGoogle.swift in Sources */,
-				C7DE6E292ACC25E90012A8FD /* BottomSheetView.swift in Sources */,
 				C78998B92ACC4BFE0087A067 /* LocationDitelsView.swift in Sources */,
 				C7A9E57E2AC3FE6800AC2CAF /* ProfilesViewMolde.swift in Sources */,
 				C7BB1BD22AD405FC00739B16 /* WhatDoView.swift in Sources */,
