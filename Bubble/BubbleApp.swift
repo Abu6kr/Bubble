@@ -11,9 +11,19 @@ import Firebase
 @main
 struct BubbleApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    @State private var showLaunchView: Bool = true
+
     var body: some Scene {
         WindowGroup {
-            AppTabBarView()
+            ZStack {
+                AppTabBarView()
+                
+                ZStack {
+                    if showLaunchView {
+                        LaunchView(showLaunchView: $showLaunchView)
+                    }
+                }
+            }
         }
     }
 }
