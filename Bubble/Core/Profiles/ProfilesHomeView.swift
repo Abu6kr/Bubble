@@ -47,13 +47,17 @@ final class SettingsViewMode: ObservableObject {
     }
     
 }
+
+
+
 struct ProfilesHomeView: View {
     
     @StateObject var vmProfie = ProfilesViewMolde()
     
     @State private var showEdit: Bool = false
     @State private var showInfo: Bool = false
-    
+    @StateObject  var viewSigeIn = SigeInEmailViewMode()
+
     @State private var image = UIImage()
     @StateObject private var viewMolde = SettingsViewMode()
     @Binding var showSingView: Bool
@@ -67,10 +71,13 @@ struct ProfilesHomeView: View {
                     VStack {
                         
                         ButtonEdit
-                        
+                      
                         imageSection
                         
                         secionButtonEdit
+                        if let user = vmProfie.user {
+                            Text(user.uid)
+                        }
                         Button(action: {
                             Task {
                                 do {
@@ -92,6 +99,7 @@ struct ProfilesHomeView: View {
             .onAppear {
                 vmProfie.loadImage(forKey: "imagePrilesKeySaved")
                 vmProfie.retrieveText()
+                try? vmProfie.loadCurrentUser()
             }
         }
     }

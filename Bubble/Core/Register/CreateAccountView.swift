@@ -9,9 +9,11 @@ import SwiftUI
 import Firebase
 
 struct CreateAccountView: View {
+    
     @StateObject  var viewMolde = SigeInEmailViewMode()
     @State private var showPassword = false
     @Binding var showSingInView: Bool
+    
     var body: some View {
         ZStack {
             FluidGradientViewColor()
@@ -38,7 +40,7 @@ struct CreateAccountView: View {
                     Button(action: {
                         Task {
                             do {
-                                try await viewMolde.signUp()
+                                try await viewMolde.signInAnones()
                                 showSingInView = false
                                 return
                             } catch {
@@ -58,6 +60,8 @@ struct CreateAccountView: View {
 #Preview {
     CreateAccountView(showSingInView: .constant(false))
 }
+
+
 
 extension CreateAccountView {
     
@@ -146,5 +150,9 @@ final class SigeInEmailViewMode: ObservableObject {
             return
         }
         try await AuthenticationManger.shered.signInUser(email: email, password: password)
+    }
+    func signInAnones() async throws {
+        let autDataRestes = try await AuthenticationManger.shered.signInUser(email: email, password: password)
+        try await UserManger.shered.createNewUser(auth: autDataRestes)
     }
 }

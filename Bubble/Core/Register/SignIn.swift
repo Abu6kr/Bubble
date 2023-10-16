@@ -9,12 +9,9 @@ import SwiftUI
 
 struct SignIn: View {
     
-     @State var isLoginMode = false
-     @State var email = ""
-     @State var password = ""
-    
     @State private var showPassword = false
     @State private var showSingWitheGoogle: Bool = false
+    
     @Binding  var createAccount: Bool
     @Binding var showSingInView: Bool
 
@@ -28,7 +25,6 @@ struct SignIn: View {
                 Spacer()
                 
                 titleWellcome
-                
                 SignInSectionTextFiled
                 
                 Spacer()
@@ -100,7 +96,7 @@ extension SignIn {
             VStack(alignment: .leading) {
                 Text("Email")
                 HStack {
-                    TextField("Email", text: $email)
+                    TextField("Email", text: $viewMolde.email)
                         .font(.headline)
                     Image(systemName: "envelope")
                         .foregroundStyle(Color.them.ColorblackSwich)
@@ -118,11 +114,11 @@ extension SignIn {
                 Text("Password")
                 HStack {
                     if !showPassword {
-                        SecureField("Password", text: $password)
+                        SecureField("Password", text: $viewMolde.password)
                             .font(.headline)
                             .keyboardType(.decimalPad)
                     } else {
-                        TextField("Password", text: $password)
+                        TextField("Password", text: $viewMolde.password)
                             .font(.headline)
                             .keyboardType(.decimalPad)
                     }

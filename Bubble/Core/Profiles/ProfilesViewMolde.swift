@@ -81,6 +81,11 @@ class ProfilesViewMolde: ObservableObject {
         }
             return nil
     }
+    @Published private(set) var user: AuthDataResultModel? = nil
+    
+    func loadCurrentUser()  throws {
+        self.user = try AuthenticationManger.shered.getAuthenticationUser()
+    }
 }
 
 

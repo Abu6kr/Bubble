@@ -22,7 +22,7 @@ struct AppTabBarView: View {
         CustomTabBarContainerView(selection: $tabSelection) {
             MassageHomeView()
                 .tabBarItem(tab: .messages, selection: $tabSelection)
-            
+
             MapHomeView()
                 .tabBarItem(tab: .map, selection: $tabSelection)
                 .offset(y: 40)
@@ -48,6 +48,9 @@ struct AppTabBarView_Previews: PreviewProvider {
         AppTabBarView()
     }
 }
+
+
+
 
 extension AppTabBarView {
     

@@ -21,8 +21,11 @@ struct BubbleApp: App {
                 ZStack {
                     if showLaunchView {
                         LaunchView(showLaunchView: $showLaunchView)
+                            .transition(.move(edge: .leading))
+
                     }
                 }
+                .zIndex(2.0)
             }
         }
     }
