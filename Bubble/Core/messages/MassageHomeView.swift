@@ -10,12 +10,13 @@ import SwiftUI
 struct MassageHomeView: View {
     @Namespace var topID
     @StateObject var vmProfie = ProfilesViewMolde()
-    
+    @State private var showSearch = false
     var body: some View {
         NavigationStack {
             ZStack {
                 VStack {
-                    ChatTopBar(vmProfie: vmProfie)
+                    CustemsHeaderBar(searchBar: $showSearch, colorbackground: Color.clear, title: "title")
+                        .offset(y: -20)
                     ScrollView {
                         ScrollView(.horizontal,showsIndicators: false) {
                             HStack {

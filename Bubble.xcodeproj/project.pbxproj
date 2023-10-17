@@ -14,6 +14,7 @@
 		C724CA3D2AC580FE00D31458 /* CornerRadiusStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C724CA3C2AC580FE00D31458 /* CornerRadiusStyle.swift */; };
 		C724CA3F2AC5830300D31458 /* SignInMethodGoogleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C724CA3E2AC5830300D31458 /* SignInMethodGoogleView.swift */; };
 		C724CA412AC58B9700D31458 /* SignInMethodGoogle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C724CA402AC58B9700D31458 /* SignInMethodGoogle.swift */; };
+		C7448F9F2ADE6F1100F3C119 /* CustemsHeaderBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7448F9E2ADE6F1100F3C119 /* CustemsHeaderBar.swift */; };
 		C74DD7052AC7EB21003BD704 /* ButtonDismiss.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74DD7042AC7EB21003BD704 /* ButtonDismiss.swift */; };
 		C74DD7072AC7EDBC003BD704 /* PopupCutemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74DD7062AC7EDBC003BD704 /* PopupCutemsView.swift */; };
 		C74DD70B2AC80483003BD704 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74DD70A2AC80483003BD704 /* AuthenticationManager.swift */; };
@@ -91,6 +92,7 @@
 		C724CA3C2AC580FE00D31458 /* CornerRadiusStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadiusStyle.swift; sourceTree = "<group>"; };
 		C724CA3E2AC5830300D31458 /* SignInMethodGoogleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInMethodGoogleView.swift; sourceTree = "<group>"; };
 		C724CA402AC58B9700D31458 /* SignInMethodGoogle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInMethodGoogle.swift; sourceTree = "<group>"; };
+		C7448F9E2ADE6F1100F3C119 /* CustemsHeaderBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustemsHeaderBar.swift; sourceTree = "<group>"; };
 		C74DD7042AC7EB21003BD704 /* ButtonDismiss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonDismiss.swift; sourceTree = "<group>"; };
 		C74DD7062AC7EDBC003BD704 /* PopupCutemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupCutemsView.swift; sourceTree = "<group>"; };
 		C74DD70A2AC80483003BD704 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
@@ -364,6 +366,7 @@
 				C724CA3C2AC580FE00D31458 /* CornerRadiusStyle.swift */,
 				C74DD7042AC7EB21003BD704 /* ButtonDismiss.swift */,
 				C74DD7082AC7EDC1003BD704 /* PopupView */,
+				C7448F9E2ADE6F1100F3C119 /* CustemsHeaderBar.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -510,6 +513,7 @@
 				C78998B92ACC4BFE0087A067 /* LocationDitelsView.swift in Sources */,
 				C7A9E57E2AC3FE6800AC2CAF /* ProfilesViewMolde.swift in Sources */,
 				C7BB1BD22AD405FC00739B16 /* WhatDoView.swift in Sources */,
+				C7448F9F2ADE6F1100F3C119 /* CustemsHeaderBar.swift in Sources */,
 				C7BA9F542AD68FAD00A441B3 /* ListFrindesChat.swift in Sources */,
 				C71FC5E32AC98EE700C44193 /* ProfilesHomeView.swift in Sources */,
 				C7BB1BCC2AD3E3AE00739B16 /* AvatersView.swift in Sources */,

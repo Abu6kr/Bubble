@@ -80,9 +80,9 @@ struct MapHomeView: View {
                 
                 if let reute {MapPolyline(reute.polyline).stroke(.blue, lineWidth: 6)}
             }
-            searchButtonSection
             searchBarSection
-
+            CustemsHeaderBar(searchBar: $showSearch, colorbackground: Color.clear , title: "")
+                .frame(maxHeight: .infinity,alignment: .top)
         }
         .onChange(of: getDitretion, { oldValue, newValue in
             if newValue {fatchRoute()}})
@@ -108,7 +108,7 @@ struct MapHomeView: View {
             //MARK: userLocation
             MapUserLocationButton()
             
-//            MapScaleView()
+            MapScaleView()
         }
     }
 }
