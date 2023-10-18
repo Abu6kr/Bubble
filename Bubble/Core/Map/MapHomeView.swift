@@ -26,6 +26,7 @@ struct MapHomeView: View {
     @State private var showSearch: Bool = false
     @FocusState private var keyboardFocused: Bool
     
+    @State private var mapStyleSelection: MapStylesSelection = .standard
     
     var body: some View {
         ZStack {
@@ -80,6 +81,32 @@ struct MapHomeView: View {
                 
                 if let reute {MapPolyline(reute.polyline).stroke(.blue, lineWidth: 6)}
             }
+            
+            .mapStyle(getMapStyle())
+            Button(action: {
+                withAnimation(.smooth){self.toggleMapStyle()}
+            }) {
+                switch mapStyleSelection {
+                case .standard:
+                    Image(systemName: "map.fill")
+                        .frame(width: 40, height: 40)
+                        .background(Color.them.ColorBox)
+                        .clipShape(.rect(cornerRadius: 12))
+                case .hybrid:
+                    Image(systemName: "mappin.and.ellipse")
+                        .frame(width: 40, height: 40)
+                        .background(Color.them.ColorBox)
+                        .clipShape(.rect(cornerRadius: 12))
+                case .imagery:
+                    Image(systemName: "mappin.slash.circle")
+                        .frame(width: 40, height: 40)
+                        .background(Color.them.ColorBox)
+                        .clipShape(.rect(cornerRadius: 12))
+                }
+                   
+            }.frame(maxWidth: .infinity ,alignment:.leading)
+                .padding(.leading)
+
             searchBarSection
             CustemsHeaderBar(searchBar: $showSearch, colorbackground: Color.clear , title: "")
                 .frame(maxHeight: .infinity,alignment: .top)
@@ -111,7 +138,29 @@ struct MapHomeView: View {
             MapScaleView()
         }
     }
-}
+    private func getMapStyle() -> MapStyle {
+            switch mapStyleSelection {
+                case .standard:
+                    return .standard
+                case .hybrid:
+                    return .hybrid
+                case .imagery:
+                    return .imagery
+            }
+        }
+    private func toggleMapStyle() {
+          switch mapStyleSelection {
+              case .standard:
+                  mapStyleSelection = .hybrid
+              case .hybrid:
+                  mapStyleSelection = .imagery
+              case .imagery:
+                  mapStyleSelection = .standard
+          }
+      }
+  }
+
+
 
 extension MapHomeView {
     
@@ -219,4 +268,12 @@ extension MapHomeView {
             .frame(maxHeight: .infinity,alignment: .top)
     }
 
+}
+
+
+
+enum MapStylesSelection {
+    case standard
+    case hybrid
+    case imagery
 }
