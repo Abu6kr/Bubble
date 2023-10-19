@@ -82,6 +82,11 @@
 		C7F16E4D2AC2DC9700EEA6F6 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7F16E4C2AC2DC9700EEA6F6 /* Launch Screen.storyboard */; };
 		C7F16E502AC2DD4E00EEA6F6 /* HeaderUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F16E4F2AC2DD4E00EEA6F6 /* HeaderUser.swift */; };
 		C7F16E522AC2E3A900EEA6F6 /* FluidGradientColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F16E512AC2E3A900EEA6F6 /* FluidGradientColor.swift */; };
+		C7FF21CB2AE11031008BABDD /* ShazamKitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FF21CA2AE11031008BABDD /* ShazamKitViewModel.swift */; };
+		C7FF21CD2AE11057008BABDD /* ShazamMusicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FF21CC2AE11057008BABDD /* ShazamMusicView.swift */; };
+		C7FF21CF2AE119EC008BABDD /* HomeSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FF21CE2AE119EC008BABDD /* HomeSearchView.swift */; };
+		C7FF21D12AE125F5008BABDD /* NearbyLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FF21D02AE125F5008BABDD /* NearbyLocationView.swift */; };
+		C7FF21D32AE142D4008BABDD /* ProfileDitelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FF21D22AE142D4008BABDD /* ProfileDitelsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -132,6 +137,11 @@
 		C7F16E4C2AC2DC9700EEA6F6 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		C7F16E4F2AC2DD4E00EEA6F6 /* HeaderUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderUser.swift; sourceTree = "<group>"; };
 		C7F16E512AC2E3A900EEA6F6 /* FluidGradientColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FluidGradientColor.swift; sourceTree = "<group>"; };
+		C7FF21CA2AE11031008BABDD /* ShazamKitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShazamKitViewModel.swift; sourceTree = "<group>"; };
+		C7FF21CC2AE11057008BABDD /* ShazamMusicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShazamMusicView.swift; sourceTree = "<group>"; };
+		C7FF21CE2AE119EC008BABDD /* HomeSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSearchView.swift; sourceTree = "<group>"; };
+		C7FF21D02AE125F5008BABDD /* NearbyLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyLocationView.swift; sourceTree = "<group>"; };
+		C7FF21D22AE142D4008BABDD /* ProfileDitelsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDitelsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,8 +248,9 @@
 				C7BB1BCB2AD3E3AE00739B16 /* AvatersView.swift */,
 				C7BB1BCD2AD3E61700739B16 /* SelctionImageOrAvView.swift */,
 				C7BB1BCF2AD3E92200739B16 /* ImagesSectionView.swift */,
-				C7A9E5792AC3FB2C00AC2CAF /* ImagePicker.swift */,
 				C7A9E57D2AC3FE6800AC2CAF /* ProfilesViewMolde.swift */,
+				C7FF21D22AE142D4008BABDD /* ProfileDitelsView.swift */,
+				C7A9E5792AC3FB2C00AC2CAF /* ImagePicker.swift */,
 			);
 			path = Profiles;
 			sourceTree = "<group>";
@@ -292,6 +303,7 @@
 				C74DD7102AC80509003BD704 /* Firestore */,
 				C7F16E462AC2DB4000EEA6F6 /* Extensions */,
 				C7F16E452AC2DB1400EEA6F6 /* Core */,
+				C7FF21C92AE10FD3008BABDD /* ShazamKit */,
 				C780E7922AD7E63A007ADD5F /* GoogleService-Info.plist */,
 				C7F16E3B2AC2DA7100EEA6F6 /* Assets.xcassets */,
 				C7F16E3D2AC2DA7100EEA6F6 /* Preview Content */,
@@ -343,6 +355,8 @@
 				C7DE6E2A2ACC2AB30012A8FD /* MapHomeView.swift */,
 				C78998B82ACC4BFE0087A067 /* LocationDitelsView.swift */,
 				C7A9E5742AC3F78600AC2CAF /* ContentMapViewMolde.swift */,
+				C7FF21CE2AE119EC008BABDD /* HomeSearchView.swift */,
+				C7FF21D02AE125F5008BABDD /* NearbyLocationView.swift */,
 				C7BB1BD12AD405FC00739B16 /* WhatDoView.swift */,
 			);
 			path = Map;
@@ -369,6 +383,15 @@
 				C7448F9E2ADE6F1100F3C119 /* CustemsHeaderBar.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		C7FF21C92AE10FD3008BABDD /* ShazamKit */ = {
+			isa = PBXGroup;
+			children = (
+				C7FF21CC2AE11057008BABDD /* ShazamMusicView.swift */,
+				C7FF21CA2AE11031008BABDD /* ShazamKitViewModel.swift */,
+			);
+			path = ShazamKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -483,7 +506,9 @@
 				C74DD7072AC7EDBC003BD704 /* PopupCutemsView.swift in Sources */,
 				C707F0E22AD960370010F397 /* RegisterView.swift in Sources */,
 				C74DD70B2AC80483003BD704 /* AuthenticationManager.swift in Sources */,
+				C7FF21CF2AE119EC008BABDD /* HomeSearchView.swift in Sources */,
 				C77BE36B2ACA81C700A38A37 /* InfoView.swift in Sources */,
+				C7FF21CB2AE11031008BABDD /* ShazamKitViewModel.swift in Sources */,
 				C7A9E5812AC4162600AC2CAF /* SignIn.swift in Sources */,
 				C780E7992AD7EBC4007ADD5F /* UserManger.swift in Sources */,
 				C780E75A2AD7E291007ADD5F /* CreateAccountView.swift in Sources */,
@@ -493,8 +518,10 @@
 				C74DD70F2AC80494003BD704 /* SignInAppleHelper.swift in Sources */,
 				C764E1882ACE90F6005CBB56 /* AppTabBarView.swift in Sources */,
 				C7BA9F522AD68E5D00A441B3 /* MassageHomeView.swift in Sources */,
+				C7FF21CD2AE11057008BABDD /* ShazamMusicView.swift in Sources */,
 				C70E22312ACBE21400F7229A /* LaunchView.swift in Sources */,
 				C74DD7052AC7EB21003BD704 /* ButtonDismiss.swift in Sources */,
+				C7FF21D12AE125F5008BABDD /* NearbyLocationView.swift in Sources */,
 				C7BB1BCE2AD3E61700739B16 /* SelctionImageOrAvView.swift in Sources */,
 				C780E7502AD7CC23007ADD5F /* ChatView.swift in Sources */,
 				C7BA9F562AD6977600A441B3 /* ChatTopBar.swift in Sources */,
@@ -505,6 +532,7 @@
 				C74DD70D2AC8048C003BD704 /* SignInGoogleHelper.swift in Sources */,
 				C7F16E382AC2DA7000EEA6F6 /* BubbleApp.swift in Sources */,
 				C724CA3D2AC580FE00D31458 /* CornerRadiusStyle.swift in Sources */,
+				C7FF21D32AE142D4008BABDD /* ProfileDitelsView.swift in Sources */,
 				C724CA3B2AC57D5700D31458 /* ButtonCutemsLogin.swift in Sources */,
 				C7A9E5752AC3F78600AC2CAF /* ContentMapViewMolde.swift in Sources */,
 				C780E7522AD7D1D3007ADD5F /* CustomNavBarView.swift in Sources */,

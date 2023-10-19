@@ -24,118 +24,141 @@ struct MapHomeView: View {
     @State private var rounDestion: MKMapItem?
     
     @State private var showSearch: Bool = false
-    @FocusState private var keyboardFocused: Bool
     
     @State private var mapStyleSelection: MapStylesSelection = .standard
     
+    @State private var ShazamShow: Bool = false
+    
     var body: some View {
-        ZStack {
-            Map(position: $camerPosition, selection: $mapSelection){
-                
-                Annotation("Abo", coordinate: .userLocation){
-                    ZStack {
-                        Button {
-                            
-                        } label: {
-                            ZStack(alignment: .top) {
-                                WhatDoView()
-                                Image("Avatar")
+        NavigationStack {
+            ZStack {
+                Map(position: $camerPosition, selection: $mapSelection){
+                    
+                    Annotation("Abo", coordinate: .userLocation){
+                        ZStack {
+                            Button {
+                                
+                            } label: {
+                                ZStack(alignment: .top) {
+                                    WhatDoView()
+                                    Image("Avatar")
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: 50, height: 50)
+                                        .padding(10)
+                                        .background(Color.orange)
+                                        .clipShape(Circle())
+                               
+                                }
+                            }
+                        }
+                    }
+                    Annotation("Chara", coordinate: .userLocation2){
+                        ZStack {
+                            Button {
+                                
+                            } label: {
+                                Image("Avatar2")
                                     .resizable()
                                     .scaledToFill()
                                     .frame(width: 50, height: 50)
                                     .padding(10)
-                                    .background(Color.orange)
+                                    .background(Color.green)
                                     .clipShape(Circle())
-                           
                             }
                         }
                     }
-                }
-                Annotation("Chara", coordinate: .userLocation2){
-                    ZStack {
-                        Button {
-                            
-                        } label: {
-                            Image("Avatar2")
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 50, height: 50)
-                                .padding(10)
-                                .background(Color.green)
-                                .clipShape(Circle())
-                        }
-                    }
-                }
-                
-                ForEach(resuts, id: \.self) { items in
-                    if retrDisPlating {
-                        if items == rounDestion {
+                    
+                    ForEach(resuts, id: \.self) { items in
+                        if retrDisPlating {
+                            if items == rounDestion {
+                                let placemark = items.placemark
+                                Marker(placemark.name ?? "", coordinate: placemark.coordinate)
+                            }
+                        } else {
                             let placemark = items.placemark
                             Marker(placemark.name ?? "", coordinate: placemark.coordinate)
                         }
-                    } else {
-                        let placemark = items.placemark
-                        Marker(placemark.name ?? "", coordinate: placemark.coordinate)
                     }
+                    
+                    if let reute {MapPolyline(reute.polyline).stroke(.blue, lineWidth: 6)}
                 }
+                .mapStyle(getMapStyle())
                 
-                if let reute {MapPolyline(reute.polyline).stroke(.blue, lineWidth: 6)}
-            }
-            
-            .mapStyle(getMapStyle())
-            Button(action: {
-                withAnimation(.smooth){self.toggleMapStyle()}
-            }) {
-                switch mapStyleSelection {
-                case .standard:
-                    Image(systemName: "map.fill")
-                        .frame(width: 40, height: 40)
-                        .background(Color.them.ColorBox)
-                        .clipShape(.rect(cornerRadius: 12))
-                case .hybrid:
-                    Image(systemName: "mappin.and.ellipse")
-                        .frame(width: 40, height: 40)
-                        .background(Color.them.ColorBox)
-                        .clipShape(.rect(cornerRadius: 12))
-                case .imagery:
-                    Image(systemName: "mappin.slash.circle")
-                        .frame(width: 40, height: 40)
-                        .background(Color.them.ColorBox)
-                        .clipShape(.rect(cornerRadius: 12))
-                }
-                   
-            }.frame(maxWidth: .infinity ,alignment:.leading)
-                .padding(.leading)
+                VStack(alignment: .leading, spacing: 22){
+                    Button(action: {
+                        withAnimation(.smooth){self.toggleMapStyle()}
+                    }) {
+                        switch mapStyleSelection {
+                        case .standard:
+                            Image(systemName: "map.fill")
+                                .frame(width: 40, height: 40)
+                                .background(Color.them.ColorBox)
+                                .clipShape(.rect(cornerRadius: 12))
+                        case .hybrid:
+                            Image(systemName: "mappin.and.ellipse")
+                                .frame(width: 40, height: 40)
+                                .background(Color.them.ColorBox)
+                                .clipShape(.rect(cornerRadius: 12))
+                        case .imagery:
+                            Image(systemName: "mappin.slash.circle")
+                                .frame(width: 40, height: 40)
+                                .background(Color.them.ColorBox)
+                                .clipShape(.rect(cornerRadius: 12))
+                        }
+                    }.frame(maxWidth: .infinity ,alignment:.leading)
+                    
+                    Button {
+                        ShazamShow.toggle()
+                    } label: {
+                        Image(systemName: "shazam.logo")
+                            .frame(width: 40, height: 40)
+                            .background(Color.them.ColorBox)
+                            .clipShape(.rect(cornerRadius: 12))
+                    }
 
-            searchBarSection
-            CustemsHeaderBar(searchBar: $showSearch, colorbackground: Color.clear , title: "")
-                .frame(maxHeight: .infinity,alignment: .top)
-        }
-        .onChange(of: getDitretion, { oldValue, newValue in
-            if newValue {fatchRoute()}})
-        
-        .onAppear {
-            vmProfile.loadImage(forKey: "imagePrilesKeySaved")
-            withAnimation(.easeInOut){DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
-                    if searchText.isEmpty {showSearch = false}}}
-        }
-        .onSubmit(of: .text) {Task { await searchPlace()}}
-        .onChange(of: mapSelection, { oldValue, newValue in
-            shoeDitels = newValue !=  nil})
-        .sheet(isPresented: $shoeDitels) {
-            LocationDitelsView(mapSection: $mapSelection, show: $shoeDitels, getDitretion: $getDitretion)
-                .presentationDetents([.height(450)])
-                .presentationBackgroundInteraction(.enabled(upThrough: .height(450)))
-                .presentationCornerRadius(12)
-        }
-        .mapControls {
-            MapCompass()
-            //MARK: 3D
-            MapPitchToggle()
-            //MARK: userLocation
-            MapUserLocationButton()
+                }.padding(.leading)
+                    .sheet(isPresented: $ShazamShow){
+                        ShazamMusicView(ShazamShow: $ShazamShow)
+                            .presentationDetents([.height(550)])
+                    }
+
+                CustemsHeaderBar(searchBar: $showSearch, colorbackground: Color.clear , title: "")
+                    .frame(maxHeight: .infinity,alignment: .top)
+                    .sheet(isPresented: $showSearch) {
+                        HomeSearchView(search: $searchText)
+                            .presentationDetents([.height(350)])
+                            .presentationBackground(.thinMaterial)
+                            .presentationBackgroundInteraction(.enabled(upThrough: .height(450)))
+                            .presentationCornerRadius(12)
+                    }
+            }
+            .onChange(of: getDitretion, { oldValue, newValue in
+                if newValue {fatchRoute()}})
             
-            MapScaleView()
+            .onAppear {
+                vmProfile.loadImage(forKey: "imagePrilesKeySaved")
+                withAnimation(.easeInOut){DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
+                        if searchText.isEmpty {showSearch = false}}}
+            }
+            .onSubmit(of: .text) {Task { await searchPlace()}}
+            .onChange(of: mapSelection, { oldValue, newValue in
+                shoeDitels = newValue !=  nil})
+            .sheet(isPresented: $shoeDitels) {
+                LocationDitelsView(mapSection: $mapSelection, show: $shoeDitels, getDitretion: $getDitretion)
+                    .presentationDetents([.height(450)])
+                    .presentationBackgroundInteraction(.enabled(upThrough: .height(450)))
+                    .presentationCornerRadius(12)
+            }
+            .mapControls {
+                MapCompass()
+                //MARK: 3D
+                MapPitchToggle()
+                //MARK: userLocation
+                MapUserLocationButton()
+                
+                MapScaleView()
+        }
         }
     }
     private func getMapStyle() -> MapStyle {
@@ -159,7 +182,6 @@ struct MapHomeView: View {
           }
       }
   }
-
 
 
 extension MapHomeView {
@@ -195,6 +217,26 @@ extension MapHomeView {
             }
         }
     }
+    
+    private var searchButtonSection: some View {
+        VStack {
+            HStack {
+                Spacer()
+                Button {
+                    withAnimation(.easeInOut){
+                        showSearch.toggle()
+                    }
+                } label: {
+                    Image(systemName: "magnifyingglass")
+                        .frame(width: 40, height: 40)
+                        .background(Color.them.ColorBox)
+                        .clipShape(.rect(cornerRadius: 12))
+                }
+            }.padding(.horizontal)
+                .padding(.bottom,80)
+        }
+    }
+    
 }
 #Preview {
     MapHomeView()
@@ -220,54 +262,6 @@ extension MKCoordinateRegion {
                      latitudinalMeters: 1000,
                      longitudinalMeters: 1000)
     }
-}
-
-extension MapHomeView {
-    private var searchButtonSection: some View {
-        VStack {
-            HStack {
-                Spacer()
-                Button {
-                    withAnimation(.easeInOut){
-                        showSearch.toggle()
-                        if showSearch == true {
-                            keyboardFocused.toggle()
-                        }
-                    }
-                } label: {
-                    Image(systemName: "magnifyingglass")
-                        .frame(width: 40, height: 40)
-                        .background(Color.them.ColorBox)
-                        .clipShape(.rect(cornerRadius: 12))
-                }
-            }.padding(.horizontal)
-                .padding(.bottom,80)
-        }
-    }
-    private var searchBarSection: some View {
-        HStack {
-            TextField("Search for a lcoation", text: $searchText)
-                .focused($keyboardFocused)
-                .font(.system(size: 15))
-                .fontWeight(.regular)
-            Button {
-                searchText = ""
-            } label: {
-                Image(systemName: "x.circle.fill")
-                    .foregroundStyle(Color.them.ColorblackSwich)
-            }
-            
-        }.padding(.horizontal)
-            .frame(maxWidth:.infinity)
-            .frame(height: 50)
-            .background(Color.them.ColorBox)
-            .clipShape(.rect(cornerRadius: 12))
-            .padding(.horizontal,60)
-            .padding(.top,60)
-            .opacity(showSearch ? 1 : 0)
-            .frame(maxHeight: .infinity,alignment: .top)
-    }
-
 }
 
 

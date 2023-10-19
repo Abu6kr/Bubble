@@ -19,14 +19,19 @@ struct CustemsHeaderBar: View {
         VStack {
             HStack {
                 HStack(spacing: 15) {
-                    if let image = vmProfie.imageProfiles {
-                     Image(uiImage: image)
-                            .resizable()
-                            .frame(width: 44,height: 44)
-                            .background(Color.them.ColorBox)
-                            .clipShape(Circle())
-                    }
-                  
+                    NavigationLink {
+                        ProfileDitelsView()
+                        
+                    } label: {
+                        if let image = vmProfie.imageProfiles {
+                         Image(uiImage: image)
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 44,height: 44)
+                                .background(Color.them.ColorBox)
+                                .clipShape(Circle())
+                        }
+                    }.toolbar(.hidden, for: .tabBar)
                     Button(action: {searchBar.toggle()}, label: {
                         Image(systemName: "magnifyingglass")
                             .foregroundStyle(Color.them.ColorblackSwich)
