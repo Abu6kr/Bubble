@@ -14,6 +14,15 @@
 		C724CA3D2AC580FE00D31458 /* CornerRadiusStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C724CA3C2AC580FE00D31458 /* CornerRadiusStyle.swift */; };
 		C724CA3F2AC5830300D31458 /* SignInMethodGoogleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C724CA3E2AC5830300D31458 /* SignInMethodGoogleView.swift */; };
 		C724CA412AC58B9700D31458 /* SignInMethodGoogle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C724CA402AC58B9700D31458 /* SignInMethodGoogle.swift */; };
+		C7354DFF2AE251F0003B5F01 /* ZoomableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7354DF12AE251F0003B5F01 /* ZoomableScrollView.swift */; };
+		C7354E002AE251F0003B5F01 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7354DF32AE251F0003B5F01 /* ViewModel.swift */; };
+		C7354E012AE251F0003B5F01 /* ButtonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7354DF52AE251F0003B5F01 /* ButtonLabel.swift */; };
+		C7354E022AE251F0003B5F01 /* MyImagesHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7354DF62AE251F0003B5F01 /* MyImagesHomeView.swift */; };
+		C7354E032AE251F0003B5F01 /* ContentView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7354DF72AE251F0003B5F01 /* ContentView+Extension.swift */; };
+		C7354E042AE251F0003B5F01 /* FileManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7354DF92AE251F0003B5F01 /* FileManager+Extension.swift */; };
+		C7354E052AE251F0003B5F01 /* MyImageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7354DFB2AE251F0003B5F01 /* MyImageError.swift */; };
+		C7354E062AE251F0003B5F01 /* Picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7354DFC2AE251F0003B5F01 /* Picker.swift */; };
+		C7354E072AE251F0003B5F01 /* MyImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7354DFD2AE251F0003B5F01 /* MyImage.swift */; };
 		C7448F9F2ADE6F1100F3C119 /* CustemsHeaderBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7448F9E2ADE6F1100F3C119 /* CustemsHeaderBar.swift */; };
 		C74DD7052AC7EB21003BD704 /* ButtonDismiss.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74DD7042AC7EB21003BD704 /* ButtonDismiss.swift */; };
 		C74DD7072AC7EDBC003BD704 /* PopupCutemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74DD7062AC7EDBC003BD704 /* PopupCutemsView.swift */; };
@@ -97,6 +106,15 @@
 		C724CA3C2AC580FE00D31458 /* CornerRadiusStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadiusStyle.swift; sourceTree = "<group>"; };
 		C724CA3E2AC5830300D31458 /* SignInMethodGoogleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInMethodGoogleView.swift; sourceTree = "<group>"; };
 		C724CA402AC58B9700D31458 /* SignInMethodGoogle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInMethodGoogle.swift; sourceTree = "<group>"; };
+		C7354DF12AE251F0003B5F01 /* ZoomableScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomableScrollView.swift; sourceTree = "<group>"; };
+		C7354DF32AE251F0003B5F01 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		C7354DF52AE251F0003B5F01 /* ButtonLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonLabel.swift; sourceTree = "<group>"; };
+		C7354DF62AE251F0003B5F01 /* MyImagesHomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyImagesHomeView.swift; sourceTree = "<group>"; };
+		C7354DF72AE251F0003B5F01 /* ContentView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ContentView+Extension.swift"; sourceTree = "<group>"; };
+		C7354DF92AE251F0003B5F01 /* FileManager+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FileManager+Extension.swift"; sourceTree = "<group>"; };
+		C7354DFB2AE251F0003B5F01 /* MyImageError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyImageError.swift; sourceTree = "<group>"; };
+		C7354DFC2AE251F0003B5F01 /* Picker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Picker.swift; sourceTree = "<group>"; };
+		C7354DFD2AE251F0003B5F01 /* MyImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyImage.swift; sourceTree = "<group>"; };
 		C7448F9E2ADE6F1100F3C119 /* CustemsHeaderBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustemsHeaderBar.swift; sourceTree = "<group>"; };
 		C74DD7042AC7EB21003BD704 /* ButtonDismiss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonDismiss.swift; sourceTree = "<group>"; };
 		C74DD7062AC7EDBC003BD704 /* PopupCutemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupCutemsView.swift; sourceTree = "<group>"; };
@@ -194,6 +212,62 @@
 			path = Navigations;
 			sourceTree = "<group>";
 		};
+		C7354DEE2AE25169003B5F01 /* MyImages */ = {
+			isa = PBXGroup;
+			children = (
+				C7354DF42AE251F0003B5F01 /* Views */,
+				C7354DF82AE251F0003B5F01 /* Extensions */,
+				C7354DFA2AE251F0003B5F01 /* Models */,
+				C7354DEF2AE251F0003B5F01 /* UIViewRepresentables */,
+				C7354DF22AE251F0003B5F01 /* ViewModels */,
+			);
+			path = MyImages;
+			sourceTree = "<group>";
+		};
+		C7354DEF2AE251F0003B5F01 /* UIViewRepresentables */ = {
+			isa = PBXGroup;
+			children = (
+				C7354DF12AE251F0003B5F01 /* ZoomableScrollView.swift */,
+			);
+			path = UIViewRepresentables;
+			sourceTree = "<group>";
+		};
+		C7354DF22AE251F0003B5F01 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				C7354DF32AE251F0003B5F01 /* ViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		C7354DF42AE251F0003B5F01 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C7354DF62AE251F0003B5F01 /* MyImagesHomeView.swift */,
+				C7354DF52AE251F0003B5F01 /* ButtonLabel.swift */,
+				C7354DF72AE251F0003B5F01 /* ContentView+Extension.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C7354DF82AE251F0003B5F01 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C7354DF92AE251F0003B5F01 /* FileManager+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C7354DFA2AE251F0003B5F01 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C7354DFB2AE251F0003B5F01 /* MyImageError.swift */,
+				C7354DFC2AE251F0003B5F01 /* Picker.swift */,
+				C7354DFD2AE251F0003B5F01 /* MyImage.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		C74DD7082AC7EDC1003BD704 /* PopupView */ = {
 			isa = PBXGroup;
 			children = (
@@ -251,6 +325,7 @@
 				C7A9E57D2AC3FE6800AC2CAF /* ProfilesViewMolde.swift */,
 				C7FF21D22AE142D4008BABDD /* ProfileDitelsView.swift */,
 				C7A9E5792AC3FB2C00AC2CAF /* ImagePicker.swift */,
+				C7354DEE2AE25169003B5F01 /* MyImages */,
 			);
 			path = Profiles;
 			sourceTree = "<group>";
@@ -511,6 +586,7 @@
 				C7FF21CB2AE11031008BABDD /* ShazamKitViewModel.swift in Sources */,
 				C7A9E5812AC4162600AC2CAF /* SignIn.swift in Sources */,
 				C780E7992AD7EBC4007ADD5F /* UserManger.swift in Sources */,
+				C7354E022AE251F0003B5F01 /* MyImagesHomeView.swift in Sources */,
 				C780E75A2AD7E291007ADD5F /* CreateAccountView.swift in Sources */,
 				C724CA3F2AC5830300D31458 /* SignInMethodGoogleView.swift in Sources */,
 				C7F16E502AC2DD4E00EEA6F6 /* HeaderUser.swift in Sources */,
@@ -522,23 +598,29 @@
 				C70E22312ACBE21400F7229A /* LaunchView.swift in Sources */,
 				C74DD7052AC7EB21003BD704 /* ButtonDismiss.swift in Sources */,
 				C7FF21D12AE125F5008BABDD /* NearbyLocationView.swift in Sources */,
+				C7354DFF2AE251F0003B5F01 /* ZoomableScrollView.swift in Sources */,
 				C7BB1BCE2AD3E61700739B16 /* SelctionImageOrAvView.swift in Sources */,
 				C780E7502AD7CC23007ADD5F /* ChatView.swift in Sources */,
 				C7BA9F562AD6977600A441B3 /* ChatTopBar.swift in Sources */,
 				C7A9E5782AC3FAB300AC2CAF /* EditProfilesView.swift in Sources */,
 				C7BB1BD02AD3E92200739B16 /* ImagesSectionView.swift in Sources */,
+				C7354E012AE251F0003B5F01 /* ButtonLabel.swift in Sources */,
 				C780E7972AD7EB19007ADD5F /* Utilites.swift in Sources */,
 				C7A9E57A2AC3FB2C00AC2CAF /* ImagePicker.swift in Sources */,
+				C7354E072AE251F0003B5F01 /* MyImage.swift in Sources */,
 				C74DD70D2AC8048C003BD704 /* SignInGoogleHelper.swift in Sources */,
+				C7354E002AE251F0003B5F01 /* ViewModel.swift in Sources */,
 				C7F16E382AC2DA7000EEA6F6 /* BubbleApp.swift in Sources */,
 				C724CA3D2AC580FE00D31458 /* CornerRadiusStyle.swift in Sources */,
 				C7FF21D32AE142D4008BABDD /* ProfileDitelsView.swift in Sources */,
 				C724CA3B2AC57D5700D31458 /* ButtonCutemsLogin.swift in Sources */,
+				C7354E062AE251F0003B5F01 /* Picker.swift in Sources */,
 				C7A9E5752AC3F78600AC2CAF /* ContentMapViewMolde.swift in Sources */,
 				C780E7522AD7D1D3007ADD5F /* CustomNavBarView.swift in Sources */,
 				C764E1852ACE90F6005CBB56 /* TabBarItem.swift in Sources */,
 				C724CA412AC58B9700D31458 /* SignInMethodGoogle.swift in Sources */,
 				C78998B92ACC4BFE0087A067 /* LocationDitelsView.swift in Sources */,
+				C7354E032AE251F0003B5F01 /* ContentView+Extension.swift in Sources */,
 				C7A9E57E2AC3FE6800AC2CAF /* ProfilesViewMolde.swift in Sources */,
 				C7BB1BD22AD405FC00739B16 /* WhatDoView.swift in Sources */,
 				C7448F9F2ADE6F1100F3C119 /* CustemsHeaderBar.swift in Sources */,
@@ -548,6 +630,8 @@
 				C7A9E57C2AC3FD8100AC2CAF /* Color.swift in Sources */,
 				C7DE6E2B2ACC2AB30012A8FD /* MapHomeView.swift in Sources */,
 				C764E1892ACE90F6005CBB56 /* CustomTabBarContainerView.swift in Sources */,
+				C7354E052AE251F0003B5F01 /* MyImageError.swift in Sources */,
+				C7354E042AE251F0003B5F01 /* FileManager+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -684,6 +768,7 @@
 				DEVELOPMENT_TEAM = PDYNLMSQSH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Would like to use the camera to take photos";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your loction to show your frineds";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -699,6 +784,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = AbubakrFutaini.Bubble;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -716,6 +804,7 @@
 				DEVELOPMENT_TEAM = PDYNLMSQSH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Would like to use the camera to take photos";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your loction to show your frineds";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -731,6 +820,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = AbubakrFutaini.Bubble;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

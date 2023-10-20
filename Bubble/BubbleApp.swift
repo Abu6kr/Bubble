@@ -12,12 +12,15 @@ import Firebase
 struct BubbleApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @State private var showLaunchView: Bool = true
-
+    @StateObject var vm = ViewModel()
     var body: some Scene {
         WindowGroup {
             ZStack {
                 AppTabBarView()
-                
+                    .environmentObject(vm)
+                    .onAppear {
+                        UserDefaults.standard.setValue(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
+                    }
                 ZStack {
                     if showLaunchView {
                         LaunchView(showLaunchView: $showLaunchView)
@@ -40,3 +43,10 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     }
 }
 
+
+extension UINavigationController {
+    open override func viewDidLoad() {
+        super.viewDidLoad()
+        interactivePopGestureRecognizer?.delegate = nil
+    }
+}

@@ -61,7 +61,10 @@ struct ProfilesHomeView: View {
     @State private var image = UIImage()
     @StateObject private var viewMolde = SettingsViewMode()
     @Binding var showSingView: Bool
-
+    
+    let colums:[GridItem] = [GridItem(.flexible()),GridItem(.flexible()),]
+    @EnvironmentObject var vmMyPhoto : ViewModel
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -75,6 +78,8 @@ struct ProfilesHomeView: View {
                         imageSection
                         
                         secionButtonEdit
+                        MyImagesList
+
                         if let user = vmProfie.user {
                             Text(user.uid)
                         }
@@ -88,7 +93,8 @@ struct ProfilesHomeView: View {
                                 }
                             }
                         }, label: {
-                            Text("Button")
+                            Text("Login Out")
+                                .foregroundStyle(Color.red)
                         })
                         
                     }
@@ -96,17 +102,24 @@ struct ProfilesHomeView: View {
                 .sheet(isPresented: $showInfo) {InfoView(vmProfie: vmProfie)}
                     
             }
+            .task {
+                if FileManager().docExist(named: fileName) {
+                    vmMyPhoto.loadMyImagesJSONFile()
+                }
+            }
             .onAppear {
                 vmProfie.loadImage(forKey: "imagePrilesKeySaved")
                 vmProfie.retrieveText()
                 try? vmProfie.loadCurrentUser()
             }
+            
         }
     }
 }
 
 #Preview {
     ProfilesHomeView(showSingView: .constant(false))
+        .environmentObject(ViewModel())
 }
 
 
@@ -142,12 +155,13 @@ extension ProfilesHomeView {
             Spacer()
             Button(action: {showEdit.toggle()}){
                 Image(systemName: "pencil")
-                    .padding(10)
+                    .font(.system(size: 22,weight: .regular))
+                    .frame(width: 40,height: 40)
                     .background(Color.them.ColorBox)
                     .foregroundStyle(Color.them.ColorblackSwich)
                     .clipShape(.rect(cornerRadius: .infinity))
-                    .padding()
-            }
+            }.padding()
+
         }
         .sheet(isPresented: $showEdit) {EditProfilesView()}
     }
@@ -158,7 +172,9 @@ extension ProfilesHomeView {
                 .font(.system(size: 18,weight: .semibold))
                 .padding(.vertical,10)
             HStack {
-                Button(action: {}, label: {
+                NavigationLink {
+                    MyImagesHomeView()
+                } label: {
                     Text("My Photo")
                         .font(.system(size: 15,weight: .semibold))
                         .foregroundStyle(Color.them.ColorblackSwich)
@@ -166,7 +182,7 @@ extension ProfilesHomeView {
                         .frame(height: 40)
                         .background(Color.them.ColorBox)
                         .clipShape(.rect(cornerRadius: 12))
-                })
+                }
                
                 Spacer()
                 Button(action: {
@@ -185,5 +201,46 @@ extension ProfilesHomeView {
         }
     }
     
+    private var MyImagesList: some View {
+        VStack {
+            LazyVGrid(columns: colums){
+                if vmMyPhoto.myImages.isEmpty {
+                        ZStack(alignment: .bottom) {
+                            Image(systemName: "photo")
+                                .resizable()
+                                .scaledToFit()
+                            
+                            Text("add photo")
+                                .font(.system(size: 15,weight: .semibold))
+                                .foregroundStyle(Color.black)
+                                .frame(maxWidth: .infinity)
+                                .frame(height: 50)
+                        }
+                        .frame(maxWidth: .infinity)
+                            .frame(height: 180)
+                            .background(Color.white)
+                            .clipShape(.rect(cornerRadius: 2))
+                } else {
+                    ForEach(vmMyPhoto.myImages.prefix(5)) { photo in
+                        ZStack(alignment: .bottom) {
+                            Image(uiImage: photo.image)
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 190,height: 180)
+                            
+                            Text(photo.name)
+                                .font(.system(size: 15,weight: .semibold))
+                                .foregroundStyle(Color.white)
+                                .frame(maxWidth: .infinity)
+                                .frame(height: 50)
+                        }
+                        .frame(height: 180)
+                        .frame(maxWidth:.infinity)
+                        .clipShape(.rect(cornerRadius: 2))
+                    }
+                }
+            }
+        }
+    }
 }
 

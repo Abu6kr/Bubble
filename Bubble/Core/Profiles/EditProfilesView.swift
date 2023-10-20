@@ -12,7 +12,8 @@ struct EditProfilesView: View {
     @StateObject var vmProfile = ProfilesViewMolde()
     
     @State private var showImagePicker = false
-    @State private var image = UIImage()
+//    @State private var image = UIImage()
+    @State var image: UIImage?
     @State  var sectionAvater: Bool = false
     
     @Environment(\.dismiss) var  dismiss
@@ -88,7 +89,7 @@ struct EditProfilesView: View {
                     .padding(.top)
                     
                     Button(action: {
-                        vmProfile.saveImage(imageName: "imagePrilesKeySaved", image: image, key: "imagePrilesKeySaved")
+                        vmProfile.saveImage(imageName: "imagePrilesKeySaved", image: image!, key: "imagePrilesKeySaved")
                         vmProfile.saveInfo()
                         dismiss()
                     }){

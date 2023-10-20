@@ -32,4 +32,19 @@ struct ButtonDismiss_Previews: PreviewProvider {
     }
 }
 
+struct ButtonBackward: View {
+    @Environment(\.dismiss) var dismiss
+    var body: some View {
+        HStack {
+            Button(action: {dismiss()}, label: {
+                Image(systemName: "chevron.backward.circle.fill")
+                    .resizable()
+                    .frame(width: 30,height: 30)
+                    .font(.system(size: 18,weight: .semibold))
+                    .foregroundStyle(Color.them.ColorblackSwich)
+            })
+            Spacer()
+        }.padding(.all)
+    }
+}
 
