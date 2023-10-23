@@ -127,7 +127,7 @@ struct MapHomeView: View {
                     .frame(maxHeight: .infinity,alignment: .top)
                     .sheet(isPresented: $showSearch) {
                         HomeSearchView(search: $searchText)
-                            .presentationDetents([.height(350)])
+                            .presentationDetents([.height(350),.large])
                             .presentationBackground(.thinMaterial)
                             .presentationBackgroundInteraction(.enabled(upThrough: .height(450)))
                             .presentationCornerRadius(12)
@@ -158,7 +158,7 @@ struct MapHomeView: View {
                 MapUserLocationButton()
                 
                 MapScaleView()
-        }
+            }
         }
     }
     private func getMapStyle() -> MapStyle {
