@@ -96,7 +96,6 @@ struct ProfilesHomeView: View {
                             Text("Login Out")
                                 .foregroundStyle(Color.red)
                         })
-                        
                     }
                 }
                 .sheet(isPresented: $showInfo) {InfoView(vmProfie: vmProfie)}

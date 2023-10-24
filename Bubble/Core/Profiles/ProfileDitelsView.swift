@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct ProfileDitelsView: View {
     
@@ -13,10 +14,13 @@ struct ProfileDitelsView: View {
     @State private var showSearch: Bool = false
     @StateObject var vmProfie = ProfilesViewMolde()
     @Environment(\.dismiss) var dismiss
+    
+    @State private var mapSelection: MKMapItem?
+    @State private var camerPosition: MapCameraPosition = .region(.userRegion)
     var body: some View {
         ZStack {
-            
-            ScrollView {
+            Color.them.Colorblack.ignoresSafeArea()
+            VStack {
                 HStack {
                     HStack(spacing: 15) {
                         Button(action: {dismiss()}, label: {
@@ -27,57 +31,60 @@ struct ProfileDitelsView: View {
                              .foregroundStyle(Color.them.ColorblackSwich)
 
                         })
-//                            if let image = vmProfie.imageProfiles {
-//                             Image(uiImage: image)
-//                                    .resizable()
-//                                    .scaledToFill()
-//                                    .frame(width: 44,height: 44)
-//                                    .background(Color.them.ColorBox)
-//                                    .clipShape(Circle())
-//                            }
                         Spacer()
                     }
                 }.padding()
                     .frame(maxWidth: .infinity)
                     .frame(height: 80)
                     .clipShape(.rect(cornerRadius: 20))
-                VStack(alignment: .leading) {
-                    
-                    Text("Frineds")
-                        .font(.system(size: 18,weight: .semibold))
-                        .padding(.horizontal)
-                    ZStack(alignment: .top) {
+
+                ScrollView {
+                    VStack(alignment: .leading) {
+                        Text("Frineds")
+                            .font(.system(size: 18,weight: .semibold))
+                            .padding(.horizontal)
+                        ZStack(alignment: .top) {
+                            HStack {
+                                ForEach(0 ..< 1) { item in
+                                    Image("Avatar2")
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: 60,height: 60)
+                                        .background(Color.green)
+                                        .clipShape(Circle())
+                                }
+                                Spacer()
+                            }
+                        }.padding()
+                            .frame(maxWidth: .infinity)
+                            .background(Color.them.ColorBox)
+                            .clipShape(.rect(cornerRadius: 10))
+                            .padding(.horizontal)
                         
-                        HStack {
-                            ForEach(0 ..< 5) { item in
-                                Image("")
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: 60,height: 60)
-                                    .background(Color.red)
-                                    .clipShape(Circle())
+                        
+                        Toggle(isOn: $showYourLocation) {
+                            Text("Show Location")
+                                .font(.system(size: 18,weight: .semibold))
+                                .foregroundStyle(Color.them.ColorblackSwich)
+                        }.padding()
+                        Map(position: $camerPosition, selection: $mapSelection){
+                            if !showYourLocation == false {
+                                Annotation("Abo", coordinate: .userLocation){
+                                    ZStack {
+                                        Image("Avatar")
+                                            .resizable()
+                                            .scaledToFill()
+                                            .frame(width: 50, height: 50)
+                                            .padding(10)
+                                            .background(Color.orange)
+                                            .clipShape(Circle())
+                                    }
+                                }
                             }
                         }
-                        
-                        HStack {
-                            Text("List Frindes")
-                            Spacer()
-                            Image(systemName: "chevron.right")
-                        }.padding(.vertical)
-                            .padding(.top,50)
-                            .offset(y: 10)
-                        
-                    }.padding()
-                        .frame(maxWidth: .infinity)
-                        .background(Color.them.ColorBox)
-                        .clipShape(.rect(cornerRadius: 10))
-                        .padding(.horizontal)
-                    
-                    
-                    Toggle(isOn: $showYourLocation) {
-                        Text("Show Location")
-                    }.padding()
-                    
+                        .frame(height: 200)
+                        .allowsHitTesting(false)
+                    }
                 }
             }
         }

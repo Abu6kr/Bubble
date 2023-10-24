@@ -23,6 +23,7 @@ struct HomeSearchView: View {
     }
     let suggestions = ["Food", "play", "shopping","coofee","games"]
 
+    
     var body: some View {
         ScrollView {
             VStack {
@@ -57,37 +58,8 @@ struct HomeSearchView: View {
                     }
                 }.padding()
             }
-            VStack(alignment: .leading) {
-                Text("Story")
-                    .font(.system(size: 17,weight: .semibold))
-                    .padding(.horizontal)
-                ScrollView(.horizontal,showsIndicators: false) {
-                    HStack(spacing: 15) {
-                        ForEach(0 ..< 5) { item in
-                            ZStack(alignment: .top) {
-                                Rectangle()
-                                    .frame(maxWidth:.infinity)
-                                    .frame(height: 160)
-                                    .foregroundStyle(Color.black)
-                                    .offset(y: -10)
-                                VStack(alignment: .leading) {
-                                    Text("What to watch")
-                                        .font(.system(size: 10,weight: .regular))
-                                        .foregroundStyle(Color.gray)
-                                    Text("Stream the Acme event")
-                                        .font(.system(size: 10,weight: .regular))
-                                        .foregroundStyle(Color.white)
-                                }.padding(.top)
-                            }.frame(width: 130,height: 170)
-                                .background(Color.white)
-                                .clipShape(.rect(cornerRadius: 14))
-                                .padding(6)
-                                .shadow(color: .black.opacity(0.25), radius: 5.5)
-                        }
-                    }
-                }
-            }.padding(.vertical)
-            
+            StorySearchView()
+
 //            NearbyLocationView(mapSection: $mapSection, show: $show, getDitretion: $getDitretion)
 //                .clipShape(.rect(cornerRadius: 10))
 //                .padding()
@@ -101,4 +73,5 @@ struct HomeSearchView: View {
 #Preview {
     HomeSearchView(search: .constant(""))
 }
+
 

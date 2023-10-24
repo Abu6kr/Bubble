@@ -28,7 +28,7 @@ struct MapHomeView: View {
     @State private var mapStyleSelection: MapStylesSelection = .standard
     
     @State private var ShazamShow: Bool = false
-    
+    @State private var shoeDitelsForineds = false
     var body: some View {
         NavigationStack {
             ZStack {
@@ -36,27 +36,24 @@ struct MapHomeView: View {
                     
                     Annotation("Abo", coordinate: .userLocation){
                         ZStack {
-                            Button {
+                            ZStack(alignment: .top) {
+                                WhatDoView()
+                                Image("Avatar")
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 50, height: 50)
+                                    .padding(10)
+                                    .background(Color.orange)
+                                    .clipShape(Circle())
                                 
-                            } label: {
-                                ZStack(alignment: .top) {
-                                    WhatDoView()
-                                    Image("Avatar")
-                                        .resizable()
-                                        .scaledToFill()
-                                        .frame(width: 50, height: 50)
-                                        .padding(10)
-                                        .background(Color.orange)
-                                        .clipShape(Circle())
-                               
-                                }
                             }
                         }
                     }
+                    
                     Annotation("Chara", coordinate: .userLocation2){
                         ZStack {
                             Button {
-                                
+                                shoeDitelsForineds.toggle()
                             } label: {
                                 Image("Avatar2")
                                     .resizable()
@@ -66,6 +63,10 @@ struct MapHomeView: View {
                                     .background(Color.green)
                                     .clipShape(Circle())
                             }
+                        }.sheet(isPresented: $shoeDitelsForineds) {
+                            FirendsDitelsView()
+                                .presentationDetents([.height(400)])
+                                .presentationBackground(.thinMaterial)
                         }
                     }
                     
@@ -138,8 +139,6 @@ struct MapHomeView: View {
             
             .onAppear {
                 vmProfile.loadImage(forKey: "imagePrilesKeySaved")
-                withAnimation(.easeInOut){DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
-                        if searchText.isEmpty {showSearch = false}}}
             }
             .onSubmit(of: .text) {Task { await searchPlace()}}
             .onChange(of: mapSelection, { oldValue, newValue in

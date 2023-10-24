@@ -89,6 +89,8 @@
 		C7BB1BCE2AD3E61700739B16 /* SelctionImageOrAvView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BB1BCD2AD3E61700739B16 /* SelctionImageOrAvView.swift */; };
 		C7BB1BD02AD3E92200739B16 /* ImagesSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BB1BCF2AD3E92200739B16 /* ImagesSectionView.swift */; };
 		C7BB1BD22AD405FC00739B16 /* WhatDoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BB1BD12AD405FC00739B16 /* WhatDoView.swift */; };
+		C7C15B002AE7A2E600E1D5B5 /* StorySearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C15AFF2AE7A2E600E1D5B5 /* StorySearchView.swift */; };
+		C7C15B032AE7BE8D00E1D5B5 /* FirendsDitelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C15B022AE7BE8D00E1D5B5 /* FirendsDitelsView.swift */; };
 		C7DE6E2B2ACC2AB30012A8FD /* MapHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE6E2A2ACC2AB30012A8FD /* MapHomeView.swift */; };
 		C7F16E382AC2DA7000EEA6F6 /* BubbleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F16E372AC2DA7000EEA6F6 /* BubbleApp.swift */; };
 		C7F16E3C2AC2DA7100EEA6F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7F16E3B2AC2DA7100EEA6F6 /* Assets.xcassets */; };
@@ -156,6 +158,8 @@
 		C7BB1BCD2AD3E61700739B16 /* SelctionImageOrAvView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelctionImageOrAvView.swift; sourceTree = "<group>"; };
 		C7BB1BCF2AD3E92200739B16 /* ImagesSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesSectionView.swift; sourceTree = "<group>"; };
 		C7BB1BD12AD405FC00739B16 /* WhatDoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatDoView.swift; sourceTree = "<group>"; };
+		C7C15AFF2AE7A2E600E1D5B5 /* StorySearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorySearchView.swift; sourceTree = "<group>"; };
+		C7C15B022AE7BE8D00E1D5B5 /* FirendsDitelsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirendsDitelsView.swift; sourceTree = "<group>"; };
 		C7DE6E2A2ACC2AB30012A8FD /* MapHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapHomeView.swift; sourceTree = "<group>"; };
 		C7F16E342AC2DA7000EEA6F6 /* Bubble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bubble.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F16E372AC2DA7000EEA6F6 /* BubbleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleApp.swift; sourceTree = "<group>"; };
@@ -389,6 +393,14 @@
 			path = Messages;
 			sourceTree = "<group>";
 		};
+		C7C15B012AE7BE5F00E1D5B5 /* Firends */ = {
+			isa = PBXGroup;
+			children = (
+				C7C15B022AE7BE8D00E1D5B5 /* FirendsDitelsView.swift */,
+			);
+			path = Firends;
+			sourceTree = "<group>";
+		};
 		C7F16E2B2AC2DA7000EEA6F6 = {
 			isa = PBXGroup;
 			children = (
@@ -413,6 +425,8 @@
 				C74DD7092AC80470003BD704 /* Authentication */,
 				C74DD7102AC80509003BD704 /* Firestore */,
 				C7F16E462AC2DB4000EEA6F6 /* Extensions */,
+				C710657C2AE650B100102607 /* lottie */,
+				C7C15B012AE7BE5F00E1D5B5 /* Firends */,
 				C7F16E452AC2DB1400EEA6F6 /* Core */,
 				C7FF21C92AE10FD3008BABDD /* ShazamKit */,
 				C780E7922AD7E63A007ADD5F /* GoogleService-Info.plist */,
@@ -433,7 +447,6 @@
 		C7F16E452AC2DB1400EEA6F6 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				C710657C2AE650B100102607 /* lottie */,
 				C71065762AE6452B00102607 /* Onboarding */,
 				C7F16E4B2AC2DC8C00EEA6F6 /* Launch */,
 				C71FC5DF2AC97B3600C44193 /* Navigations */,
@@ -469,6 +482,7 @@
 				C78998B82ACC4BFE0087A067 /* LocationDitelsView.swift */,
 				C7A9E5742AC3F78600AC2CAF /* ContentMapViewMolde.swift */,
 				C7FF21CE2AE119EC008BABDD /* HomeSearchView.swift */,
+				C7C15AFF2AE7A2E600E1D5B5 /* StorySearchView.swift */,
 				C7FF21D02AE125F5008BABDD /* NearbyLocationView.swift */,
 				C7BB1BD12AD405FC00739B16 /* WhatDoView.swift */,
 			);
@@ -628,6 +642,7 @@
 				C7FF21CB2AE11031008BABDD /* ShazamKitViewModel.swift in Sources */,
 				C7A9E5812AC4162600AC2CAF /* SignIn.swift in Sources */,
 				C780E7992AD7EBC4007ADD5F /* UserManger.swift in Sources */,
+				C7C15B002AE7A2E600E1D5B5 /* StorySearchView.swift in Sources */,
 				C7354E022AE251F0003B5F01 /* MyImagesHomeView.swift in Sources */,
 				C780E75A2AD7E291007ADD5F /* CreateAccountView.swift in Sources */,
 				C724CA3F2AC5830300D31458 /* SignInMethodGoogleView.swift in Sources */,
@@ -674,6 +689,7 @@
 				C7A9E57C2AC3FD8100AC2CAF /* Color.swift in Sources */,
 				C7DE6E2B2ACC2AB30012A8FD /* MapHomeView.swift in Sources */,
 				C764E1892ACE90F6005CBB56 /* CustomTabBarContainerView.swift in Sources */,
+				C7C15B032AE7BE8D00E1D5B5 /* FirendsDitelsView.swift in Sources */,
 				C7354E052AE251F0003B5F01 /* MyImageError.swift in Sources */,
 				C7354E042AE251F0003B5F01 /* FileManager+Extension.swift in Sources */,
 			);
