@@ -14,6 +14,7 @@ struct ShazamMusicView: View {
     
     var body: some View {
         ZStack {
+            Color.them.Colorblack.ignoresSafeArea()
             VStack {
                 AsyncImage(url: vmShazam.shazamMedia.albumArtURL) { image in
                     image

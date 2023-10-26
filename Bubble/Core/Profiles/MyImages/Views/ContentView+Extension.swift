@@ -83,23 +83,23 @@ extension MyImagesHomeView {
     
     var pickerButtons: some View {
         HStack {
-                Button {
-                    vm.source = .camera
-                    vm.showPhotoPicker()
-                } label: {
-                    ButtonLabel(symbolName: "camera", label: "Camera")
-                }
-                .alert("Error", isPresented: $vm.showCameraAlert, presenting: vm.cameraError, actions: { cameraError in
-                    cameraError.button
-                }, message: { cameraError in
-                    Text(cameraError.message)
-                })
-                Button {
-                    vm.source = .library
-                    vm.showPhotoPicker()
-                } label: {
-                    ButtonLabel(symbolName: "photo", label: "Photos")
-                }
+            Button {
+                vm.source = .camera
+                vm.showPhotoPicker()
+            } label: {
+                ButtonLabel(symbolName: "camera", label: "Camera")
+            }
+            .alert("Error", isPresented: $vm.showCameraAlert, presenting: vm.cameraError, actions: { cameraError in
+                cameraError.button
+            }, message: { cameraError in
+                Text(cameraError.message)
+            })
+            Button {
+                vm.source = .library
+                vm.showPhotoPicker()
+            } label: {
+                ButtonLabel(symbolName: "photo", label: "Photos")
+            }
         }
     }
 }

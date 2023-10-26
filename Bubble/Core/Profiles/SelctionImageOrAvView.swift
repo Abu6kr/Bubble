@@ -95,7 +95,7 @@ struct SelctionImageOrAvView: View {
             }
             .onAppear {
                 vmProfile.loadImage(forKey: "imagePrilesKeySaved")
-                vmProfile.iterateOverAuthors(authors: vmProfile.avaer)
+//                vmProfile.iterateOverAuthors(authors: vmProfile.avaer)
             }
             .navigationTitle("Image or Avatar")
             

@@ -9,6 +9,7 @@ import SwiftUI
 import MapKit
 
 struct MapHomeView: View {
+    
     @StateObject var vmProfile =  ProfilesViewMolde()
     @State private var camerPosition: MapCameraPosition = .region(.userRegion)
     
@@ -25,10 +26,16 @@ struct MapHomeView: View {
     
     @State private var showSearch: Bool = false
     
-    @State private var mapStyleSelection: MapStylesSelection = .standard
+    @ObservedObject var vmMap = MapMoldeView()
     
-    @State private var ShazamShow: Bool = false
     @State private var shoeDitelsForineds = false
+    
+    //MARK: cmaer modeView camers
+    @State private var showCmaer: Bool = false
+    @State private var ShazamShow: Bool = false
+    @State private var showContact = false
+
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -84,41 +91,8 @@ struct MapHomeView: View {
                     
                     if let reute {MapPolyline(reute.polyline).stroke(.blue, lineWidth: 6)}
                 }
-                .mapStyle(getMapStyle())
-                
-                VStack(alignment: .leading, spacing: 22){
-                    Button(action: {
-                        withAnimation(.smooth){self.toggleMapStyle()}
-                    }) {
-                        switch mapStyleSelection {
-                        case .standard:
-                            Image(systemName: "map.fill")
-                                .frame(width: 40, height: 40)
-                                .background(Color.them.ColorBox)
-                                .clipShape(.rect(cornerRadius: 12))
-                        case .hybrid:
-                            Image(systemName: "mappin.and.ellipse")
-                                .frame(width: 40, height: 40)
-                                .background(Color.them.ColorBox)
-                                .clipShape(.rect(cornerRadius: 12))
-                        case .imagery:
-                            Image(systemName: "mappin.slash.circle")
-                                .frame(width: 40, height: 40)
-                                .background(Color.them.ColorBox)
-                                .clipShape(.rect(cornerRadius: 12))
-                        }
-                    }.frame(maxWidth: .infinity ,alignment:.leading)
-                    
-                    Button {
-                        ShazamShow.toggle()
-                    } label: {
-                        Image(systemName: "shazam.logo")
-                            .frame(width: 40, height: 40)
-                            .background(Color.them.ColorBox)
-                            .clipShape(.rect(cornerRadius: 12))
-                    }
-
-                }.padding(.leading)
+                .mapStyle(vmMap.getMapStyle())
+                BarListTasksView(showCamera: $showCmaer, showShazam: $ShazamShow, showContact: $showContact, vmMap: vmMap)
                     .sheet(isPresented: $ShazamShow){
                         ShazamMusicView(ShazamShow: $ShazamShow)
                             .presentationDetents([.height(550)])
@@ -160,26 +134,7 @@ struct MapHomeView: View {
             }
         }
     }
-    private func getMapStyle() -> MapStyle {
-            switch mapStyleSelection {
-                case .standard:
-                    return .standard
-                case .hybrid:
-                    return .hybrid
-                case .imagery:
-                    return .imagery
-            }
-        }
-    private func toggleMapStyle() {
-          switch mapStyleSelection {
-              case .standard:
-                  mapStyleSelection = .hybrid
-              case .hybrid:
-                  mapStyleSelection = .imagery
-              case .imagery:
-                  mapStyleSelection = .standard
-          }
-      }
+    
   }
 
 
@@ -239,34 +194,8 @@ extension MapHomeView {
 }
 #Preview {
     MapHomeView()
-}
-
-
-extension CLLocationCoordinate2D {
-    static var userLocation: CLLocationCoordinate2D {
-        return .init(latitude: 25.7682, longitude: -80.1959)
-
-    }
-}
-
-extension CLLocationCoordinate2D {
-    static var userLocation2: CLLocationCoordinate2D {
-        return .init(latitude: 25.8682, longitude: -80.1959)
-
-    }
-}
-extension MKCoordinateRegion {
-    static var userRegion: MKCoordinateRegion {
-        return .init(center: .userLocation,
-                     latitudinalMeters: 1000,
-                     longitudinalMeters: 1000)
-    }
+        .environmentObject(ViewModel())
 }
 
 
 
-enum MapStylesSelection {
-    case standard
-    case hybrid
-    case imagery
-}

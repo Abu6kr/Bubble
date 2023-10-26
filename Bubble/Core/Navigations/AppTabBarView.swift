@@ -17,6 +17,7 @@ struct AppTabBarView: View {
     
     @State private var selection: String = "home"
     @State private var tabSelection: TabBarItem = .map
+    @EnvironmentObject var vm: ViewModel
     
     var body: some View {
         CustomTabBarContainerView(selection: $tabSelection) {
@@ -43,9 +44,9 @@ struct AppTabBarView: View {
 }
 
 struct AppTabBarView_Previews: PreviewProvider {
-    
     static var previews: some View {
         AppTabBarView()
+            .environmentObject(ViewModel())
     }
 }
 

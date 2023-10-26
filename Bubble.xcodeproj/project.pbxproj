@@ -39,6 +39,9 @@
 		C764E1872ACE90F6005CBB56 /* TabBarItemsPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C764E1822ACE90F6005CBB56 /* TabBarItemsPreferenceKey.swift */; };
 		C764E1882ACE90F6005CBB56 /* AppTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C764E1832ACE90F6005CBB56 /* AppTabBarView.swift */; };
 		C764E1892ACE90F6005CBB56 /* CustomTabBarContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C764E1842ACE90F6005CBB56 /* CustomTabBarContainerView.swift */; };
+		C7681ABC2AEA890400831938 /* BarListTasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7681ABB2AEA890400831938 /* BarListTasksView.swift */; };
+		C7681ABE2AEA92FB00831938 /* MapMoldeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7681ABD2AEA92FB00831938 /* MapMoldeView.swift */; };
+		C7681AC12AEAADC800831938 /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7681AC02AEAADC800831938 /* ContactsView.swift */; };
 		C77BE36B2ACA81C700A38A37 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77BE36A2ACA81C700A38A37 /* InfoView.swift */; };
 		C780E7502AD7CC23007ADD5F /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C780E74F2AD7CC23007ADD5F /* ChatView.swift */; };
 		C780E7522AD7D1D3007ADD5F /* CustomNavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C780E7512AD7D1D3007ADD5F /* CustomNavBarView.swift */; };
@@ -137,6 +140,9 @@
 		C764E1822ACE90F6005CBB56 /* TabBarItemsPreferenceKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarItemsPreferenceKey.swift; sourceTree = "<group>"; };
 		C764E1832ACE90F6005CBB56 /* AppTabBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTabBarView.swift; sourceTree = "<group>"; };
 		C764E1842ACE90F6005CBB56 /* CustomTabBarContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarContainerView.swift; sourceTree = "<group>"; };
+		C7681ABB2AEA890400831938 /* BarListTasksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarListTasksView.swift; sourceTree = "<group>"; };
+		C7681ABD2AEA92FB00831938 /* MapMoldeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMoldeView.swift; sourceTree = "<group>"; };
+		C7681AC02AEAADC800831938 /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
 		C77BE36A2ACA81C700A38A37 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		C780E74F2AD7CC23007ADD5F /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		C780E7512AD7D1D3007ADD5F /* CustomNavBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBarView.swift; sourceTree = "<group>"; };
@@ -247,6 +253,7 @@
 			children = (
 				C764E1832ACE90F6005CBB56 /* AppTabBarView.swift */,
 				C780E7512AD7D1D3007ADD5F /* CustomNavBarView.swift */,
+				C7681ABB2AEA890400831938 /* BarListTasksView.swift */,
 				C764E17F2ACE90F6005CBB56 /* CustomTabBar */,
 			);
 			path = Navigations;
@@ -343,6 +350,14 @@
 				C764E1842ACE90F6005CBB56 /* CustomTabBarContainerView.swift */,
 			);
 			path = CustomTabBar;
+			sourceTree = "<group>";
+		};
+		C7681ABF2AEAADC000831938 /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				C7681AC02AEAADC800831938 /* ContactsView.swift */,
+			);
+			path = Contacts;
 			sourceTree = "<group>";
 		};
 		C780E7562AD7D6F9007ADD5F /* Chat */ = {
@@ -447,6 +462,7 @@
 		C7F16E452AC2DB1400EEA6F6 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				C7681ABF2AEAADC000831938 /* Contacts */,
 				C71065762AE6452B00102607 /* Onboarding */,
 				C7F16E4B2AC2DC8C00EEA6F6 /* Launch */,
 				C71FC5DF2AC97B3600C44193 /* Navigations */,
@@ -485,6 +501,7 @@
 				C7C15AFF2AE7A2E600E1D5B5 /* StorySearchView.swift */,
 				C7FF21D02AE125F5008BABDD /* NearbyLocationView.swift */,
 				C7BB1BD12AD405FC00739B16 /* WhatDoView.swift */,
+				C7681ABD2AEA92FB00831938 /* MapMoldeView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -636,7 +653,9 @@
 				C7F16E522AC2E3A900EEA6F6 /* FluidGradientColor.swift in Sources */,
 				C74DD7072AC7EDBC003BD704 /* PopupCutemsView.swift in Sources */,
 				C707F0E22AD960370010F397 /* RegisterView.swift in Sources */,
+				C7681ABC2AEA890400831938 /* BarListTasksView.swift in Sources */,
 				C74DD70B2AC80483003BD704 /* AuthenticationManager.swift in Sources */,
+				C7681AC12AEAADC800831938 /* ContactsView.swift in Sources */,
 				C7FF21CF2AE119EC008BABDD /* HomeSearchView.swift in Sources */,
 				C77BE36B2ACA81C700A38A37 /* InfoView.swift in Sources */,
 				C7FF21CB2AE11031008BABDD /* ShazamKitViewModel.swift in Sources */,
@@ -670,6 +689,7 @@
 				C74DD70D2AC8048C003BD704 /* SignInGoogleHelper.swift in Sources */,
 				C7354E002AE251F0003B5F01 /* ViewModel.swift in Sources */,
 				C7F16E382AC2DA7000EEA6F6 /* BubbleApp.swift in Sources */,
+				C7681ABE2AEA92FB00831938 /* MapMoldeView.swift in Sources */,
 				C724CA3D2AC580FE00D31458 /* CornerRadiusStyle.swift in Sources */,
 				C7FF21D32AE142D4008BABDD /* ProfileDitelsView.swift in Sources */,
 				C724CA3B2AC57D5700D31458 /* ButtonCutemsLogin.swift in Sources */,
@@ -829,6 +849,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Would like to use the camera to take photos";
+				INFOPLIST_KEY_NSContactsUsageDescription = "Reapon for accessing contacts";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your loction to show your frineds";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -865,6 +886,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Would like to use the camera to take photos";
+				INFOPLIST_KEY_NSContactsUsageDescription = "Reapon for accessing contacts";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your loction to show your frineds";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
