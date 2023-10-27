@@ -14,6 +14,8 @@ struct MassageHomeView: View {
     var body: some View {
         NavigationStack {
             ZStack {
+                LinearGradient(colors: [vmProfie.averageColor,Color.them.Colorblack,Color.them.Colorblack,Color.them.Colorblack,Color.them.Colorblack], startPoint: .top, endPoint: .bottom)
+                    .ignoresSafeArea()
                 VStack {
                     CustemsHeaderBar(searchBar: $showSearch, colorbackground: Color.clear, title: "title")
                         .offset(y: -20)
@@ -46,6 +48,9 @@ struct MassageHomeView: View {
                             .padding(.top)
                     }
                 }
+            }
+            .onAppear {
+                vmProfie.loadImage(forKey: "imagePrilesKeySaved")
             }
         }
     }

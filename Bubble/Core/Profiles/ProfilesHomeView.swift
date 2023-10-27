@@ -138,6 +138,9 @@ extension ProfilesHomeView {
                         .background(Color.them.ColorBox)
                         .clipShape(.circle)
                         .padding(.horizontal)
+                        .onTapGesture {
+                            showEdit.toggle()
+                        }
                     
                 } else if vmProfie.imageProfiles == nil {
                     Image(systemName: "pencil")

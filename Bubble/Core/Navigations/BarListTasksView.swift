@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BarListTasksView: View {
     
-    @State  var showBar = false
+    @State  var showBar = true
     @Binding var showCamera: Bool
     @Binding var showShazam: Bool
     @Binding var showContact: Bool
@@ -58,7 +58,9 @@ struct BarListTasksView: View {
                         Image(systemName: "person.crop.rectangle.badge.plus.fill")
                             .font(.system(size: 16,weight: .semibold))
                             .foregroundStyle(Color.them.ColorblackSwich)
-                    }.fullScreenCover(isPresented: $showContact){ContactsView(dismiss: $showContact)}
+                    }.fullScreenCover(isPresented: $showContact){
+                        ContactsView(dismiss: $showContact)
+                    }
                 }
         
                 
@@ -97,7 +99,7 @@ struct BarListTasksView: View {
         })
         .sheet(isPresented: $showimages) {
             camerPhoto
-                .presentationDetents([.height(350)])
+                .presentationDetents([.height(250)])
                 .presentationCornerRadius(12)
         }
       
@@ -126,14 +128,24 @@ extension BarListTasksView {
     
     private var camerPhoto: some View {
         VStack(alignment: .center, spacing: 22) {
-            Button(action: {showimages.toggle()}, label: {
-                Image(systemName: "xmark")
-            })
+ 
+            Button(action: {showimages.toggle()}){
+                HStack {
+                    Text("Expressed Image")
+                        .font(.system(size: 18,weight: .bold))
+                        .foregroundStyle(Color.them.ColorblackSwich)
+                    Spacer()
+                    Image(systemName: "xmark")
+                        .font(.system(size: 18,weight: .semibold))
+                        .foregroundStyle(Color.them.ColorblackSwich)
+                }
+            }.padding(.horizontal)
             TextField("Image Name", text: $vm.imageName) { isEditing in
                 vm.isEditing = isEditing
             }
+            .padding(.horizontal)
             .focused($nameField, equals: true)
-            .frame(height: 130)
+            .frame(height: 40)
             .frame(maxWidth:.infinity)
             .background(Color.them.ColorBox)
             

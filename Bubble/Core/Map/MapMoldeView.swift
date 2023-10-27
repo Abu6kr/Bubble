@@ -53,10 +53,11 @@ enum MapStylesSelection {
 //MARK: map extension Locatione
 extension CLLocationCoordinate2D {
     static var userLocation: CLLocationCoordinate2D {
-        return .init(latitude: 25.7682, longitude: -80.1959)
-
+//        return .init(latitude: 25.7682, longitude: -80.1959)
+        return .init(latitude: 56.840506, longitude:  60.659330)
     }
 }
+
 
 extension CLLocationCoordinate2D {
     static var userLocation2: CLLocationCoordinate2D {

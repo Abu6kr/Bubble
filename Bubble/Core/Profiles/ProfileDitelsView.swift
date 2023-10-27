@@ -19,30 +19,32 @@ struct ProfileDitelsView: View {
     @State private var camerPosition: MapCameraPosition = .region(.userRegion)
     var body: some View {
         ZStack {
-            Color.them.Colorblack.ignoresSafeArea()
+            LinearGradient(colors: [vmProfie.averageColor,Color.them.Colorblack,Color.them.Colorblack,Color.them.Colorblack,Color.them.Colorblack], startPoint: .top, endPoint: .bottom)
+                .ignoresSafeArea()
             VStack {
-                HStack {
-                    HStack(spacing: 15) {
-                        Button(action: {dismiss()}, label: {
-                            Image(systemName: "chevron.left")
-                                .frame(width: 44,height: 44)
-                              .background(Color.them.ColorBox)
-                             .clipShape(Circle())
-                             .foregroundStyle(Color.them.ColorblackSwich)
-
-                        })
-                        Spacer()
-                    }
-                }.padding()
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 80)
-                    .clipShape(.rect(cornerRadius: 20))
-
                 ScrollView {
+                    HStack {
+                        HStack(spacing: 15) {
+                            Button(action: {dismiss()}, label: {
+                                Image(systemName: "chevron.left")
+                                    .frame(width: 44,height: 44)
+                                  .background(Color.them.ColorBox)
+                                 .clipShape(Circle())
+                                 .foregroundStyle(Color.them.ColorblackSwich)
+
+                            })
+                            Spacer()
+                        }
+                    }.padding()
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 80)
+                        .clipShape(.rect(cornerRadius: 20))
+
                     VStack(alignment: .leading) {
                         Text("Frineds")
                             .font(.system(size: 18,weight: .semibold))
                             .padding(.horizontal)
+                            .foregroundStyle(Color.them.ColorblackSwich)
                         ZStack(alignment: .top) {
                             HStack {
                                 ForEach(0 ..< 1) { item in
@@ -86,6 +88,9 @@ struct ProfileDitelsView: View {
                         .allowsHitTesting(false)
                     }
                 }
+            }
+            .onAppear {
+                vmProfie.loadImage(forKey: "imagePrilesKeySaved")
             }
         }
         .navigationBarBackButtonHidden(true)

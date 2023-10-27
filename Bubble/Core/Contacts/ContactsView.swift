@@ -8,6 +8,7 @@
 import SwiftUI
 import CoreData
 import Contacts
+import LinkPresentation
 
 
 struct ContactsView: View {
@@ -17,49 +18,78 @@ struct ContactsView: View {
     @State private var pick = false
     @State private var searchText: String = ""
     @Binding var dismiss : Bool
+    private let photo = Image("LogoApp")
+    @StateObject var vmProfie = ProfilesViewMolde()
     
     var body: some View {
         NavigationView {
-            VStack {
-                Button(action: {dismiss.toggle()}) {
-                    Image(systemName: "xmark")
-                }.frame(maxWidth: .infinity,alignment:.trailing)
-                    .padding(.horizontal)
-                
-                SearchBar(text: $searchText)
-
-                List {
+            ZStack {
+                LinearGradient(colors: [vmProfie.averageColor,Color.them.Colorblack,Color.them.Colorblack,Color.them.Colorblack,Color.them.Colorblack], startPoint: .top, endPoint: .bottom)
+                    .ignoresSafeArea()
+                VStack {
+                    Button(action: {dismiss.toggle()}){
+                        HStack {
+                            Text("Contacts")
+                                .font(.system(size: 25,weight: .bold))
+                                .foregroundStyle(Color.them.ColorblackSwich)
+                            Spacer()
+                            Image(systemName: "xmark")
+                                .font(.system(size: 18,weight: .semibold))
+                                .foregroundStyle(Color.them.ColorblackSwich)
+                        }
+                    }.padding(.all)
                     
-                    ForEach(contacts.contacts.filter {
-                        searchText.isEmpty ? true : ($0.firstName + " " + $0.lastName).lowercased().contains(searchText.lowercased())
-                    }) { contact in
-                        
-                        VStack{
-                            NavigationLink(destination: DetailedContactView(contact: contact)){
-                                HStack{
+                    SearchBar(text: $searchText)
+                    
+                    ScrollView {
+                        ForEach(contacts.contacts.filter {
+                            searchText.isEmpty ? true : ($0.firstName + " " + $0.lastName).lowercased().contains(searchText.lowercased())
+                        }) { contact in
+                            VStack(alignment: .leading){
+                                HStack {
                                     Text(contact.firstName)
                                     Text(contact.lastName)
+                                    Spacer()
+                                    ShareLink(item: photo, preview: SharePreview("Bubble", image: photo)){
+                                        Text("Add")
+                                            .font(.system(size: 14,weight: .semibold))
+                                            .foregroundStyle(Color.them.ColorblackSwich)
+                                            .frame(height: 40)
+                                            .padding(.horizontal)
+                                            .background(
+                                                RoundedRectangle(cornerRadius: 22)
+                                                    .stroke(lineWidth: 2.5)
+                                                    .foregroundStyle(Color.them.ColorOrange)
+                                                    .clipShape(.rect(cornerRadius: 22))
+                                            )
+                                    }
                                 }
-                            }
+                            }.padding(.horizontal)
+                                .padding(.vertical,5)
                         }
-                        
                     }
-                }.listStyle(.plain)
-                .navigationTitle("Contacts")
-            }
-            .onAppear {
-                DispatchQueue.main.async {
-                    contacts.fetchContacts()
+                }
+                .onAppear {
+                    DispatchQueue.main.async {
+                        contacts.fetchContacts()
+                    }
+                    vmProfie.loadImage(forKey: "imagePrilesKeySaved")
                 }
             }
         }
+        
+    }
+    func actionSheet() {
+        guard let urlShare = URL(string: "https://developer.apple.com/xcode/swiftui/") else { return }
+        let activityVC = UIActivityViewController(activityItems: [urlShare], applicationActivities: nil)
+        UIApplication.shared.windows.first?.rootViewController?.present(activityVC, animated: true, completion: nil)
     }
 }
-    
-    #Preview {
-        ContactsView(dismiss: .constant(false))
-    }
-    
+
+#Preview {
+    ContactsView(dismiss: .constant(false))
+}
+
     
     struct Contact: Identifiable, Hashable {
         var id = UUID()
@@ -162,22 +192,22 @@ extension UIApplication {
     }
 }
 
-    struct DetailedContactView: View {
-
-        var contact: Contact
-
-        var body: some View {
-            VStack{
-                HStack{
-                    Text(contact.firstName)
-                    Text(contact.lastName)
-                }
-                ForEach(contact.phoneNumbers, id:\.self) { number in
-                    Text(number)
-                }
-                ForEach(contact.emailAddresses, id:\.self) { email in
-                    Text(email)
-                }
+struct DetailedContactView: View {
+    
+    var contact: Contact
+    
+    var body: some View {
+        VStack{
+            HStack{
+                Text(contact.firstName)
+                Text(contact.lastName)
+            }
+            ForEach(contact.phoneNumbers, id:\.self) { number in
+                Text(number)
+            }
+            ForEach(contact.emailAddresses, id:\.self) { email in
+                Text(email)
             }
         }
     }
+}
