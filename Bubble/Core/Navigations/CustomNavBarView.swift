@@ -63,11 +63,11 @@ extension CustomNavBarView {
     
     private var titleSection: some View {
         HStack {
-            Image("")
+            Image("Avatar2")
                 .resizable()
-                .scaledToFill()
-                .frame(width: 32,height: 32)
-                .background(Color.white)
+                .scaledToFit()
+                .frame(width: 55,height: 55)
+                .background(Color.pink.opacity(0.5))
                 .clipShape(.circle)
                 .padding(.leading)
             VStack(alignment: .leading,spacing: 4) {

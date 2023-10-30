@@ -14,6 +14,7 @@
 		C710657E2AE650FD00102607 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C710657D2AE650FD00102607 /* LottieView.swift */; };
 		C71065812AE6518200102607 /* Lottie1.json in Resources */ = {isa = PBXBuildFile; fileRef = C71065802AE6518200102607 /* Lottie1.json */; };
 		C71065832AE6564600102607 /* Lottie2.json in Resources */ = {isa = PBXBuildFile; fileRef = C71065822AE6564600102607 /* Lottie2.json */; };
+		C712E0202AEFF2D900621D28 /* AnimationHellpe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C712E01F2AEFF2D900621D28 /* AnimationHellpe.swift */; };
 		C71FC5E32AC98EE700C44193 /* ProfilesHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71FC5E22AC98EE700C44193 /* ProfilesHomeView.swift */; };
 		C724CA3B2AC57D5700D31458 /* ButtonCutemsLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C724CA3A2AC57D5700D31458 /* ButtonCutemsLogin.swift */; };
 		C724CA3D2AC580FE00D31458 /* CornerRadiusStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C724CA3C2AC580FE00D31458 /* CornerRadiusStyle.swift */; };
@@ -115,6 +116,7 @@
 		C710657D2AE650FD00102607 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		C71065802AE6518200102607 /* Lottie1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Lottie1.json; sourceTree = "<group>"; };
 		C71065822AE6564600102607 /* Lottie2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Lottie2.json; sourceTree = "<group>"; };
+		C712E01F2AEFF2D900621D28 /* AnimationHellpe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationHellpe.swift; sourceTree = "<group>"; };
 		C71FC5E22AC98EE700C44193 /* ProfilesHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesHomeView.swift; sourceTree = "<group>"; };
 		C724CA3A2AC57D5700D31458 /* ButtonCutemsLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCutemsLogin.swift; sourceTree = "<group>"; };
 		C724CA3C2AC580FE00D31458 /* CornerRadiusStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadiusStyle.swift; sourceTree = "<group>"; };
@@ -478,6 +480,7 @@
 		C7F16E462AC2DB4000EEA6F6 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C712E01F2AEFF2D900621D28 /* AnimationHellpe.swift */,
 				C7A9E57B2AC3FD8100AC2CAF /* Color.swift */,
 			);
 			path = Extensions;
@@ -691,6 +694,7 @@
 				C7F16E382AC2DA7000EEA6F6 /* BubbleApp.swift in Sources */,
 				C7681ABE2AEA92FB00831938 /* MapMoldeView.swift in Sources */,
 				C724CA3D2AC580FE00D31458 /* CornerRadiusStyle.swift in Sources */,
+				C712E0202AEFF2D900621D28 /* AnimationHellpe.swift in Sources */,
 				C7FF21D32AE142D4008BABDD /* ProfileDitelsView.swift in Sources */,
 				C724CA3B2AC57D5700D31458 /* ButtonCutemsLogin.swift in Sources */,
 				C7354E062AE251F0003B5F01 /* Picker.swift in Sources */,

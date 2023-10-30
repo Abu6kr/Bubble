@@ -10,7 +10,7 @@ import SwiftUI
 struct ListFrindesChat: View {
     var body: some View {
         ScrollView {
-            ForEach(0..<2){ items in
+            ForEach(0..<1){ items in
                 NavigationLink {
                     ChatView()
                 } label: {

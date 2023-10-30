@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BarListTasksView: View {
     
-    @State  var showBar = true
+    @State  var showBar = false
     @Binding var showCamera: Bool
     @Binding var showShazam: Bool
     @Binding var showContact: Bool

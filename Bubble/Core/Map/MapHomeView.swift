@@ -34,7 +34,8 @@ struct MapHomeView: View {
     @State private var showCmaer: Bool = false
     @State private var ShazamShow: Bool = false
     @State private var showContact = false
-
+    
+    @StateObject var vmProfie = ProfilesViewMolde()
     
     var body: some View {
         NavigationStack {
@@ -44,15 +45,23 @@ struct MapHomeView: View {
                     Annotation("Abo", coordinate: .userLocation){
                         ZStack {
                             ZStack(alignment: .top) {
-                                WhatDoView()
-                                Image("Avatar")
-                                    .resizable()
+//                                WhatDoView()
+                                if let image =  vmProfie.imageProfiles  {
+                                    Image(uiImage: image)
+                                        .resizable()
                                     .scaledToFill()
-                                    .frame(width: 50, height: 50)
-                                    .padding(10)
-                                    .background(Color.orange)
-                                    .clipShape(Circle())
-                                
+                                   .frame(width: 50, height: 50)
+                                   .background(Color.them.ColorBox)
+                                   .clipShape(Circle())
+                                } else {
+                                 Image("Avatar")
+                                        .resizable()
+                                    .scaledToFill()
+                                   .frame(width: 50, height: 50)
+                                   .padding(10)
+                                   .background(Color.orange)
+                                   .clipShape(Circle())
+                                }
                             }
                         }
                     }
@@ -64,11 +73,10 @@ struct MapHomeView: View {
                             } label: {
                                 Image("Avatar2")
                                     .resizable()
-                                    .scaledToFill()
-                                    .frame(width: 50, height: 50)
-                                    .padding(10)
-                                    .background(Color.green)
-                                    .clipShape(Circle())
+                                    .scaledToFit()
+                                    .frame(width: 55,height: 55)
+                                    .background(Color.pink.opacity(0.5))
+                                    .clipShape(.circle)
                             }
                         }.sheet(isPresented: $shoeDitelsForineds) {
                             FirendsDitelsView()
@@ -133,9 +141,11 @@ struct MapHomeView: View {
                 MapScaleView()
             }
         }
+        .onAppear {
+            vmProfie.loadImage(forKey: "imagePrilesKeySaved")
+        }
     }
-    
-  }
+}
 
 
 extension MapHomeView {
