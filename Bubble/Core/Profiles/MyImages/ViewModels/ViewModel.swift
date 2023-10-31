@@ -8,6 +8,7 @@
 import SwiftUI
 
 class ViewModel: ObservableObject {
+    let colums:[GridItem] = [GridItem(.flexible()),GridItem(.flexible()),]
     @Published var image: UIImage?
     @Published var showPicker = false
     @Published var source: Picker.Source = .library

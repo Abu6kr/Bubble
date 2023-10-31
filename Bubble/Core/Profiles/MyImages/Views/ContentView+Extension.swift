@@ -9,24 +9,27 @@ import SwiftUI
 
 extension MyImagesHomeView {
     var imageScroll: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 10) {
+        LazyVGrid(columns: vm.colums){
                 ForEach(vm.myImages) { myImage in
                     VStack {
-                        Image(uiImage: myImage.image)
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 150, height: 150)
-                            .clipShape(RoundedRectangle(cornerRadius: 15))
-                            .shadow(color: .black.opacity(0.6), radius: 2, x: 2, y: 2)
-                        Text(myImage.name)
-                    }
+                        ZStack(alignment: .bottom) {
+                            Image(uiImage: myImage.image)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(maxWidth: .infinity)
+                                .frame(height: 180)
+                                .clipShape(RoundedRectangle(cornerRadius: 15))
+                            Text(myImage.name)
+                                .lineLimit(1)
+                                .font(.system(size: 16,weight: .semibold))
+                        }
+                    }.padding(.horizontal)
                     .onTapGesture {
                         vm.display(myImage)
                     }
+                    
                 }
             }.padding(.leading)
-        }
     }
     
     var selectedImage: some View {

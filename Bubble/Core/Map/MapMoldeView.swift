@@ -13,9 +13,11 @@ class MapMoldeView : ObservableObject {
     
     @Published var mapStyleSelection: MapStylesSelection = .standard
     @Published var searchText = ""
-
+    @Published var showYourLocation: Bool = true
     
-    
+    func potentialAsyncFunction(_ newState: Bool) {
+            self.showYourLocation = newState
+        }
 
     
      func getMapStyle() -> MapStyle {
@@ -72,4 +74,3 @@ extension MKCoordinateRegion {
                      longitudinalMeters: 1000)
     }
 }
-

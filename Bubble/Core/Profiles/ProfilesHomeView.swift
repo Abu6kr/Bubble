@@ -94,7 +94,14 @@ struct ProfilesHomeView: View {
                             }
                         }, label: {
                             Text("Login Out")
-                                .foregroundStyle(Color.red)
+                                .font(.system(size: 17,weight: .semibold))
+                                .padding(10)
+                                .foregroundStyle(Color.them.ColorblackSwich)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 14)
+                                        .stroke(lineWidth: 1.0)
+                                        .foregroundStyle(Color.them.ColorOrange)
+                                )
                         })
                     }
                 }

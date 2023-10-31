@@ -41,26 +41,27 @@ struct MapHomeView: View {
         NavigationStack {
             ZStack {
                 Map(position: $camerPosition, selection: $mapSelection){
-                    
-                    Annotation("Abo", coordinate: .userLocation){
-                        ZStack {
-                            ZStack(alignment: .top) {
-//                                WhatDoView()
-                                if let image =  vmProfie.imageProfiles  {
-                                    Image(uiImage: image)
-                                        .resizable()
-                                    .scaledToFill()
-                                   .frame(width: 50, height: 50)
-                                   .background(Color.them.ColorBox)
-                                   .clipShape(Circle())
-                                } else {
-                                 Image("Avatar")
-                                        .resizable()
-                                    .scaledToFill()
-                                   .frame(width: 50, height: 50)
-                                   .padding(10)
-                                   .background(Color.orange)
-                                   .clipShape(Circle())
+                    if !vmMap.showYourLocation == false {
+                        Annotation("Abo", coordinate: .userLocation){
+                            ZStack {
+                                ZStack(alignment: .top) {
+                                    //  WhatDoView()
+                                    if let image =  vmProfie.imageProfiles  {
+                                        Image(uiImage: image)
+                                            .resizable()
+                                            .scaledToFill()
+                                            .frame(width: 50, height: 50)
+                                            .background(Color.them.ColorBox)
+                                            .clipShape(Circle())
+                                    } else {
+                                        Image("Avatar")
+                                            .resizable()
+                                            .scaledToFill()
+                                            .frame(width: 50, height: 50)
+                                            .padding(10)
+                                            .background(Color.orange)
+                                            .clipShape(Circle())
+                                    }
                                 }
                             }
                         }

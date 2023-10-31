@@ -10,13 +10,14 @@ import MapKit
 
 struct ProfileDitelsView: View {
     
-    @State private var showYourLocation: Bool = true
+//    @State private var showYourLocation: Bool = true
     @State private var showSearch: Bool = false
     @StateObject var vmProfie = ProfilesViewMolde()
     @Environment(\.dismiss) var dismiss
     
     @State private var mapSelection: MKMapItem?
     @State private var camerPosition: MapCameraPosition = .region(.userRegion)
+    @StateObject var vmMap =  MapMoldeView()
     var body: some View {
         ZStack {
             LinearGradient(colors: [vmProfie.averageColor,Color.them.Colorblack,Color.them.Colorblack,Color.them.Colorblack,Color.them.Colorblack], startPoint: .top, endPoint: .bottom)
@@ -64,22 +65,33 @@ struct ProfileDitelsView: View {
                             .padding(.horizontal)
                         
                         
-                        Toggle(isOn: $showYourLocation) {
+                        Toggle(isOn: $vmMap.showYourLocation) {
                             Text("Show Location")
                                 .font(.system(size: 18,weight: .semibold))
                                 .foregroundStyle(Color.them.ColorblackSwich)
                         }.padding()
+                            
+                         
                         Map(position: $camerPosition, selection: $mapSelection){
-                            if !showYourLocation == false {
+                            if !vmMap.showYourLocation == false {
                                 Annotation("Abo", coordinate: .userLocation){
-                                    ZStack {
-                                        Image("Avatar")
-                                            .resizable()
+                                    ZStack(alignment: .top) {
+                                        if let image =  vmProfie.imageProfiles  {
+                                            Image(uiImage: image)
+                                                .resizable()
                                             .scaledToFill()
-                                            .frame(width: 50, height: 50)
-                                            .padding(10)
-                                            .background(Color.orange)
-                                            .clipShape(Circle())
+                                           .frame(width: 50, height: 50)
+                                           .background(Color.them.ColorBox)
+                                           .clipShape(Circle())
+                                        } else {
+                                         Image("Avatar")
+                                                .resizable()
+                                            .scaledToFill()
+                                           .frame(width: 50, height: 50)
+                                           .padding(10)
+                                           .background(Color.orange)
+                                           .clipShape(Circle())
+                                        }
                                     }
                                 }
                             }
