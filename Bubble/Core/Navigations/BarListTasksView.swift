@@ -98,9 +98,12 @@ struct BarListTasksView: View {
             Text(cameraError.message)
         })
         .sheet(isPresented: $showimages) {
-            camerPhoto
-                .presentationDetents([.height(250)])
-                .presentationCornerRadius(12)
+            ZStack {
+                Color.them.ColorBox.ignoresSafeArea(.all)
+                camerPhoto
+                    .presentationDetents([.height(250)])
+                    .presentationCornerRadius(12)
+            }
         }
       
         
@@ -147,7 +150,7 @@ extension BarListTasksView {
             .focused($nameField, equals: true)
             .frame(height: 40)
             .frame(maxWidth:.infinity)
-            .background(Color.them.ColorBox)
+            .background(Color.them.Colorblack.opacity(0.5))
             
             HStack {
                 Button {
