@@ -19,6 +19,7 @@ struct BarListTasksView: View {
     @FocusState var nameField:Bool
     
     @State private var showimages: Bool = false
+    @Binding var showImagesTake: Bool
     var body: some View {
         VStack {
        
@@ -61,8 +62,20 @@ struct BarListTasksView: View {
                     }.fullScreenCover(isPresented: $showContact){
                         ContactsView(dismiss: $showContact)
                     }
+                    
+                     //MARK: show Where you Take Photo
+                     Button {
+                         showImagesTake.toggle()
+                     } label: {
+                         Image(systemName: "photo.on.rectangle.angled")
+                             .font(.system(size: 16,weight: .semibold))
+                             .foregroundStyle(Color.black)
+                             .padding(5)
+                             .background(Color.orange)
+                             .clipShape(Circle())
+                     }
                 }
-        
+ 
                 
                 Button(action: {
                     withAnimation(.easeInOut(duration: 0.5)) {
@@ -113,8 +126,7 @@ struct BarListTasksView: View {
 struct BarListTasksView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
-//            Color.white.ignoresSafeArea()
-            BarListTasksView(showCamera: .constant(false), showShazam: .constant(false), showContact: .constant(false), vmMap: MapMoldeView())
+            BarListTasksView(showCamera: .constant(false), showShazam: .constant(false), showContact: .constant(false), vmMap: MapMoldeView(), showImagesTake: .constant(false))
                 .environmentObject(ViewModel())
                 .previewLayout(.sizeThatFits)
         }

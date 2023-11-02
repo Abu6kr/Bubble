@@ -7,6 +7,12 @@
 
 import SwiftUI
 import Firebase
+import Logging
+
+var logger = Logger(label: "gr.dkaratzas.Weather.main")
+
+let isRunningUITests = ProcessInfo.processInfo.arguments.contains("isRunningUITests")
+
 
 @main
 struct BubbleApp: App {
@@ -30,6 +36,7 @@ struct BubbleApp: App {
                 }
                 .zIndex(2.0)
             }
+            .preferredColorScheme(.dark)
         }
     }
 }

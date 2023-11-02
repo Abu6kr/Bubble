@@ -34,6 +34,7 @@ struct MapHomeView: View {
     @State private var showCmaer: Bool = false
     @State private var ShazamShow: Bool = false
     @State private var showContact = false
+    @State private var showImagesTake: Bool = true
     
     @StateObject var vmProfie = ProfilesViewMolde()
     
@@ -101,7 +102,7 @@ struct MapHomeView: View {
                     if let reute {MapPolyline(reute.polyline).stroke(.blue, lineWidth: 6)}
                 }
                 .mapStyle(vmMap.getMapStyle())
-                BarListTasksView(showCamera: $showCmaer, showShazam: $ShazamShow, showContact: $showContact, vmMap: vmMap)
+                BarListTasksView(showCamera: $showCmaer, showShazam: $ShazamShow, showContact: $showContact, vmMap: vmMap,showImagesTake:$showImagesTake)
                     .sheet(isPresented: $ShazamShow){
                         ShazamMusicView(ShazamShow: $ShazamShow)
                             .presentationDetents([.height(550)])
@@ -116,6 +117,15 @@ struct MapHomeView: View {
                             .presentationBackgroundInteraction(.enabled(upThrough: .height(450)))
                             .presentationCornerRadius(12)
                     }
+                if !showImagesTake == true {
+                    ShowImagesTakeView()
+                }
+                NavigationLink {
+                    WeatherApp()
+                } label: {
+                    Text("Wahter")
+                }
+
             }
             .onChange(of: getDitretion, { oldValue, newValue in
                 if newValue {fatchRoute()}})
