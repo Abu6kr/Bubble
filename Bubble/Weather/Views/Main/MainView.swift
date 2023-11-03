@@ -27,11 +27,12 @@ import SwiftUI
 
 struct MainView: View {
 	@StateObject private var viewModel: MainViewModel = Resolver.shared.resolve(MainViewModel.self)
-
+    @Environment(\.dismiss) var dismiss
+    @StateObject var vmProfie = ProfilesViewMolde()
 	var body: some View {
 			ZStack {
-			
-
+                LinearGradient(colors: [vmProfie.averageColor,Color.them.Colorblack,Color.them.Colorblack,Color.them.Colorblack,Color.them.Colorblack], startPoint: .top, endPoint: .bottom)
+                    .ignoresSafeArea()
 				VStack {
 					headerView
 
@@ -62,8 +63,11 @@ struct MainView: View {
 						viewModel.saveSelectedPlace()
 					}
 				}
+                .onAppear {
+                    vmProfie.loadImage(forKey: "imagePrilesKeySaved")
+                }
 			}
-			.navigationBarHidden(false)
+			.navigationBarHidden(true)
 			.background(Color.clear)
 		
 	}
@@ -147,6 +151,7 @@ struct MainView: View {
 							}
 						}
 					}
+                    .listStyle(.plain)
 					.onAppear {
 						UITableView.appearance().backgroundColor = UIColor.clear
 						UITableViewCell.appearance().backgroundColor = UIColor.clear
@@ -170,6 +175,14 @@ struct MainView: View {
 		return AnyView(
 			ZStack {
 				HStack {
+                    Button(action: {dismiss()}, label: {
+                        Image(systemName: "chevron.backward.circle.fill")
+                            .resizable()
+                            .frame(width: 30,height: 30)
+                            .font(.system(size: 18,weight: .semibold))
+                            .foregroundStyle(Color.them.ColorblackSwich)
+                    })
+               
 					Spacer()
 				}
 				VStack {
@@ -203,6 +216,6 @@ struct MainView: View {
 struct MainView_Previews: PreviewProvider {
 	static var previews: some View {
 		Resolver.shared.setDependencyContainer(buildMockContainer())
-		return MainView()
+        return MainView()
 	}
 }

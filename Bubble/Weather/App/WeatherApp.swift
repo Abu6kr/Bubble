@@ -28,6 +28,5 @@ import SwiftUI
 struct WeatherApp: View {
     var body: some View {
         MainView()
-           
     }
 }

@@ -30,10 +30,14 @@ struct WeatherView: View {
 	var canSave: Bool
 	var addPlaceCallback: (() -> Void)?
 	@Environment(\.presentationMode) var presentationMode
-
+    @StateObject var vmProfie = ProfilesViewMolde()
+    @State private var notHveColor: Bool = false
 	var body: some View {
 		ZStack {
-			
+
+            LinearGradient(colors: [vmProfie.averageColor,Color.them.Colorblack,Color.them.Colorblack,Color.them.Colorblack,Color.them.Colorblack], startPoint: .top, endPoint: .bottom)
+                    .ignoresSafeArea()
+
 			VStack {
 				if isSheet {
 					sheetActionsView
@@ -62,6 +66,9 @@ struct WeatherView: View {
 				}
 				Spacer()
 			}
+            .onAppear {
+                vmProfie.loadImage(forKey: "imagePrilesKeySaved")
+            }
 		}
 		.navigationBarHidden(true)
 	}
@@ -136,7 +143,7 @@ struct WeatherView: View {
 				}
 				.accessibilityIdentifier(AppConstants.A11y.weatherCancelButton)
 				Spacer()
-				if canSave {
+ 				if canSave {
 					Button(L10n.add) {
 						addPlaceCallback?()
 						presentationMode.wrappedValue.dismiss()

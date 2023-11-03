@@ -50,7 +50,6 @@ struct LocationDitelsView: View {
             } else {
                 ContentUnavailableView("No private avilepoels", systemImage: "nosign")
             }
-            
             HStack {
                 Button {
                     if let mapSection {

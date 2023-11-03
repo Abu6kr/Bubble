@@ -7,9 +7,11 @@
 
 import SwiftUI
 import MapKit
+import SimpleToast
+
 
 struct MapHomeView: View {
-    
+    @StateObject private var viewModel: MainViewModel = Resolver.shared.resolve(MainViewModel.self)
     @StateObject var vmProfile =  ProfilesViewMolde()
     @State private var camerPosition: MapCameraPosition = .region(.userRegion)
     
@@ -35,6 +37,7 @@ struct MapHomeView: View {
     @State private var ShazamShow: Bool = false
     @State private var showContact = false
     @State private var showImagesTake: Bool = true
+    @State private var showWather: Bool = true
     
     @StateObject var vmProfie = ProfilesViewMolde()
     
@@ -120,11 +123,9 @@ struct MapHomeView: View {
                 if !showImagesTake == true {
                     ShowImagesTakeView()
                 }
-                NavigationLink {
-                    WeatherApp()
-                } label: {
-                    Text("Wahter")
-                }
+                
+
+                              ShowWitherPlase
 
             }
             .onChange(of: getDitretion, { oldValue, newValue in
@@ -132,6 +133,11 @@ struct MapHomeView: View {
             
             .onAppear {
                 vmProfile.loadImage(forKey: "imagePrilesKeySaved")
+                    
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: {
+                    showWather = true
+                })
+                
             }
             .onSubmit(of: .text) {Task { await searchPlace()}}
             .onChange(of: mapSelection, { oldValue, newValue in
@@ -157,6 +163,7 @@ struct MapHomeView: View {
         }
     }
 }
+
 
 
 extension MapHomeView {
@@ -210,6 +217,69 @@ extension MapHomeView {
             }.padding(.horizontal)
                 .padding(.bottom,80)
         }
+    }
+    
+    private var ShowWitherPlase: some View {
+        AnyView(
+            ForEach(viewModel.weathersData.prefix(1)) { weatherData in
+                HStack {
+                    NavigationLink(destination: WeatherView(isSheet: false, canSave: false), isActive: $viewModel.weatherViewPresented) { EmptyView() }
+                    
+                    HStack {
+                        if viewModel.state == .editingPlaces {
+                            Button(action: {
+                                withAnimation(.easeInOut(duration: 0.5)){
+                                    viewModel.removeWeatherDate(weatherData)
+                                }
+                            }, label: {
+                                Image(systemName: "minus.circle.fill")
+                                
+                            })
+                            .accessibilityIdentifier(AppConstants.A11y.removePlaceButton)
+                        }
+                        HStack {
+                            VStack(alignment: .leading,spacing: 5) {
+                                Text(weatherData.placeName)
+                                    .fontWeight(.medium)
+                                    .font(.system(size: 10))
+                                
+                                Text(weatherData.currentTempDescription)
+                                    .font(Font.system(size: 10))
+                                    .foregroundColor(.secondary)
+                                
+                                if viewModel.state == .fetchingWeathersData {
+                                    ProgressView()
+                                } else {
+                                    HStack {
+                                        Text(weatherData.currentTemp)
+                                            .font(.system(size: 10))
+                                        weatherData.image?
+                                            .renderingMode(.original)
+                                            .imageScale(.large)
+                                    }
+                                }
+                            }
+                        }
+                        .padding()
+                        .background(Color.them.ColorBox)
+                        .cornerRadius(22, corners: [.topLeft,.topRight,.bottomLeft])
+                        .onTapGesture {
+                            if viewModel.state == .editingPlaces {
+                                viewModel.removeWeatherDate(weatherData)
+                            } else {
+                                viewModel.selectedPlace = weatherData.place
+                            }
+                        }
+                    }
+                    .frame(height: 50)
+                    
+                }
+            }
+                .padding()
+                .accessibilityIdentifier(AppConstants.A11y.placesScrollView)
+//                .opacity(showWather ? 1 : 0)
+//                .offset(y: showWather ? 15 : 20)
+        )
     }
     
 }

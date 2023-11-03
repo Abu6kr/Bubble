@@ -17,108 +17,128 @@ struct BarListTasksView: View {
     @ObservedObject var vmMap : MapMoldeView
     @EnvironmentObject var vm: ViewModel
     @FocusState var nameField:Bool
-    
+    @State private var animationWiher: Bool = false
     @State private var showimages: Bool = false
     @Binding var showImagesTake: Bool
     var body: some View {
         VStack {
-       
-            VStack(alignment: .center,spacing: 22) {
-                Button(action: {
-                    showCamera.toggle()
-                    if showCamera == true {
-                        vm.source = .camera
-                        vm.showPhotoPicker()
-                        showimages = true
-                    }
-                }) {
-                    Image(systemName: "camera.fill")
-                        .font(.system(size: 16,weight: .semibold))
-                        .foregroundStyle(Color.them.ColorblackSwich)
-                }
-             
-                if !showBar {
+
+            VStack {
+
+                VStack(alignment: .center,spacing: 22) {
                     Button(action: {
-                        withAnimation(.smooth){self.vmMap.toggleMapStyle()}
-                    }) {
-                        switch vmMap.mapStyleSelection {
-                        case .standard:
-                            Image(systemName: "map.fill")
-                        case .hybrid:
-                            Image(systemName: "mappin.and.ellipse")
-                        case .imagery:
-                            Image(systemName: "mappin.slash.circle")
+                        showCamera.toggle()
+                        if showCamera == true {
+                            vm.source = .camera
+                            vm.showPhotoPicker()
+                            showimages = true
                         }
-                    }
-                    Button(action: {showShazam.toggle()}) {
-                        Image(systemName: "shazam.logo.fill")
+                    }) {
+                        Image(systemName: "camera.fill")
                             .font(.system(size: 16,weight: .semibold))
                             .foregroundStyle(Color.them.ColorblackSwich)
                     }
-                    Button(action: {self.showContact.toggle()}) {
-                        Image(systemName: "person.crop.rectangle.badge.plus.fill")
-                            .font(.system(size: 16,weight: .semibold))
-                            .foregroundStyle(Color.them.ColorblackSwich)
-                    }.fullScreenCover(isPresented: $showContact){
-                        ContactsView(dismiss: $showContact)
+                 
+                    if !showBar {
+                        Button(action: {
+                            withAnimation(.smooth){self.vmMap.toggleMapStyle()}
+                        }) {
+                            switch vmMap.mapStyleSelection {
+                            case .standard:
+                                Image(systemName: "map.fill")
+                            case .hybrid:
+                                Image(systemName: "mappin.and.ellipse")
+                            case .imagery:
+                                Image(systemName: "mappin.slash.circle")
+                            }
+                        }
+                        Button(action: {showShazam.toggle()}) {
+                            Image(systemName: "shazam.logo.fill")
+                                .font(.system(size: 16,weight: .semibold))
+                                .foregroundStyle(Color.them.ColorblackSwich)
+                        }
+                        Button(action: {self.showContact.toggle()}) {
+                            Image(systemName: "person.crop.rectangle.badge.plus.fill")
+                                .font(.system(size: 16,weight: .semibold))
+                                .foregroundStyle(Color.them.ColorblackSwich)
+                        }.fullScreenCover(isPresented: $showContact){
+                            ContactsView(dismiss: $showContact)
+                        }
+                        
+                         //MARK: show Where you Take Photo
+                         Button {
+                             showImagesTake.toggle()
+                         } label: {
+                             Image(systemName: "photo.on.rectangle.angled")
+                                 .font(.system(size: 16,weight: .semibold))
+                                 .foregroundStyle(Color.black)
+                                 .padding(5)
+                                 .background(Color.orange)
+                                 .clipShape(Circle())
+                         }
                     }
+     
                     
-                     //MARK: show Where you Take Photo
-                     Button {
-                         showImagesTake.toggle()
-                     } label: {
-                         Image(systemName: "photo.on.rectangle.angled")
-                             .font(.system(size: 16,weight: .semibold))
-                             .foregroundStyle(Color.black)
-                             .padding(5)
-                             .background(Color.orange)
-                             .clipShape(Circle())
-                     }
+                    Button(action: {
+                        withAnimation(.easeInOut(duration: 0.5)) {
+                            showBar.toggle()
+                        }
+                    }, label: {
+                        Image(systemName: showBar ? "chevron.down" : "chevron.up")
+                            .font(.system(size: 16,weight: .semibold))
+                            .foregroundStyle(Color.them.ColorblackSwich)
+                    })
+                   
                 }
- 
-                
-                Button(action: {
-                    withAnimation(.easeInOut(duration: 0.5)) {
-                        showBar.toggle()
-                    }
-                }, label: {
-                    Image(systemName: showBar ? "chevron.down" : "chevron.up")
-                        .font(.system(size: 16,weight: .semibold))
-                        .foregroundStyle(Color.them.ColorblackSwich)
-                })
-               
+            }
+            .frame(width: 20)
+            .padding()
+            .background(.thinMaterial)
+            .clipShape(.rect(cornerRadius: .infinity))
+            .shadow(color: .black.opacity(0.05), radius: 10)
+            .padding(.leading,10)
+            
+            NavigationLink {
+                WeatherApp()
+            } label: {
+                Image(systemName: "smoke.circle.fill")
+                    .resizable()
+                    .rotationEffect(Angle(radians: animationWiher ? 0.5 : -0.5))
+                    .frame(width: 35,height: 35)
+                    .symbolRenderingMode(.monochrome)
+                    .foregroundStyle(Color.white)
+                    .padding(.init(top: 0, leading: 5, bottom: 10, trailing: 0))
             }
         }
-        .frame(width: 20)
-        .padding()
-        .background(.thinMaterial)
-        .clipShape(.rect(cornerRadius: .infinity))
-        .shadow(color: .black.opacity(0.05), radius: 10)
         .frame(maxWidth: .infinity,alignment: .leading)
-        .padding(.leading,10)
-        .task {
-            if FileManager().docExist(named: fileName) {
-                vm.loadMyImagesJSONFile()
+
+        .onAppear {
+            withAnimation(.easeInOut(duration: 5.5).repeatForever()) {
+                animationWiher = true
             }
         }
-        .fullScreenCover(isPresented: $vm.showPicker) {
-            ImagePicker(sourceType: vm.source == .library ? .photoLibrary : .camera, selectedImage: $vm.image)
-                .ignoresSafeArea()
-        }
-        .alert("Error", isPresented: $vm.showFileAlert, presenting: vm.appError, actions: { cameraError in
-            cameraError.button
-        }, message: { cameraError in
-            Text(cameraError.message)
-        })
-        .sheet(isPresented: $showimages) {
-            ZStack {
-                Color.them.ColorBox.ignoresSafeArea(.all)
-                camerPhoto
-                    .presentationDetents([.height(250)])
-                    .presentationCornerRadius(12)
+            .task {
+                if FileManager().docExist(named: fileName) {
+                    vm.loadMyImagesJSONFile()
+                }
             }
+            .fullScreenCover(isPresented: $vm.showPicker) {
+                ImagePicker(sourceType: vm.source == .library ? .photoLibrary : .camera, selectedImage: $vm.image)
+                    .ignoresSafeArea()
+            }
+            .alert("Error", isPresented: $vm.showFileAlert, presenting: vm.appError, actions: { cameraError in
+                cameraError.button
+            }, message: { cameraError in
+                Text(cameraError.message)
+            })
+            .sheet(isPresented: $showimages) {
+                ZStack {
+                    Color.them.ColorBox.ignoresSafeArea(.all)
+                    camerPhoto
+                        .presentationDetents([.height(250)])
+                        .presentationCornerRadius(12)
+                }
         }
-      
         
     }
 }
