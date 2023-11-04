@@ -38,6 +38,7 @@ struct MapHomeView: View {
     @State private var showContact = false
     @State private var showImagesTake: Bool = true
     @State private var showWather: Bool = true
+    @State private var showWatherAnmichin = false
     
     @StateObject var vmProfie = ProfilesViewMolde()
     
@@ -124,20 +125,27 @@ struct MapHomeView: View {
                     ShowImagesTakeView()
                 }
                 
-
-                              ShowWitherPlase
+                if showWather == true {
+                    ShowWitherPlase
+                }
 
             }
             .onChange(of: getDitretion, { oldValue, newValue in
                 if newValue {fatchRoute()}})
-            
+
             .onAppear {
                 vmProfile.loadImage(forKey: "imagePrilesKeySaved")
-                    
-                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: {
-                    showWather = true
-                })
                 
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 5, execute: {
+                    withAnimation(.linear) {
+                        showWather = false
+                    }
+                })
+               
+                withAnimation(.easeInOut(duration: 1.5).repeatForever()) {
+                    showWatherAnmichin = true
+                }
+
             }
             .onSubmit(of: .text) {Task { await searchPlace()}}
             .onChange(of: mapSelection, { oldValue, newValue in
@@ -277,8 +285,8 @@ extension MapHomeView {
             }
                 .padding()
                 .accessibilityIdentifier(AppConstants.A11y.placesScrollView)
-//                .opacity(showWather ? 1 : 0)
-//                .offset(y: showWather ? 15 : 20)
+                .offset(y: showWatherAnmichin ? 15 : 39)
+                .offset(x: 20,y: -350)
         )
     }
     

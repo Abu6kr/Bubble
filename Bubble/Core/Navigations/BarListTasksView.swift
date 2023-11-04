@@ -22,7 +22,12 @@ struct BarListTasksView: View {
     @Binding var showImagesTake: Bool
     var body: some View {
         VStack {
-
+            NavigationLink {
+                WeatherApp()
+            } label: {
+                LottieView(lottieFile: "Weather", loopMode: .loop)
+                    .frame(width: 50,height: 50)
+            }
             VStack {
 
                 VStack(alignment: .center,spacing: 22) {
@@ -98,17 +103,7 @@ struct BarListTasksView: View {
             .shadow(color: .black.opacity(0.05), radius: 10)
             .padding(.leading,10)
             
-            NavigationLink {
-                WeatherApp()
-            } label: {
-                Image(systemName: "smoke.circle.fill")
-                    .resizable()
-                    .rotationEffect(Angle(radians: animationWiher ? 0.5 : -0.5))
-                    .frame(width: 35,height: 35)
-                    .symbolRenderingMode(.monochrome)
-                    .foregroundStyle(Color.white)
-                    .padding(.init(top: 0, leading: 5, bottom: 10, trailing: 0))
-            }
+            
         }
         .frame(maxWidth: .infinity,alignment: .leading)
 
