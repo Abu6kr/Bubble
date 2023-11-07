@@ -45,67 +45,71 @@ struct MapHomeView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Map(position: $camerPosition, selection: $mapSelection){
-                    if !vmMap.showYourLocation == false {
-                        Annotation("Abo", coordinate: .userLocation){
-                            ZStack {
-                                ZStack(alignment: .top) {
-                                    //  WhatDoView()
-                                    if let image =  vmProfie.imageProfiles  {
-                                        Image(uiImage: image)
-                                            .resizable()
-                                            .scaledToFill()
-                                            .frame(width: 50, height: 50)
-                                            .background(Color.them.ColorBox)
-                                            .clipShape(Circle())
-                                    } else {
-                                        Image("Avatar")
-                                            .resizable()
-                                            .scaledToFill()
-                                            .frame(width: 50, height: 50)
-                                            .padding(10)
-                                            .background(Color.orange)
-                                            .clipShape(Circle())
+                if !showImagesTake == true {
+                    MapTakePhotoView()
+                } else {
+                    Map(position: $camerPosition, selection: $mapSelection){
+                        if !vmMap.showYourLocation == false {
+                            Annotation("Abo", coordinate: .userLocation){
+                                ZStack {
+                                    ZStack(alignment: .top) {
+                                        //  WhatDoView()
+                                        if let image =  vmProfie.imageProfiles  {
+                                            Image(uiImage: image)
+                                                .resizable()
+                                                .scaledToFill()
+                                                .frame(width: 50, height: 50)
+                                                .background(Color.them.ColorBox)
+                                                .clipShape(Circle())
+                                        } else {
+                                            Image("Avatar")
+                                                .resizable()
+                                                .scaledToFill()
+                                                .frame(width: 50, height: 50)
+                                                .padding(10)
+                                                .background(Color.orange)
+                                                .clipShape(Circle())
+                                        }
                                     }
                                 }
                             }
                         }
-                    }
-                    
-                    Annotation("Chara", coordinate: .userLocation2){
-                        ZStack {
-                            Button {
-                                shoeDitelsForineds.toggle()
-                            } label: {
-                                Image("Avatar2")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 55,height: 55)
-                                    .background(Color.pink.opacity(0.5))
-                                    .clipShape(.circle)
+                        
+                        Annotation("Chara", coordinate: .userLocation2){
+                            ZStack {
+                                Button {
+                                    shoeDitelsForineds.toggle()
+                                } label: {
+                                    Image("Avatar2")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 55,height: 55)
+                                        .background(Color.pink.opacity(0.5))
+                                        .clipShape(.circle)
+                                }
+                            }.sheet(isPresented: $shoeDitelsForineds) {
+                                FirendsDitelsView()
+                                    .presentationDetents([.height(400)])
+                                    .presentationBackground(.thinMaterial)
                             }
-                        }.sheet(isPresented: $shoeDitelsForineds) {
-                            FirendsDitelsView()
-                                .presentationDetents([.height(400)])
-                                .presentationBackground(.thinMaterial)
                         }
-                    }
-                    
-                    ForEach(resuts, id: \.self) { items in
-                        if retrDisPlating {
-                            if items == rounDestion {
+                        
+                        ForEach(resuts, id: \.self) { items in
+                            if retrDisPlating {
+                                if items == rounDestion {
+                                    let placemark = items.placemark
+                                    Marker(placemark.name ?? "", coordinate: placemark.coordinate)
+                                }
+                            } else {
                                 let placemark = items.placemark
                                 Marker(placemark.name ?? "", coordinate: placemark.coordinate)
                             }
-                        } else {
-                            let placemark = items.placemark
-                            Marker(placemark.name ?? "", coordinate: placemark.coordinate)
                         }
+                        
+                        if let reute {MapPolyline(reute.polyline).stroke(.blue, lineWidth: 6)}
                     }
-                    
-                    if let reute {MapPolyline(reute.polyline).stroke(.blue, lineWidth: 6)}
+                    .mapStyle(vmMap.getMapStyle())
                 }
-                .mapStyle(vmMap.getMapStyle())
                 BarListTasksView(showCamera: $showCmaer, showShazam: $ShazamShow, showContact: $showContact, vmMap: vmMap,showImagesTake:$showImagesTake)
                     .sheet(isPresented: $ShazamShow){
                         ShazamMusicView(ShazamShow: $ShazamShow)
@@ -121,9 +125,7 @@ struct MapHomeView: View {
                             .presentationBackgroundInteraction(.enabled(upThrough: .height(450)))
                             .presentationCornerRadius(12)
                     }
-                if !showImagesTake == true {
-                    ShowImagesTakeView()
-                }
+
                 
                 if showWather == true {
                     ShowWitherPlase

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import MapKit
 import SwiftUI
 
 class ProfilesViewMolde: ObservableObject {

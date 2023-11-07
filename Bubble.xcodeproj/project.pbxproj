@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C707F0E22AD960370010F397 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C707F0E12AD960370010F397 /* RegisterView.swift */; };
-		C70C69C12AF3DA780036F995 /* ShowImagesTakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70C69C02AF3DA780036F995 /* ShowImagesTakeView.swift */; };
+		C70C69C12AF3DA780036F995 /* ShowImagesTakeComponent in Sources */ = {isa = PBXBuildFile; fileRef = C70C69C02AF3DA780036F995 /* ShowImagesTakeComponent */; };
 		C70C69F22AF3E32E0036F995 /* WeatherServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70C69C42AF3E32E0036F995 /* WeatherServiceMock.swift */; };
 		C70C69F32AF3E32E0036F995 /* WeatherViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70C69C52AF3E32E0036F995 /* WeatherViewModelMock.swift */; };
 		C70C69F42AF3E32E0036F995 /* MainViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70C69C62AF3E32E0036F995 /* MainViewModelMock.swift */; };
@@ -75,6 +75,7 @@
 		C764E1872ACE90F6005CBB56 /* TabBarItemsPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C764E1822ACE90F6005CBB56 /* TabBarItemsPreferenceKey.swift */; };
 		C764E1882ACE90F6005CBB56 /* AppTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C764E1832ACE90F6005CBB56 /* AppTabBarView.swift */; };
 		C764E1892ACE90F6005CBB56 /* CustomTabBarContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C764E1842ACE90F6005CBB56 /* CustomTabBarContainerView.swift */; };
+		C767A1462AFAA11D00419B06 /* MapTakePhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C767A1452AFAA11D00419B06 /* MapTakePhotoView.swift */; };
 		C7681ABC2AEA890400831938 /* BarListTasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7681ABB2AEA890400831938 /* BarListTasksView.swift */; };
 		C7681ABE2AEA92FB00831938 /* MapMoldeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7681ABD2AEA92FB00831938 /* MapMoldeView.swift */; };
 		C7681AC12AEAADC800831938 /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7681AC02AEAADC800831938 /* ContactsView.swift */; };
@@ -146,7 +147,7 @@
 
 /* Begin PBXFileReference section */
 		C707F0E12AD960370010F397 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
-		C70C69C02AF3DA780036F995 /* ShowImagesTakeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowImagesTakeView.swift; sourceTree = "<group>"; };
+		C70C69C02AF3DA780036F995 /* ShowImagesTakeComponent */ = {isa = PBXFileReference; lastKnownFileType = text; path = ShowImagesTakeComponent; sourceTree = "<group>"; };
 		C70C69C42AF3E32E0036F995 /* WeatherServiceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherServiceMock.swift; sourceTree = "<group>"; };
 		C70C69C52AF3E32E0036F995 /* WeatherViewModelMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherViewModelMock.swift; sourceTree = "<group>"; };
 		C70C69C62AF3E32E0036F995 /* MainViewModelMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewModelMock.swift; sourceTree = "<group>"; };
@@ -208,6 +209,7 @@
 		C764E1822ACE90F6005CBB56 /* TabBarItemsPreferenceKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarItemsPreferenceKey.swift; sourceTree = "<group>"; };
 		C764E1832ACE90F6005CBB56 /* AppTabBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTabBarView.swift; sourceTree = "<group>"; };
 		C764E1842ACE90F6005CBB56 /* CustomTabBarContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarContainerView.swift; sourceTree = "<group>"; };
+		C767A1452AFAA11D00419B06 /* MapTakePhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTakePhotoView.swift; sourceTree = "<group>"; };
 		C7681ABB2AEA890400831938 /* BarListTasksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarListTasksView.swift; sourceTree = "<group>"; };
 		C7681ABD2AEA92FB00831938 /* MapMoldeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMoldeView.swift; sourceTree = "<group>"; };
 		C7681AC02AEAADC800831938 /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
@@ -593,6 +595,7 @@
 				C7BB1BCF2AD3E92200739B16 /* ImagesSectionView.swift */,
 				C7A9E57D2AC3FE6800AC2CAF /* ProfilesViewMolde.swift */,
 				C7FF21D22AE142D4008BABDD /* ProfileDitelsView.swift */,
+				C767A1452AFAA11D00419B06 /* MapTakePhotoView.swift */,
 				C7A9E5792AC3FB2C00AC2CAF /* ImagePicker.swift */,
 				C7354DEE2AE25169003B5F01 /* MyImages */,
 			);
@@ -739,7 +742,7 @@
 				C724CA3A2AC57D5700D31458 /* ButtonCutemsLogin.swift */,
 				C724CA3C2AC580FE00D31458 /* CornerRadiusStyle.swift */,
 				C74DD7042AC7EB21003BD704 /* ButtonDismiss.swift */,
-				C70C69C02AF3DA780036F995 /* ShowImagesTakeView.swift */,
+				C70C69C02AF3DA780036F995 /* ShowImagesTakeComponent */,
 				C74DD7082AC7EDC1003BD704 /* PopupView */,
 				C7448F9E2ADE6F1100F3C119 /* CustemsHeaderBar.swift */,
 			);
@@ -890,6 +893,7 @@
 				C7FF21CF2AE119EC008BABDD /* HomeSearchView.swift in Sources */,
 				C70C6A0C2AF3E32E0036F995 /* HourSummaryView.swift in Sources */,
 				C77BE36B2ACA81C700A38A37 /* InfoView.swift in Sources */,
+				C767A1462AFAA11D00419B06 /* MapTakePhotoView.swift in Sources */,
 				C7FF21CB2AE11031008BABDD /* ShazamKitViewModel.swift in Sources */,
 				C7A9E5812AC4162600AC2CAF /* SignIn.swift in Sources */,
 				C780E7992AD7EBC4007ADD5F /* UserManger.swift in Sources */,
@@ -920,7 +924,7 @@
 				C70C6A082AF3E32E0036F995 /* KeyedEncodingContainer+Helper.swift in Sources */,
 				C70C69FD2AF3E32E0036F995 /* DependencyInjector.swift in Sources */,
 				C7BA9F562AD6977600A441B3 /* ChatTopBar.swift in Sources */,
-				C70C69C12AF3DA780036F995 /* ShowImagesTakeView.swift in Sources */,
+				C70C69C12AF3DA780036F995 /* ShowImagesTakeComponent in Sources */,
 				C70C6A042AF3E32E0036F995 /* WeatherApiError.swift in Sources */,
 				C70C69F32AF3E32E0036F995 /* WeatherViewModelMock.swift in Sources */,
 				C7A9E5782AC3FAB300AC2CAF /* EditProfilesView.swift in Sources */,

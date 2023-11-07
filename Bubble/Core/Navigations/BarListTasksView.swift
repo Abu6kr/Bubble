@@ -72,7 +72,10 @@ struct BarListTasksView: View {
                         
                          //MARK: show Where you Take Photo
                          Button {
-                             showImagesTake.toggle()
+                             withAnimation(.spring()) {
+                                 showImagesTake.toggle()
+
+                             }
                          } label: {
                              Image(systemName: "photo.on.rectangle.angled")
                                  .font(.system(size: 16,weight: .semibold))

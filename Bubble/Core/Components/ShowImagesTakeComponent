@@ -1,5 +1,5 @@
 //
-//  ShowImagesTakeView.swift
+//  ShowImagesTakeComponent.swift
 //  Bubble
 //
 //  Created by Abobakr Al Zain  on 02.11.2023.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ShowImagesTakeView: View {
+struct ShowImagesTakeComponent: View {
     let imageTake: [Image] = []
     var body: some View {
         VStack {
@@ -33,5 +33,5 @@ struct ShowImagesTakeView: View {
 }
 
 #Preview {
-    ShowImagesTakeView()
+    ShowImagesTakeComponent()
 }
