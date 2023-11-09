@@ -49,6 +49,7 @@
 		C71065812AE6518200102607 /* Lottie1.json in Resources */ = {isa = PBXBuildFile; fileRef = C71065802AE6518200102607 /* Lottie1.json */; };
 		C71065832AE6564600102607 /* Lottie2.json in Resources */ = {isa = PBXBuildFile; fileRef = C71065822AE6564600102607 /* Lottie2.json */; };
 		C712E0202AEFF2D900621D28 /* AnimationHellpe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C712E01F2AEFF2D900621D28 /* AnimationHellpe.swift */; };
+		C71D49C22AFD1FDB00E19B8F /* AddMatingFrindesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71D49C12AFD1FDB00E19B8F /* AddMatingFrindesView.swift */; };
 		C71FC5E32AC98EE700C44193 /* ProfilesHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71FC5E22AC98EE700C44193 /* ProfilesHomeView.swift */; };
 		C724CA3B2AC57D5700D31458 /* ButtonCutemsLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C724CA3A2AC57D5700D31458 /* ButtonCutemsLogin.swift */; };
 		C724CA3D2AC580FE00D31458 /* CornerRadiusStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C724CA3C2AC580FE00D31458 /* CornerRadiusStyle.swift */; };
@@ -183,6 +184,7 @@
 		C71065802AE6518200102607 /* Lottie1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Lottie1.json; sourceTree = "<group>"; };
 		C71065822AE6564600102607 /* Lottie2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Lottie2.json; sourceTree = "<group>"; };
 		C712E01F2AEFF2D900621D28 /* AnimationHellpe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationHellpe.swift; sourceTree = "<group>"; };
+		C71D49C12AFD1FDB00E19B8F /* AddMatingFrindesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMatingFrindesView.swift; sourceTree = "<group>"; };
 		C71FC5E22AC98EE700C44193 /* ProfilesHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesHomeView.swift; sourceTree = "<group>"; };
 		C724CA3A2AC57D5700D31458 /* ButtonCutemsLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCutemsLogin.swift; sourceTree = "<group>"; };
 		C724CA3C2AC580FE00D31458 /* CornerRadiusStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadiusStyle.swift; sourceTree = "<group>"; };
@@ -618,6 +620,7 @@
 			isa = PBXGroup;
 			children = (
 				C7BA9F512AD68E5D00A441B3 /* MassageHomeView.swift */,
+				C71D49C12AFD1FDB00E19B8F /* AddMatingFrindesView.swift */,
 				C7BA9F532AD68FAD00A441B3 /* ListFrindesChat.swift */,
 				C7BA9F552AD6977600A441B3 /* ChatTopBar.swift */,
 				C780E7562AD7D6F9007ADD5F /* Chat */,
@@ -896,6 +899,7 @@
 				C767A1462AFAA11D00419B06 /* MapTakePhotoView.swift in Sources */,
 				C7FF21CB2AE11031008BABDD /* ShazamKitViewModel.swift in Sources */,
 				C7A9E5812AC4162600AC2CAF /* SignIn.swift in Sources */,
+				C71D49C22AFD1FDB00E19B8F /* AddMatingFrindesView.swift in Sources */,
 				C780E7992AD7EBC4007ADD5F /* UserManger.swift in Sources */,
 				C70C6A0F2AF3E32E0036F995 /* WeatherView.swift in Sources */,
 				C7C15B002AE7A2E600E1D5B5 /* StorySearchView.swift in Sources */,

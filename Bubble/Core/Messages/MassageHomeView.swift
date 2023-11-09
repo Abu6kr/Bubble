@@ -11,14 +11,27 @@ struct MassageHomeView: View {
     @Namespace var topID
     @StateObject var vmProfie = ProfilesViewMolde()
     @State private var showSearch = false
+    @State private var showealert: Bool = false
     var body: some View {
         NavigationStack {
             ZStack {
                 LinearGradient(colors: [vmProfie.averageColor,Color.them.Colorblack,Color.them.Colorblack,Color.them.Colorblack,Color.them.Colorblack], startPoint: .top, endPoint: .bottom)
                     .ignoresSafeArea()
                 VStack {
-                    CustemsHeaderBar(searchBar: $showSearch, colorbackground: Color.clear, title: "title")
-                        .offset(y: -20)
+                    HStack(alignment: .top) {
+                        CustemsHeaderBar(searchBar: $showSearch, colorbackground: Color.clear, title: "title")
+                            .offset(y: -20)
+                        Button(action: {
+                            showealert.toggle()
+                        }){
+                            Image(systemName: "list.bullet")
+                                .font(.system(size: 18,weight: .regular))
+                                .foregroundStyle(Color.them.ColorblackSwich)
+                        }.padding()
+                            .fullScreenCover(isPresented: $showealert){
+                                AddMatingFrindesView(dismis: $showealert)
+                            }
+                    }
                     ScrollView {
                         ScrollView(.horizontal,showsIndicators: false) {
                             HStack {
